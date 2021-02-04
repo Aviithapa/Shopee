@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Auth;
 use App\Models\Auth\Role;
 use App\Models\Auth\User;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Http\Request;
@@ -50,7 +51,8 @@ class RegisterController extends Controller
      */
     public function showRegistrationForm($role)
     {
-        return view('auth.register', compact('role'));
+        $authUser=Auth::User();
+        return view('auth.register', compact('role','authUser'));
     }
 
 

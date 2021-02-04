@@ -68,7 +68,46 @@
                             <span class="shop-menu-ttl"></span>
                         </a>
                     </li>
+                    <li>
+                        <div class="h-cart">
+                            <a href="{{url('cart')}}">
+                                <i class="fa fa-shopping-cart"></i>
+                                (<b class="text-danger">{{getCartAmount()}}</b>)
+                            </a>
+                        </div>
+                    </li>
+                    @if($authUser)
+                        <li>
+                            <div class="chat-toggler sm">
+                                <div class="profile-pic">
+                                <img src="{{$authUser->getImage()}}"data-src="{{$authUser->getImage()}}" data-src-retina="{{$authUser->getImage()}}" width="35" height="35" alt="wishlist"/>
+                                <span class="availability-bubble online"></span>
+                                </div>
+                            </div>
+                        </li>
 
+                                <li class="quicklinks">
+                                    <a data-toggle="dropdown" class="dropdown-toggle  pull-right " href="#" id="user-options">
+                                        <i class="fa fa-reorder"></i>
+                                    </a>
+                                    <ul class="dropdown-menu  pull-right" role="menu" aria-labelledby="user-options">
+                                        <li>
+                                            <a href="{{route('dashboard.users.profile.get')}}">Update profile</a>
+                                        </li>
+                                        <li class="divider"></li>
+                                        <li>
+                                            <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                                                <i class="material-icons">power_settings_new</i>&nbsp; Logout
+                                            </a>
+                                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                                {{ csrf_field() }}
+                                            </form>
+                                        </li>
+                                    </ul>
+                                </li>
+
+
+                    @else
                     <li class="topauth">
                         <a href="{{url("register/customer")}}">
                             <i class="fa fa-lock"></i>
@@ -78,15 +117,9 @@
                             <span class="shop-menu-ttl">Login</span>
                         </a>
                     </li>
+                    @endif
 
-                    <li>
-                        <div class="h-cart">
-                            <a href="{{url('cart')}}">
-                                <i class="fa fa-shopping-cart"></i>
-                                (<b>0</b>)
-                            </a>
-                        </div>
-                    </li>
+
 
                 </ul>
             </div>

@@ -178,6 +178,26 @@ if (!function_exists('getSiteSetting')) {
     }
 }
 
+function getCartAmount()
+{
+    $mac_address = exec('getmac');
+    $mac = strtok($mac_address, ' ');
+    return $cart_amount = \App\Models\Website\Cart::where('mac', $mac)->count();
+}
+
+function getCartTotalPrice()
+{
+    $mac_address = exec('getmac');
+    $mac = strtok($mac_address, ' ');
+    $cart_products = \App\Models\Website\Cart::where('mac', $mac)->get();
+    $final_amount = 0;
+    foreach($cart_products as $cart_product)
+    {
+        $final_amount += $cart_product->product_price * $cart_product->quantity;
+    }
+    return $final_amount;
+}
+
 if(!function_exists('checkForPermission')) {
     /**
      * @param $permission_name

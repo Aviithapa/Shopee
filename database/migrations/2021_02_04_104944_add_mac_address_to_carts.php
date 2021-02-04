@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateTableCarts extends Migration
+class AddMacAddressToCarts extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,9 @@ class CreateTableCarts extends Migration
      */
     public function up()
     {
-        //
+        Schema::table('carts', function (Blueprint $table) {
+            $table->macAddress('mac');
+        });
     }
 
     /**
@@ -23,6 +25,8 @@ class CreateTableCarts extends Migration
      */
     public function down()
     {
-        //
+        Schema::table('carts', function (Blueprint $table) {
+            //
+        });
     }
 }

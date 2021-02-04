@@ -5,9 +5,11 @@ namespace App\Http\Controllers\Web\General;
 use App\Http\Controllers\Admin\WebSite\ProductController;
 use App\Http\Controllers\Web\BaseController;
 use App\Models\Auth\Role;
+use App\Models\Website\Cart;
 use App\Models\Website\Donation;
 use App\Models\Website\GetTouch;
 use App\Models\Website\Help;
+use App\Models\Website\Product;
 use App\Models\Website\StoreRequestQuote;
 use App\Modules\Backend\Authentication\Role\Repositories\RoleRepository;
 use App\Modules\Backend\Authentication\User\Repositories\UserRepository;
@@ -16,6 +18,7 @@ use App\Modules\Backend\Disciplines\Discipline\Repositories\DisciplineRepository
 use App\Modules\Backend\Levels\Level\Repositories\LevelRepository;
 use App\Modules\Backend\Schools\School\Repositories\SchoolRepository;
 use App\Modules\Backend\Schools\SchoolProgram\Repositories\SchoolProgramRepository;
+use App\Modules\Backend\Website\Cart\Repositories\CartRepository;
 use App\Modules\Backend\Website\Category\Repositories\CategoryRepository;
 use App\Modules\Backend\Website\Donation\Repositories\DonationRepository;
 use App\Modules\Backend\Website\Event\Repositories\EventRepository;
@@ -36,7 +39,7 @@ use Models;
 
 class HomeController extends BaseController
 {
-    private $sliderRepository, $view_data, $postRepository,$categoryRepository,$productRepository;
+    private $sliderRepository, $view_data, $postRepository,$categoryRepository,$productRepository,$cartRepository;
     private $roleRepository;
     private $userRepository;
     private $request;
@@ -45,7 +48,7 @@ class HomeController extends BaseController
                                 PostRepository $postRepository,
                                 RoleRepository $roleRepository,
                                 UserRepository $userRepository,
-                                Request $request,CategoryRepository $categoryRepository,ProductRepository $productRepository)
+                                Request $request,CategoryRepository $categoryRepository,ProductRepository $productRepository,CartRepository $cartRepository)
     {
         $this->sliderRepository = $sliderRepository;
         $this->postRepository = $postRepository;
@@ -53,6 +56,7 @@ class HomeController extends BaseController
         $this->userRepository = $userRepository;
         $this->categoryRepository= $categoryRepository;
         $this->productRepository= $productRepository;
+        $this->cartRepository=$cartRepository;
         $this->request = $request;
 
         parent::__construct();
@@ -102,6 +106,7 @@ class HomeController extends BaseController
     {
         $slug = $slug ? $slug : 'index';
         $this->view_data['pageContent'] = $this->postRepository->findBySlug($slug, false);
+        $this->view_data['authUser']=Auth::User();
         $file_path = resource_path() . DIRECTORY_SEPARATOR . 'views' . DIRECTORY_SEPARATOR . 'web/pages' . DIRECTORY_SEPARATOR . $slug . '.blade.php';
         if (file_exists($file_path)) {
             switch ($slug) {
@@ -134,10 +139,13 @@ class HomeController extends BaseController
                     $this->view_data['testimonial'] = $this->postRepository->findBy('type', 'testimonial', '=');
                     break;
                 case 'productDetails':
-                    $this->view_data['company_info'] = $this->postRepository->findById(2);
-                    $this->view_data['testimonials'] = $this->postRepository->findBy('type', 'testimonial', '=');
-                    $this->view_data['services'] = $this->postRepository->findBy('type', 'services', '=', false, 6);
-                    $this->view_data['Subscribe'] = $this->postRepository->findById(9);
+                $this->view_data['company_info'] = $this->postRepository->findById(2);
+                $this->view_data['testimonials'] = $this->postRepository->findBy('type', 'testimonial', '=');
+                $this->view_data['services'] = $this->postRepository->findBy('type', 'services', '=', false, 6);
+                $this->view_data['Subscribe'] = $this->postRepository->findById(9);
+                break;
+                case 'cart':
+                    $this->view_data['cart'] = $this->cartRepository->getAll()->where('user_id','=',Auth::user()->id);
                     break;
                 case 'donation':
                     $this->view_data['Subscribe'] = $this->postRepository->findById(9);
@@ -152,6 +160,7 @@ class HomeController extends BaseController
     }
 
      public function productDetails($id=null, Request $request){
+         $this->view_data['authUser']=Auth::User();
         $this->view_data['pageContent'] = $this->postRepository->findBySlug('/productDetails/'.$id, false);
          $this->view_data['product'] = $this->productRepository->findById($id);
          $this->view_data['related_product']=$this->productRepository->findBy('category',$this->view_data['product']->category,'=',false,6)
@@ -217,4 +226,57 @@ class HomeController extends BaseController
 
         }
     }
+    public function addtocart(Request $request, $id){
+
+        $mac_address = exec('getmac');
+        $mac = strtok($mac_address, ' ');
+
+        $available_quantity = Product::find($request->id)->quantity;
+        $cart_info = Cart::where('mac', $mac)->where('product_id', $request->id)->first();
+
+        //2nd part coding-2222222222
+        if($cart_info)
+        {
+            //here old_cart_quantity holo cart table a oi product ta already koyta quantity add kora ache
+            $old_cart_quantity = $cart_info->quantity;
+        }
+        else
+        {
+            $old_cart_quantity = 0;
+        }
+
+        //3rd part of coding-33333333333
+        if($available_quantity >= ($request->quantity + $old_cart_quantity))
+        {
+            //first part coding-111111111111
+            if($cart_info)
+            {
+                Cart::where('mac', $mac)->where('product_id', $request->id)->increment('quantity', $request->quantity);
+            }
+            else
+            {
+                $data=new Cart();
+                $mac_address = exec('getmac');
+                $mac = strtok($mac_address, ' ');
+                $user= Auth::user()->id;
+                $product=$this->productRepository->findById($id);
+                $data->product_name=$product->name;
+                $data->product_price=$product->price;
+                $data->product_id=$product->id;
+                $data->quantity="1";
+                $data->user_id=$user;
+                $data->mac=$mac;
+                $data->save();
+            }
+        }
+        else
+        {
+            $short_amount = $request->quantity - $available_quantity;
+            session()->flash('danger', 'not available quantity, shortage amount is '.$short_amount);
+            return redirect()->back();
+        }
+        session()->flash('success', 'User added successfully');
+        return redirect()->back();
+    }
+
 }

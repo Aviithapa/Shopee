@@ -66,6 +66,12 @@ Route::group(['namespace' => 'WebSite'], function () {
             'destroy' => 'dashboard.events.destroy',
         ]
     ]);
+    Route::resource('cart', 'CartController', [
+        'names' => [
+            'index' => 'dashboard.cart.index',
+            'destroy' => 'dashboard.cart.destroy',
+        ]
+    ]);
     Route::resource('pages', 'PagesController', [
         'names' => [
             'index' => 'dashboard.pages.index',

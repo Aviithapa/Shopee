@@ -60,7 +60,7 @@
 {{--                            <a href="#" class="prod-minus"><i class="fa fa-angle-down"></i></a>--}}
 {{--                        </p>--}}
                         <p class="prod-addwrap">
-                            <a href="#" class="prod-add" rel="nofollow">Add to cart</a>
+                            <a href="{{url('add/to/cart/'.$product->id)}}" class="prod-add" rel="nofollow">Add to cart</a>
                         </p>
                     </div>
                     <ul class="prod-i-props">

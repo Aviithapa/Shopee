@@ -4,6 +4,8 @@ namespace App\Providers;
 
 use App\Models\Website\Donation;
 use App\Models\Website\Post;
+use App\Modules\Backend\Website\Cart\Repositories\CartRepository;
+use App\Modules\Backend\Website\Cart\Repositories\EloquentCartRepository;
 use App\Modules\Backend\Website\Category\Repositories\CategoryRepository;
 use App\Modules\Backend\Website\Category\Repositories\EloquentCategoryRepository;
 use App\Modules\Backend\Website\Donation\Repositories\DonationRepository;
@@ -122,6 +124,10 @@ class DependencyInjectionServiceProvider extends ServiceProvider
        $this->app->bind(
            ProductRepository::class,
            EloquentProductRepository::class
+       );
+       $this->app->bind(
+           CartRepository::class,
+           EloquentCartRepository::class
        );
     }
 }

@@ -32,6 +32,7 @@
                         </tr>
                         </thead>
                         <tbody>
+                        @foreach($cart as $carts)
                         <tr>
                             <td class="cart-image">
                                 <a href="product.html">
@@ -39,16 +40,14 @@
                                 </a>
                             </td>
                             <td class="cart-ttl">
-                                <a href="product.html">Similique delectus totam</a>
-                                <p>Color: Red</p>
-                                <p>Size: XS</p>
+                                <a href="product.html">{{$carts->product_name}}</a>
                             </td>
                             <td class="cart-price">
-                                <b>$220</b>
+                                <b>{{$carts->product_price}}</b>
                             </td>
                             <td class="cart-quantity">
                                 <p class="cart-qnt">
-                                    <input value="1" type="text">
+                                    <input value="{{$carts->quantity}}" type="text">
                                     <a href="#" class="cart-plus"><i class="fa fa-angle-up"></i></a>
                                     <a href="#" class="cart-minus"><i class="fa fa-angle-down"></i></a>
                                 </p>
@@ -58,102 +57,53 @@
                                 <p class="cart-forone">unit price <b>$220</b></p>
                             </td>
                             <td class="cart-del">
-                                <a href="#" class="cart-remove"></a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="cart-image">
-                                <a href="product.html">
-                                    <img src="http://placehold.it/69x80" alt="Eveniet nobis minus">
+
+                                <a data-toggle="modal" href="#modal-delete-{{ $carts->id }}" class="btn btn-danger btn-sm" title="Delete">
+                                    <i class="fa fa-trash"></i>
                                 </a>
-                            </td>
-                            <td class="cart-ttl">
-                                <a href="product.html">Eveniet nobis minus</a>
-                            </td>
-                            <td class="cart-price">
-                                <b>$150</b>
-                            </td>
-                            <td class="cart-quantity">
-                                <p class="cart-qnt">
-                                    <input value="1" type="text">
-                                    <a href="#" class="cart-plus"><i class="fa fa-angle-up"></i></a>
-                                    <a href="#" class="cart-minus"><i class="fa fa-angle-down"></i></a>
-                                </p>
-                            </td>
-                            <td class="cart-summ">
-                                <b>$150</b>
-                                <p class="cart-forone">unit price <b>$150</b></p>
-                            </td>
-                            <td class="cart-del">
-                                <a href="#" class="cart-remove"></a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="cart-image">
-                                <a href="product.html">
-                                    <img src="http://placehold.it/96x80" alt="Quod soluta corrupti">
-                                </a>
-                            </td>
-                            <td class="cart-ttl">
-                                <a href="product.html">Quod soluta corrupti</a>
-                            </td>
-                            <td class="cart-price">
-                                <b>$195</b>
-                            </td>
-                            <td class="cart-quantity">
-                                <p class="cart-qnt">
-                                    <input value="1" type="text">
-                                    <a href="#" class="cart-plus"><i class="fa fa-angle-up"></i></a>
-                                    <a href="#" class="cart-minus"><i class="fa fa-angle-down"></i></a>
-                                </p>
-                            </td>
-                            <td class="cart-summ">
-                                <b>$195</b>
-                                <p class="cart-forone">unit price <b>$195</b></p>
-                            </td>
-                            <td class="cart-del">
-                                <a href="#" class="cart-remove"></a>
+                                <div class="modal fade modal-mini modal-primary" id="modal-delete-{{ $carts->id }}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                           {{ Form::open(['method' => 'DELETE', 'route' => ["dashboard.cart.destroy", $carts->id]]) }}
+                                            @if(isset($hard_delete))
+                                                <input type="hidden" value="1" name="hard_delete">
+                                            @endif
+                                            <div class="modal-header">
+                                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                                                <br>
+                                                <i class="fa fa-trash fa-3x"></i>
+                                                <h4 id="myModalLabel" class="semi-bold">Remove!!!</h4>
+                                            </div>
+                                            <div class="modal-body text-center">
+                                                <p>
+                                                    Are you sure want to remove it from your cart?
+                                                </p>
+                                            </div>
+                                            <div class="modal-footer" >
+                                                <button type="submit" class="btn btn-danger" >
+                                                    <i class="fa fa-check"></i> Yes
+                                                </button><br>
+                                                <button type="button" class="btn btn-primary" data-dismiss="modal">
+                                                    <i class="fa fa-times"></i> Cancel
+                                                </button>
+                                            </div>
+                                            {{ Form::close() }}
+                                        </div><!-- /.modal-content -->
+                                    </div><!-- /.modal-dialog -->
+                                </div><!-- /.modal -->
                             </td>
                         </tr>
-                        <tr>
-                            <td class="cart-image">
-                                <a href="product.html">
-                                    <img src="http://placehold.it/67x80" alt="Perferendis recusandae">
-                                </a>
-                            </td>
-                            <td class="cart-ttl">
-                                <a href="product.html">Perferendis recusandae</a>
-                                <p>Color: Blue</p>
-                                <p>Size: XS</p>
-                            </td>
-                            <td class="cart-price">
-                                <b>$250</b>
-                            </td>
-                            <td class="cart-quantity">
-                                <p class="cart-qnt">
-                                    <input value="1" type="text">
-                                    <a href="#" class="cart-plus"><i class="fa fa-angle-up"></i></a>
-                                    <a href="#" class="cart-minus"><i class="fa fa-angle-down"></i></a>
-                                </p>
-                            </td>
-                            <td class="cart-summ">
-                                <b>$250</b>
-                                <p class="cart-forone">unit price <b>$250</b></p>
-                            </td>
-                            <td class="cart-del">
-                                <a href="#" class="cart-remove"></a>
-                            </td>
-                        </tr>
+                            @endforeach
                         </tbody>
                     </table>
                 </div>
                 <ul class="cart-total">
-                    <li class="cart-summ">TOTAL: <b>$815</b></li>
+                    <li class="cart-summ">TOTAL: <b>{{getCartTotalPrice()}}</b></li>
                 </ul>
                 <div class="cart-submit">
                     <div class="cart-coupon">
                         <input placeholder="your coupon" type="text">
-                        <a class="cart-coupon-btn" href="#"><img src="img/ok.png" alt="your coupon"></a>
+                        <a class="cart-coupon-btn" href="#"><img src="img/ok.png" alt=""></a>
                     </div>
                     <a href="#" class="cart-submit-btn">Checkout</a>
                     <a href="#" class="cart-clear">Clear cart</a>
@@ -164,4 +114,5 @@
         </section>
     </main>
     <!-- Main Content - end -->
+
     @endsection

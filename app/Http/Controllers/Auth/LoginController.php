@@ -39,7 +39,8 @@ class LoginController extends Controller
     public function showLoginForm(Request $request)
     {
         $requestData=$request->all();
-        return view('auth.login',compact('requestData'));
+        $authUser=Auth::User();
+        return view('auth.login',compact('requestData','authUser'));
     }
     public function username()
     {
