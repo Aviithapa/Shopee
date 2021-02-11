@@ -2,35 +2,24 @@
 
 @section('content')
 <!-- Main Content - start -->
-<main>
-    <section class="container">
-
-
-        <!-- Slider -->
-        <div class="fr-slider-wrap">
-            <div class="fr-slider">
-                <ul class="slides">
-                    @foreach($banners as $banners)
-                    <li>
-                        <img src="{{$banners->getImage()}}"class="img-fluid" alt="">
-                        <div class="fr-slider-cont">
-                            <h3>{{$banners->title}}</h3>
-                            <p>{{$banners->content}}</p>
-                            <p class="fr-slider-more-wrap">
-                                <a class="fr-slider-more" href="#">View collection</a>
-                            </p>
-                        </div>
-                    </li>
-                    @endforeach
-                </ul>
-            </div>
-        </div>
-
-
+<main class="container-fluid">
+    <section>
+        <section class="ftco-section intro" style="background-image: url(http://staff.um.edu.mt/__data/assets/image/0006/379563/books.png); height:400px;" data-stellar-background-ratio="0.5">
+{{--            <div class="container">--}}
+{{--                <div class="row">--}}
+{{--                    <div class="col-md-12 text-center  text-danger">--}}
+{{--                        <h1 class="component-ttl" style="font-size: 30px">ONLINE <br> SECOND HAND BOOK STORE</h1>--}}
+{{--                        <p>A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country</p>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
+{{--            </div>--}}
+        </section>
+    </section>
+    <section>
         <!-- Popular Products -->
         <div class="fr-pop-wrap">
 
-            <h3 class="component-ttl"><span>Popular BOOKS</span></h3>
+            <h3 class="component-ttl text-center"><span>Popular BOOKS</span></h3>
 
             <ul class="fr-pop-tabs sections-show">
                 <li><a data-frpoptab-num="1" data-frpoptab="#frpoptab-tab-1" href="#" class="active">All Categories</a></li>

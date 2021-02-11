@@ -1,8 +1,8 @@
-@extends('admin.layout.app')
+@extends('admin.layouts.app')
 
 @section('content')
     @include('admin.partials.common.page-title', ['page_title' => 'Dashboard'])
-    <div>
+    <div class="container">
         <div class="row 2col">
             <div class="col-md-3 col-sm-6 spacing-bottom-sm spacing-bottom">
                 <div class="tiles blue added-margin">
@@ -11,7 +11,7 @@
                             <a href="javascript:;" class="reload"></a>
                             <a href="javascript:;" class="remove"></a>
                         </div>
-                        <div class="tiles-title"> YOUR ACTIVE PRODUCTS </div>
+                        <div class="tiles-title"> YOUR ACTIVE PRODUCT </div>
                         <div class="heading"> <span class="animate-number" data-value="26.8" data-animation-duration="1200">0</span>% </div>
                         <div class="progress transparent progress-small no-radius">
                             <div class="progress-bar progress-bar-white animate-progress-bar" data-percentage="26.8%"></div>

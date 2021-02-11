@@ -6,7 +6,8 @@
     <meta charset="utf-8">
     <meta name="description" content="`{{isset($pageContent->meta_description)?$pageContent->meta_description:""}}`">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    @include('web.layouts.style')
+    @include('admin.layouts.style')
+    @include('admin.layout.style')
     @stack('styles')
 </head>
 <!-- END HEAD -->
@@ -14,15 +15,20 @@
 <body class="" style="background: #f5f5f5">
 <div id="fb-root"></div>
 <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v4.0&appId=386251685274332&autoLogAppEvents=1"></script>
-@include('web.layouts.header')
+@include('admin.layouts.header')
 <!-- BEGIN CONTAINER -->
 
 @yield('content')
 <!-- END CONTAINER -->
-@include('web.layouts.footer')
-
-@stack('scripts')
-@include('web.layouts.script')
+@include('admin.layouts.footer')
+<!-- BEGIN PAGE CONTAINER-->
+<div class="page-content">
+    <!-- BEGIN SAMPLE PORTLET CONFIGURATION MODAL FORM-->
+    <div class="content bg-dark">
+        @yield('content')
+    </div>
+</div>
+@include('admin.layouts.script')
 @stack('scripts')
 </body>
 </html>

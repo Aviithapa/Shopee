@@ -1,4 +1,4 @@
-@extends('web.layouts.app')
+@extends('admin.layout.app')
 
 @section('content')
     @include('admin.partials.common.page-title', ['page_title' => 'Edit Partner'])

@@ -34,7 +34,7 @@
                         <ul class="prod-slider-car">
                             <li>
                                 <a data-fancybox-group="product" class="fancy-img" href="http://placehold.it/500x722">
-                                    <img src="http://placehold.it/500x722" alt="">
+                                    <img src="{{$product->getImage()}}" alt="">
                                 </a>
                             </li>
                         </ul>

@@ -111,7 +111,7 @@ class HomeController extends BaseController
         if (file_exists($file_path)) {
             switch ($slug) {
                 case 'index':
-                    $this->view_data['banners'] = $this->postRepository->findBy('type', 'homepage_banner', '=',false,3);
+                    $this->view_data['banners'] = $this->postRepository->findBy('type', 'homepage_banner', '=',false,2);
                     $this->view_data['categories'] = $this->categoryRepository->getAll();
                     $this->view_data['blogs'] = $this->postRepository->findBy('type', 'news', '=',false,4);
                     $this->view_data['blog']=$this->postRepository->findById(5);
