@@ -1,7 +1,6 @@
 @extends('admin.layout.app')
 
 @section('content')
-    @include('admin.partials.common.page-title', ['page_title' => 'User profile'])
     <div>
         <div class="row-fluid">
             <div class="span12">

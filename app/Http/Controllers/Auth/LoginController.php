@@ -70,8 +70,8 @@ class LoginController extends Controller
             if(Auth::user()->mainRole()->name ==='administrator'){
                 return redirect()->intended('dashboard');
 
-            }elseif (Auth::user()->mainRole()->name ==='customer'){
-                    return redirect()->intended('dashboard');
+            }else if (Auth::user()->mainRole()->name ==='customer'){
+                    return redirect()->intended('/');
             }elseif (Auth::user()->mainRole()->name ==='donor'){
             return redirect()->intended('dashboard');
             }

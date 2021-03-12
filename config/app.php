@@ -13,8 +13,8 @@ return [
     |
     */
 
-    'name' => env('APP_NAME', 'HelpingHands'),
-    'site_name'=>'HelpingHands',
+    'name' => env('APP_NAME', 'Bookipedia'),
+    'site_name'=>'Bookipedia',
     'currency'=>'$',
     'logo_url'=>"img/custom/Apply Global-01 (4).png",
 

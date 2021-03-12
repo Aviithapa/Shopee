@@ -104,7 +104,8 @@ class UserController extends BaseController
     {
         $this->authorize('read', $this->userRepository->getModel());
         $user = $this->userRepository->findById($id);
-        return $this->view('authentication.user.show', compact('user'));
+        $role = Auth::user()->mainRole()?Auth::user()->mainRole()->name:'default';
+        return $this->view('authentication.user.show', compact('user','role'));
     }
     /**
      * Edit User
@@ -218,7 +219,8 @@ class UserController extends BaseController
     {
         $id = Auth::id();
         $user = $this->userRepository->findById($id);
-        return $this->view('authentication.user.profile', compact('user'));
+        $role = Auth::user()->mainRole()?Auth::user()->mainRole()->name:'default';
+        return $this->view('authentication.user.profile', compact('user','role'));
     }
 
     public function postProfile(UpdateUserRequest $updateUserRequest)

@@ -73,24 +73,26 @@
                         <li>
                             <b>Author</b> 05464207
                         </li>
-                        <li><a href="#" class="prod-showprops">All Features</a></li>
+                        <li style="margin-top: 20px">
+                            <!-- Product Tabs -->
+                            <div class="prod-tabs-wrap">
+                                <ul class="prod-tabs">
+                                    <li><a data-prodtab-num="1" class="active" href="#" data-prodtab="#prod-tab-1">Description</a></li>
+
+                                </ul>
+                                <div class="prod-tab-cont">
+
+                                    <p data-prodtab-num="1" class="prod-tab-mob active" data-prodtab="#prod-tab-1">Description</p>
+                                   <div class="prod-tab stylization" id="prod-tab-1">
+                                        {{$product->description}}
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
                     </ul>
                 </div>
 
-                <!-- Product Tabs -->
-                <div class="prod-tabs-wrap">
-                    <ul class="prod-tabs">
-                        <li><a data-prodtab-num="1" class="active" href="#" data-prodtab="#prod-tab-1">Description</a></li>
 
-                    </ul>
-                    <div class="prod-tab-cont">
-
-                        <p data-prodtab-num="1" class="prod-tab-mob active" data-prodtab="#prod-tab-1">Description</p>
-                        <div class="prod-tab stylization" id="prod-tab-1">
-                        {{$product->description}}
-                         </div>
-                    </div>
-                </div>
 
             </div>
             <!-- Single Product - end -->

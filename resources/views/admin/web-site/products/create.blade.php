@@ -1,5 +1,6 @@
 
-    @extends('web.layouts.app')
+    @extends('admin.layout.admin')
+
 @section('content')
     <div class="container" style="height: max-content">
         <div class="row-fluid">

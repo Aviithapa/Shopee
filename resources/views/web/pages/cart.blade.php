@@ -57,7 +57,6 @@
                                 <p class="cart-forone">unit price <b>$220</b></p>
                             </td>
                             <td class="cart-del">
-
                                 <a data-toggle="modal" href="#modal-delete-{{ $carts->id }}" class="btn btn-danger btn-sm" title="Delete">
                                     <i class="fa fa-trash"></i>
                                 </a>

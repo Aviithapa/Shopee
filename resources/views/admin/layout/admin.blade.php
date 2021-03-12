@@ -6,7 +6,6 @@
     <meta charset="utf-8">
     <meta name="description" content="`{{isset($pageContent->meta_description)?$pageContent->meta_description:""}}`">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    @include('admin.layouts.style')
     @include('admin.layout.style')
     @stack('styles')
 </head>
@@ -14,12 +13,12 @@
 <!-- BEGIN BODY -->
 <body class="" style="background: #f5f5f5">
 <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v4.0&appId=386251685274332&autoLogAppEvents=1"></script>
-@include('admin.layouts.header')
+@include('admin.layout.header')
 <!-- BEGIN CONTAINER -->
 
 <div class="body">
     <!-- BEGIN SAMPLE PORTLET CONFIGURATION MODAL FORM-->
-    <div class="content bg-dark">
+    <div class="content container bg-dark" style="margin-top: 10px">
         @yield('content')
     </div>
 </div>
@@ -27,6 +26,10 @@
 @include('admin.layouts.footer')
 <!-- BEGIN PAGE CONTAINER-->
 @include('admin.layouts.script')
+@stack('scripts')
+<!-- END CONTAINER -->
+@include('admin.layout.script')
+@include('admin.layout.notification')
 @stack('scripts')
 </body>
 </html>

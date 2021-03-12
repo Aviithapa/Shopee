@@ -107,20 +107,25 @@ class HomeController extends BaseController
         $slug = $slug ? $slug : 'index';
         $this->view_data['pageContent'] = $this->postRepository->findBySlug($slug, false);
         $this->view_data['authUser']=Auth::User();
+        $this->view_data['categories'] = $this->categoryRepository->getAll();
         $file_path = resource_path() . DIRECTORY_SEPARATOR . 'views' . DIRECTORY_SEPARATOR . 'web/pages' . DIRECTORY_SEPARATOR . $slug . '.blade.php';
         if (file_exists($file_path)) {
             switch ($slug) {
                 case 'index':
                     $this->view_data['banners'] = $this->postRepository->findBy('type', 'homepage_banner', '=',false,2);
                     $this->view_data['categories'] = $this->categoryRepository->getAll();
-                    $this->view_data['blogs'] = $this->postRepository->findBy('type', 'news', '=',false,4);
+                    $this->view_data['products'] = $this->productRepository->getAll();
+                     $this->view_data['blogs'] = $this->postRepository->findBy('type', 'news', '=',false,4);
                     $this->view_data['blog']=$this->postRepository->findById(5);
                     break;
                 case 'catalog':
                     $this->view_data['categories'] = $this->categoryRepository->getAll();
-                    $this->view_data['products'] = $this->productRepository->getAll();
+                    $this->view_data['products'] =Product::paginate(6);
                     break;
 
+                case 'productlist':
+                    $this->view_data['products'] =Product::paginate(6);
+                    break;
                 case 'about':
                     $this->view_data['testimonial'] = $this->postRepository->findBy('type', 'testimonial', '=');
                     $this->view_data['testimonials'] = $this->postRepository->findById(4);
@@ -168,14 +173,11 @@ class HomeController extends BaseController
         return view('web.pages.productDetails' , $this->view_data);
 
     }
-    public function singleBlog($slug = null, Request $request){
-
+    public function singleProduct($slug = null, Request $request){
         $slug = $slug ? $slug : 'hello';
         $this->view_data['pageContent'] = $this->postRepository->findBySlug('/single-blog/'.$slug, false);
         $this->view_data['blog'] = $this->postRepository->findBy('slug', $slug, '=', false, 6);
         $this->view_data['blogs'] = $this->postRepository->findBy('type', 'news', '=', false, 3);
-
-
         return view('web.pages.single-blog' , $this->view_data);
 
     }
@@ -183,7 +185,6 @@ class HomeController extends BaseController
         $this->view_data['id']=$id;
         return view('web.pages.donation',$this->view_data);
     }
-
     public function Help(Request $request){
         try {
             $help = new Help();

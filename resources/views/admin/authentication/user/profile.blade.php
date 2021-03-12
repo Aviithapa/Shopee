@@ -1,8 +1,6 @@
-@extends('admin.layout.app')
-
+    @extends('admin.layout.admin')
 @section('content')
-    @include('admin.partials.common.page-title', ['page_title' => 'Edit Profile'])
-    <div>
+    <div class="container">
         <div class="row-fluid">
             <div class="span12">
 
@@ -18,7 +16,7 @@
                     <div class="grid-body">
                         <div class="row">
                             <div class="col-md-12 col-lg-12">
-                                <img src="{{isset($user)?$user->getImage():imageNotFound('user')}}" height="150"
+                                <img src="{{isset($user)?$user->getImage():imageNotFound('user')}}" height="150" width="150"
                                      id="user_img">
                             </div>
 

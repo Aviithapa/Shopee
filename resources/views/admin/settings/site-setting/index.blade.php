@@ -1,8 +1,7 @@
-@extends('admin.layout.app')
+@extends('admin.layout.admin')
 
 @section('content')
-    @include('admin.partials.common.page-title', ['page_title' => 'Site Setting'])
-    <div>
+    <div class="container">
         <div class="row-fluid">
             <div class="span12">
                 <div class="grid simple ">

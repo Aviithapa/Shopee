@@ -1,134 +1,76 @@
 @extends('web.layouts.app')
 @section('content')
 
+    <div class="container" style="margin-top: 50px;">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="well well-sm">
+                    <form class="form-horizontal" method="post">
+                        <fieldset>
+                            <legend class="text-center heading">Request For A book</legend>
+                            <div class="form-group">
+                                <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-user bigicon"></i></span>
+                                <div class="col-md-8">
+                                    <input id="fname" name="name" type="text" placeholder="First Name" class="form-control" required>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-user bigicon"></i></span>
+                                <div class="col-md-8">
+                                    <input id="lname" name="name" type="text" placeholder="Last Name" class="form-control" required>
+                                </div>
+                            </div>
 
-    <!-- Main Content - start -->
-    <main>
-        <section class="container stylization maincont">
+                            <div class="form-group">
+                                <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-envelope-o bigicon"></i></span>
+                                <div class="col-md-8">
+                                    <input id="email" name="email" type="text" placeholder="Email Address" class="form-control" required>
+                                </div>
+                            </div>
 
+                            <div class="form-group">
+                                <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-phone-square bigicon"></i></span>
+                                <div class="col-md-8">
+                                    <input id="phone" name="phone" type="text" placeholder="Phone" class="form-control" required>
+                                </div>
+                            </div>
 
-            <ul class="b-crumbs">
-                <li>
-                    <a href="index.html">
-                        Home
-                    </a>
-                </li>
-                <li>
-                    <span>Contacts</span>
-                </li>
-            </ul>
-            <h1 class="main-ttl"><span>Contacts</span></h1>
-            <!-- Contacts - start -->
-            <br>
-            <div class="iconbox-wrap">
-                <div class="row iconbox-list">
-                    <div class="cf-xs-6 cf-sm-4 cf-lg-4 col-xs-6 col-sm-4 iconbox-i">
-                        <p class="iconbox-i-img"><!-- NO SPACE --><img src="http://placehold.it/43x90" alt=""><!-- NO SPACE --></p>
-                        <h3 class="iconbox-i-ttl">+7 777 123 4567</h3>
-                        Let's have a<br>
-                        talk together
-                        <span class="iconbox-i-margin"></span>
-                    </div>
-                    <div class="cf-xs-6 cf-sm-4 cf-lg-4 col-xs-6 col-sm-4 iconbox-i">
-                        <p class="iconbox-i-img"><!-- NO SPACE --><img src="http://placehold.it/47x90" alt=""><!-- NO SPACE --></p>
-                        <h3 class="iconbox-i-ttl">Our address</h3>
-                        555 South Street,<br>
-                        New York City 12345
-                        <span class="iconbox-i-margin"></span>
-                    </div>
-                    <div class="cf-xs-6 cf-sm-4 cf-lg-4 col-xs-6 col-sm-4 iconbox-i">
-                        <p class="iconbox-i-img"><!-- NO SPACE --><img src="http://placehold.it/58x90" alt=""><!-- NO SPACE --></p>
-                        <h3 class="iconbox-i-ttl">Schedule</h3>
-                        Mon-Fri 07:00-22:00<br>
-                        Sat-Sun closed
-                        <span class="iconbox-i-margin"></span>
-                    </div>
+                            <div class="form-group">
+                                <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-pencil-square-o bigicon"></i></span>
+                                <div class="col-md-8">
+                                    <textarea class="form-control ckeditor" id="message" name="message" placeholder="Enter your Required Book." rows="7" required></textarea>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="col-md-12 text-center">
+                                    <button type="submit" class="btn btn-primary btn-lg">Submit</button>
+                                </div>
+                            </div>
+                        </fieldset>
+                    </form>
                 </div>
             </div>
+        </div>
+    </div>
 
-            <!-- Contacts Info - end -->
-            <div class="social-wrap">
-                <div class="social-list">
-                    <div class="social-i">
-                        <a rel="nofollow" target="_blank" href="http://facebook.com/">
-                            <p class="social-i-img">
-                                <i class="fa fa-facebook"></i>
-                            </p>
-                            <p class="social-i-ttl">Facebook</p>
-                        </a>
-                    </div>
-                    <div class="social-i">
-                        <a rel="nofollow" target="_blank" href="http://google.com/">
-                            <p class="social-i-img">
-                                <i class="fa fa-google-plus"></i>
-                            </p>
-                            <p class="social-i-ttl">Google +</p>
-                        </a>
-                    </div>
-                    <div class="social-i">
-                        <a rel="nofollow" target="_blank" href="http://twitter.com/">
-                            <p class="social-i-img">
-                                <i class="fa fa-twitter"></i>
-                            </p>
-                            <p class="social-i-ttl">Twitter</p>
-                        </a>
-                    </div>
-                    <div class="social-i">
-                        <a rel="nofollow" target="_blank" href="http://vk.com/">
-                            <p class="social-i-img">
-                                <i class="fa fa-vk"></i>
-                            </p>
-                            <p class="social-i-ttl">Vkontakte</p>
-                        </a>
-                    </div>
-                    <div class="social-i">
-                        <a rel="nofollow" target="_blank" href="http://instagram.com/">
-                            <p class="social-i-img">
-                                <i class="fa fa-instagram"></i>
-                            </p>
-                            <p class="social-i-ttl">Instagram</p>
-                        </a>
-                    </div>
-                    <div class="social-i">
-                        <a rel="nofollow" target="_blank" href="http://youtube.com/">
-                            <p class="social-i-img">
-                                <i class="fa fa-youtube"></i>
-                            </p>
-                            <p class="social-i-ttl">Youtube</p>
-                        </a>
-                    </div>
-                </div>
-            </div>
+    <style>
 
-            <!-- Contact Form -->
-            <div class="contactform-wrap">
-                <form action="#" class="form-validate">
-                    <h3 class="component-ttl component-ttl-ct component-ttl-hasdesc"><span>Feedback</span></h3>
-                    <p class="component-desc component-desc-ct">Alias minima veritatis unde illo deserunt omnis facilis</p>
-                    <p class="contactform-field contactform-text">
-                        <label class="contactform-label">Name</label><!-- NO SPACE --><span class="contactform-input"><input placeholder="Name" type="text" name="name" data-required="text"></span>
-                    </p>
-                    <p class="contactform-field contactform-email">
-                        <label class="contactform-label">E-mail</label><!-- NO SPACE --><span class="contactform-input"><input placeholder="Your E-mail" type="text" name="email" data-required="text" data-required-email="email"></span>
-                    </p>
-                    <p class="contactform-field contactform-textarea">
-                        <label class="contactform-label">Message</label><!-- NO SPACE --><span class="contactform-input"><textarea placeholder="Your message" name="mess" data-required="text"></textarea></span>
-                    </p>
-                    <p class="contactform-submit">
-                        <input value="Send" type="submit">
-                    </p>
-                </form>
-            </div>
-            <br>
-            <br>
-            <!-- Google Maps -->
-            <div class="contacts-map allstore-gmap">
-                <div class="marker" data-zoom="15" data-lat="-37.81485261872975" data-lng="144.95655298233032" data-marker="img/marker.png">534-540 Little Bourke St, Melbourne VIC 3000, Australia</div>
-            </div>
-            <!-- Contacts - end -->
-
-        </section>
-    </main>
-    <!-- Main Content - end -->
-
+        .heading {
+            color: #36A0FF;
+            font-size: 27px;
+            padding: 10px;
+        }
+        .bigicon {
+            font-size: 35px;
+            color: #36A0FF;
+        }
+    </style>
+    <script src="https://cdn.ckeditor.com/4.13.0/standard/ckeditor.js"></script>
+    <script>
+        CKEDITOR.replace( 'ckeditor', {
+//        filebrowserBrowseUrl: '/ckfinder/ckfinder.html',
+//        filebrowserUploadUrl: '/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Files'
+        } );
+    </script>
 @endsection

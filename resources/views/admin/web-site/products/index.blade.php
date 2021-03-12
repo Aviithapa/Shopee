@@ -1,12 +1,13 @@
-@extends('admin.layout.app')
+
+@extends('admin.layout.admin')
 
 @section('content')
-    <div>
+    <div class="container" style="margin-top: 30px">
         <div class="row-fluid">
             <div class="span12">
                 <div class="grid simple ">
                     <div class="grid-title">
-                        <a href="{{route('dashboard.events.create')}}"  class="btn btn-info btn-cons">
+                        <a href="{{route($commonRoute.'.create')}}"  class="btn btn-info btn-cons">
                             <i class="fa fa-plus-square"></i> Add New
                         </a>
                         <div class="tools">
@@ -17,9 +18,9 @@
                         <table class="table table-hover table-condensed" id="data-table">
                             <thead>
                             <tr>
-                                <th>Title</th>
-                                <th>Excerpt</th>
-                                <th>Content</th>
+                                <th>ID</th>
+                                <th>Name</th>
+                                <th>Type</th>
                                 <th>Image</th>
                                 <th class="disabled-sorting">Action</th>
                             </tr>
@@ -37,12 +38,13 @@
         $('#data-table').DataTable({
             processing: true,
             serverSide: true,
-            ajax: '{{ route('dashboard.events.index') }}',
+            ajax: '{{ route('dashboard.product.index') }}',
             columns: [
-                {data: 'title', name: 'title'},
-                {data: 'excerpt', name: 'excerpt'},
-                {data: 'content', name: 'content'},
-                {data: 'events_pic', name: 'events_pic'},
+                {data: 'id', name: 'id'},
+                {data: 'name', name: 'name'},
+                {data: 'category', name: 'category'},
+                {data: 'product_image', name: 'product_image'},
+//                {data: 'status', name: 'status'},
                 {className: 'td-actions', data: 'action', name: 'action', orderable: false, searchable: false}
             ]
         });

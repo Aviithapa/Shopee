@@ -4,7 +4,6 @@
 namespace App\Http\Controllers\Admin\WebSite;
 
 
-
 use App\Http\Controllers\Admin\BaseController;
 use App\Modules\Backend\Website\Category\Repositories\CategoryRepository;
 use App\Modules\Backend\Website\Product\Repositories\ProductRepository;
@@ -14,11 +13,11 @@ use Illuminate\Contracts\Logging\Log;
 use Illuminate\Support\Facades\Auth;
 use Yajra\DataTables\Facades\DataTables;
 
-class ProductController extends BaseController
+class ProductsController extends BaseController
 {
     private $productRepository, $log ,$categoryRepository;
-    private $commonRoute='dashboard.product';
-    private $commonView='web-site.product.';
+    private $commonRoute='dashboard.products';
+    private $commonView='web-site.products.';
     private $commonMessage='Product';
     private $viewData;
     public function __construct(Log $log, ProductRepository $productRepository , CategoryRepository $categoryRepository)
@@ -72,7 +71,7 @@ class ProductController extends BaseController
         }
         $this->viewData['role']=$role;
         $this->viewData['categories'] = $this->categoryRepository->getAll();
-        return $this->view('web-site.product.index',$this->viewData);
+        return $this->view('web-site.products.index',$this->viewData);
     }
 
     /**
@@ -84,7 +83,7 @@ class ProductController extends BaseController
     {
         $this->viewData['role'] = Auth::user()->mainRole()?Auth::user()->mainRole()->name:'default';
         $this->viewData['category']=$this->categoryRepository->getAll();
-        return $this->view('web-site.product.create',$this->viewData);
+        return $this->view('web-site.products.create',$this->viewData);
     }
 
     /**
@@ -105,7 +104,7 @@ class ProductController extends BaseController
                 return redirect()->back()->withInput();
             }
             session()->flash('success', 'Content created successfully');
-            return redirect()->route('dashboard.product.index');
+            return redirect()->route('dashboard.products.index');
         }
         catch (\Exception $e) {
             $this->log->error('Content create : '.$e->getMessage());
@@ -136,7 +135,7 @@ class ProductController extends BaseController
         $role = Auth::user()->mainRole()?Auth::user()->mainRole()->name:'default';
         $category=$this->categoryRepository->getAll();
         $product = $this->productRepository->findById($id);
-        return $this->view('web-site.product.edit', compact('product','category','role'));
+        return $this->view('web-site.products.edit', compact('product','category','role'));
     }
 
     /**
@@ -158,7 +157,7 @@ class ProductController extends BaseController
                 return redirect()->back()->withInput();
             }
             session()->flash('success', 'Content updated successfully');
-            return redirect()->route('dashboard.product.index');
+            return redirect()->route('dashboard.products.index');
         }
         catch (\Exception $e) {
             $this->log->error('Content update : '.$e->getMessage());

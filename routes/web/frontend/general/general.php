@@ -2,6 +2,7 @@
 
 Route::group(['namespace' => 'General','middleware' => 'auth'], function () {
     Route::get('add/to/cart/{id}', 'HomeController@addtocart');
+    Route::get('{cart}', 'HomeController@slug');
 });
     Route::group(['namespace' => 'General'], function () {
     Route::get('change-password/{code}','HomeController@resetPasswordWithCode')->name('change-password');

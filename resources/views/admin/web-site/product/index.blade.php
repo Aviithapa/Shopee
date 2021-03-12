@@ -1,4 +1,5 @@
-@extends('admin.layout.app')
+
+    @extends('web.layouts.app')
 
 @section('content')
     <div class="container" style="margin-top: 30px">

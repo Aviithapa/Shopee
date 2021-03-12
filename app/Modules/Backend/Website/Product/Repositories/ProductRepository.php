@@ -9,4 +9,6 @@ use App\Modules\Framework\Repository;
 interface ProductRepository extends Repository
 {
     public function getModel();
+
+    public function getDataWithPagination($limit);
 }

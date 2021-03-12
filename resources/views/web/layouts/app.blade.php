@@ -8,12 +8,12 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     @include('web.layouts.style')
     @stack('styles')
+    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v4.0&appId=386251685274332&autoLogAppEvents=1"></script>
 </head>
 <!-- END HEAD -->
 <!-- BEGIN BODY -->
-<body class="" style="background: #f5f5f5">
+<body style="background:#e8fbe8">
 <div id="fb-root"></div>
-<script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v4.0&appId=386251685274332&autoLogAppEvents=1"></script>
 @include('web.layouts.header')
 <!-- BEGIN CONTAINER -->
 

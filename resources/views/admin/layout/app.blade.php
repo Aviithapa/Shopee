@@ -10,25 +10,10 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
 </head>
-<!-- END HEAD -->
-<!-- BEGIN BODY -->
 <body class="">
-
-<!-- BEGIN CONTAINER -->
-<div class="page-container row-fluid" >
 @switch($authUser->mainRole()->name)
     @case('administrator')
-    @include('admin.layout.style')
-    @include('admin.layout.header')
-    @stack('styles')
-    <!-- BEGIN PAGE CONTAINER-->
-        <div class="page-content">
-            <!-- BEGIN SAMPLE PORTLET CONFIGURATION MODAL FORM-->
-            <div class="content bg-dark">
-                @yield('content')
-            </div>
-        </div>
-    @include('admin.sidebar.administrator')
+    @include('admin.layout.admin')
     @break
     @case("customer")
     @include('admin.layouts.app')
@@ -41,7 +26,7 @@
 @endswitch
 
 
-</div>
+
 <!-- END CONTAINER -->
 @include('admin.layout.script')
 @include('admin.layout.notification')

@@ -1,7 +1,7 @@
-@extends('admin.layout.app')
+@extends('admin.layout.admin')
 
 @section('content')
-    @include('admin.partials.common.page-title', ['page_title' => 'Content Management'])
+
     <div>
         <div class="row-fluid">
             <div class="span12">

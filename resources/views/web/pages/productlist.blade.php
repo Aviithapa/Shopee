@@ -1,8 +1,7 @@
 @extends('web.layouts.app')
 @section('content')
-       <!-- Main Content - start -->
     <main>
-        <section class="container">
+        <section class="container-fluid">
 
 
             <ul class="b-crumbs">
@@ -18,83 +17,47 @@
                 </li>
             </ul>
             <h1 class="main-ttl"><span>Category</span></h1>
-            <!-- Catalog Sidebar - start -->
-            <div class="section-sb">
-
-                <!-- Catalog Categories - start -->
-                <div class="section-sb-current">
-                    <h3><a href="{{url('catalog')}}">Category <span id="section-sb-toggle" class="section-sb-toggle"><span class="section-sb-ico"></span></span></a></h3>
-                    <ul class="section-sb-list" id="section-sb-list">
-                        @foreach($categories as $category)
-                        <li class="categ-1">
-                            <a href="catalog-list.html">
-                                <span class="categ-1-label">{{$category->name}}</span>
-                            </a>
-                        </li>
-                        @endforeach
-                    </ul>
-                </div>
-                <!-- Catalog Categories - end -->
-            </div>
-            <!-- Catalog Sidebar - end -->
             <!-- Catalog Items | Gallery V1 - start -->
             <div class="section-cont">
 
                 <!-- Catalog Topbar - start -->
                 <div class="section-top">
 
-                    <!-- View Mode -->
-                    <ul class="section-mode">
-                        <li class="section-mode-gallery active"><a title="View mode: Gallery" href="catalog-gallery.html"></a></li>
-                        <li class="section-mode-list"><a title="View mode: List" href="catalog-list.html"></a></li>
-                        <li class="section-mode-table"><a title="View mode: Table" href="catalog-table.html"></a></li>
-                    </ul>
-
-                    <!-- Sorting -->
-                    <!-- Count per page -->
-                    <div class="section-count">
-                        <p>12</p>
-                        <ul>
-                            <li><a href="#">12</a></li>
-                            <li><a href="#">24</a></li>
-                            <li><a href="#">48</a></li>
-                        </ul>
-                    </div>
 
                 </div>
                 <!-- Catalog Topbar - end -->
                 <div class="prod-items section-items">
-                @foreach($products as $product)
-                    <div class="prod-i">
-                        <div class="prod-i-top">
-                            <a href="{{url('productDetails/'.$product->id)}}" class="prod-i-img"><!-- NO SPACE --><img src="{{$product->getImage()}}" alt="Adipisci aperiam commodi"><!-- NO SPACE --></a>
-                            <p class="prod-i-info">
-                                <a href="#" class="prod-i-favorites"><span>Wishlist</span><i class="fa fa-heart"></i></a>
-                                <a href="{{url('productDetails/'.$product->id)}}" class="qview-btn prod-i-qview"><span>Quick View</span><i class="fa fa-search"></i></a>
-                                <a class="prod-i-compare" href="#"><span>Compare</span><i class="fa fa-bar-chart"></i></a>
+                    @foreach($products as $product)
+                        <div class="prod-i">
+                            <div class="prod-i-top">
+                                <a href="{{url('productDetails/'.$product->id)}}" class="prod-i-img"><!-- NO SPACE --><img src="{{$product->getImage()}}" alt="Adipisci aperiam commodi"><!-- NO SPACE --></a>
+                                <p class="prod-i-info">
+                                    <a href="#" class="prod-i-favorites"><span>Wishlist</span><i class="fa fa-heart"></i></a>
+                                    <a href="{{url('productDetails/'.$product->id)}}" class="qview-btn prod-i-qview"><span>Quick View</span><i class="fa fa-search"></i></a>
+                                    <a class="prod-i-compare" href="#"><span>Compare</span><i class="fa fa-bar-chart"></i></a>
+                                </p>
+                                <a href="{{url('add/to/cart/'.$product->id)}}" class="prod-i-buy">Add to cart</a>
+                                <p class="{{url('productDetails/'.$product->id)}}"><i class="fa fa-info"></i></p>
+                            </div>
+                            <div class="prod-sticker">
+                                <p class="prod-sticker-3">-30%</p><p class="prod-sticker-4 countdown" data-date="29 Jan 2017, 14:30:00"></p>
+                            </div>
+                            <h3>
+                                <a href="{{url('productDetails/'.$product->id)}}">{{$product->name}}</a>
+                            </h3>
+                            <p class="prod-i-price">
+                                <b>{{$product->price}}</b>
+                                <del>{{$product->price}}</del>
                             </p>
-                            <a href="{{url('add/to/cart/'.$product->id)}}" class="prod-i-buy">Add to cart</a>
-                            <p class="{{url('productDetails/'.$product->id)}}"><i class="fa fa-info"></i></p>
+                            <div class="prod-i-skuwrapcolor">
+                            </div>
                         </div>
-                        <div class="prod-sticker">
-                            <p class="prod-sticker-3">-30%</p><p class="prod-sticker-4 countdown" data-date="29 Jan 2017, 14:30:00"></p>
-                        </div>
-                        <h3>
-                            <a href="{{url('productDetails/'.$product->id)}}">{{$product->name}}</a>
-                        </h3>
-                        <p class="prod-i-price">
-                            <b>{{$product->price}}</b>
-                            <del>{{$product->price}}</del>
-                        </p>
-                        <div class="prod-i-skuwrapcolor">
-                        </div>
-                    </div>
                     @endforeach
                 </div>
 
                 <!-- Pagination - start -->
                 <ul class="pagi">
-                {{$products->links()}}
+                    {{$products->links()}}
                 </ul>
                 <!-- Pagination - end -->
             </div>
@@ -271,4 +234,4 @@
         </section>
     </main>
     <!-- Main Content - end -->
-    @endsection
+@endsection

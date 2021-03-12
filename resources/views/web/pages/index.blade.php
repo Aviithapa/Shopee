@@ -2,470 +2,237 @@
 
 @section('content')
 <!-- Main Content - start -->
-<main class="container-fluid">
+<main>
     <section>
-        <section class="ftco-section intro" style="background-image: url(http://staff.um.edu.mt/__data/assets/image/0006/379563/books.png); height:400px;" data-stellar-background-ratio="0.5">
-{{--            <div class="container">--}}
-{{--                <div class="row">--}}
-{{--                    <div class="col-md-12 text-center  text-danger">--}}
-{{--                        <h1 class="component-ttl" style="font-size: 30px">ONLINE <br> SECOND HAND BOOK STORE</h1>--}}
-{{--                        <p>A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country</p>--}}
-{{--                    </div>--}}
-{{--                </div>--}}
-{{--            </div>--}}
-        </section>
+        <div class="swiper-container slideshow">
+
+            <div class="swiper-wrapper">
+
+                <div class="swiper-slide slide">
+                    <div class="slide-image" style="background-image: url(https://images.unsplash.com/photo-1538083024336-555cf8943ddc?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=66b476a51b19889e13182c0e4827af18&auto=format&fit=crop&w=1950&q=80)"></div>
+                    <span class="slide-title">
+
+                    </span>
+                </div>
+                </div>
+            </div>
     </section>
-    <section>
-        <!-- Popular Products -->
-        <div class="fr-pop-wrap">
+    <div class="marquee">
+        <p class="container-fluid">
 
-            <h3 class="component-ttl text-center"><span>Popular BOOKS</span></h3>
-
-            <ul class="fr-pop-tabs sections-show">
-                <li><a data-frpoptab-num="1" data-frpoptab="#frpoptab-tab-1" href="#" class="active">All Categories</a></li>
-                @foreach($categories as $categories)
-                    <li><a data-frpoptab-num="1" data-frpoptab="#frpoptab-tab-1" href="#" class="">{{$categories->name}}</a></li>
-                @endforeach
-            </ul>
-
-            <div class="fr-pop-tab-cont">
-
-                <p data-frpoptab-num="1" class="fr-pop-tab-mob active" data-frpoptab="#frpoptab-tab-1">All Categories</p>
-                <div class="flexslider prod-items fr-pop-tab" id="frpoptab-tab-1">
-
-                    <ul class="slides">
-                        <li class="prod-i">
-                            <div class="prod-i-top">
-                                <a href="product.html" class="prod-i-img"><!-- NO SPACE --><img src="http://placehold.it/250x409" alt="Dignissimos fuga"><!-- NO SPACE --></a>
-                                <p class="prod-i-info">
-                                    <a href="#" class="prod-i-favorites"><span>Wishlist</span><i class="fa fa-heart"></i></a>
-                                    <a href="#" class="qview-btn prod-i-qview"><span>Quick View</span><i class="fa fa-search"></i></a>
-                                    <a class="prod-i-compare" href="#"><span>Compare</span><i class="fa fa-bar-chart"></i></a>
-                                </p>
-                                <p class="prod-i-addwrap">
-                                    <a href="#" class="prod-i-add">Add to cart</a>
-                                </p>
-                            </div>
-                            <h3>
-                                <a href="product.html">Dignissimos fuga</a>
-                            </h3>
-                            <p class="prod-i-price">
-                                <b>$205</b>
-                            </p>
-                        </li>
-                        <li class="prod-i">
-                            <div class="prod-i-top">
-                                <a href="product.html" class="prod-i-img"><!-- NO SPACE --><img src="http://placehold.it/277x250" alt="Officiis nihil culpa"><!-- NO SPACE --></a>
-                                <p class="prod-i-info">
-                                    <a href="#" class="prod-i-favorites"><span>Wishlist</span><i class="fa fa-heart"></i></a>
-                                    <a href="#" class="qview-btn prod-i-qview"><span>Quick View</span><i class="fa fa-search"></i></a>
-                                    <a class="prod-i-compare" href="#"><span>Compare</span><i class="fa fa-bar-chart"></i></a>
-                                </p>
-                                <p class="prod-i-addwrap">
-                                    <a href="#" class="prod-i-add">Add to cart</a>
-                                </p>
-                            </div>
-                            <h3>
-                                <a href="product.html">Officiis nihil culpa</a>
-                            </h3>
-                            <p class="prod-i-price">
-                                <b>$180</b>
-                            </p>
-                        </li>
+        </p>
+    </div>
 
 
-                    </ul>
 
-                </div>
+<section class="container-fluid">
 
-                <p data-frpoptab-num="2" class="fr-pop-tab-mob" data-frpoptab="#frpoptab-tab-2">Kids</p>
-                <div class="flexslider prod-items fr-pop-tab" id="frpoptab-tab-2">
+    <div class="row">
+        <div class="col-12 col-md-10">
+            <div class="bbb_viewed">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col">
+                            <div class="bbb_main_container">
+                                <div class="bbb_viewed_title_container">
+                                    <h3 class="bbb_viewed_title">Best selling products</h3>
+                                </div>
+                                <div class="bbb_viewed_slider_container">
+                                    <div class="row">
+                                        <div class="MultiCarousel" data-items="1,3,5,6" data-slide="1" id="MultiCarousel"  data-interval="1000">
+                                            <div class="MultiCarousel-inner">
+                                                <div class="prod-items section-items">
+                                                @foreach($products as $product)
+                                                <div class="item">
+                                                    <div class="pad15">
+                                                        <div class="prod-i">
+                                                            <div class="prod-i-top">
+                                                                <a href="{{url('productDetails/'.$product->id)}}" class="prod-i-img"><!-- NO SPACE --><img src="{{$product->getImage()}}" alt="Adipisci aperiam commodi"><!-- NO SPACE --></a>
+                                                                <p class="prod-i-info">
+                                                                     <a href="#" class="prod-i-favorites"><span>Wishlist</span><i class="fa fa-heart"></i></a>
+                                                                    <a href="#" class="qview-btn prod-i-qview"><span>Quick View</span><i class="fa fa-search"></i></a>
+                                                                    <a class="prod-i-compare" href="#"><span>Compare</span><i class="fa fa-bar-chart"></i></a>
+                                                                </p>
+                                                                <a href="{{url('add/to/cart/'.$product->id)}}" class="prod-i-buy">Add to cart</a>
+                                                                <p class="prod-i-properties-label"><a class="fa fa-info" href="{{url('productDetails/'.$product->id)}}"></a></p>
+                                                            </div>
+                                                            <div class="prod-sticker">
+                                                                <p class="prod-sticker-3">-30%</p><p class="prod-sticker-4 countdown" data-date="29 Jan 2017, 14:30:00"></p>
+                                                            </div>
+                                                            <h3>
+                                                                <a href="{{url('productDetails/'.$product->id)}}">{{$product->name}}</a>
+                                                            </h3>
+                                                            <p class="prod-i-price">
+                                                                <b>{{$product->price}}</b>
+                                                                <del>{{$product->price}}</del>
+                                                            </p>
+                                                            <div class="prod-i-skuwrapcolor">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                    @endforeach
+                                                    </div>
 
-                    <ul class="slides">
 
-                        <li class="prod-i">
-                            <div class="prod-i-top">
-                                <a href="product.html" class="prod-i-img"><!-- NO SPACE --><img src="http://placehold.it/250x350" alt="Aspernatur excepturi rem"><!-- NO SPACE --></a>
-                                <p class="prod-i-info">
-                                    <a href="#" class="prod-i-favorites"><span>Wishlist</span><i class="fa fa-heart"></i></a>
-                                    <a href="#" class="prod-i-qview"><span>Quick View</span><i class="fa fa-search"></i></a>
-                                    <a class="prod-i-compare" href="#"><span>Compare</span><i class="fa fa-bar-chart"></i></a>
-                                </p>
-                                <p class="prod-i-addwrap">
-                                    <a href="#" class="prod-i-add">Go to detail</a>
-                                </p>
-                            </div>
-                            <h3>
-                                <a href="product.html">Aspernatur excepturi rem</a>
-                            </h3>
-                            <p class="prod-i-price">
-                                <b>$90</b>
-                            </p>
-                            <div class="prod-i-skuwrapcolor">
-                                <ul class="prod-i-skucolor">
-                                    <li class="bx_active"><img src="img/color/red.jpg" alt="Red"></li>
-                                    <li><img src="img/color/blue.jpg" alt="Blue"></li>
-                                </ul>
-                            </div>
-                        </li>
-
-
-                        <li class="prod-i">
-                            <div class="prod-i-top">
-                                <a href="product.html" class="prod-i-img"><!-- NO SPACE --><img src="http://placehold.it/329x250" alt="Sit recusandae voluptas"><!-- NO SPACE --></a>
-                                <p class="prod-i-info">
-                                    <a href="#" class="prod-i-favorites"><span>Wishlist</span><i class="fa fa-heart"></i></a>
-                                    <a href="#" class="prod-i-qview"><span>Quick View</span><i class="fa fa-search"></i></a>
-                                    <a class="prod-i-compare" href="#"><span>Compare</span><i class="fa fa-bar-chart"></i></a>
-                                </p>
-                                <p class="prod-i-addwrap">
-                                    <a href="#" class="prod-i-add">Add to cart</a>
-                                </p>
-
-                                <div class="prod-sticker">
-                                    <p class="prod-sticker-1">NEW</p>
+                                            </div>
+                                            <button class="btn btn-primary leftLst"><</button>
+                                            <button class="btn btn-primary rightLst">></button>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
-                            <h3>
-                                <a href="product.html">Sit recusandae voluptas</a>
-                            </h3>
-                            <p class="prod-i-price">
-                                <b>$200</b>
-                            </p>
-                        </li>
-                    </ul>
-                </div>
+                        </div>
 
-                <p data-frpoptab-num="3" class="fr-pop-tab-mob" data-frpoptab="#frpoptab-tab-3">Women</p>
-                <div class="flexslider prod-items fr-pop-tab" id="frpoptab-tab-3">
-
-                    <ul class="slides">
-
-                        <li class="prod-i">
-                            <div class="prod-i-top">
-                                <a href="product.html" class="prod-i-img"><!-- NO SPACE --><img src="http://placehold.it/250x302" alt="Amet tempore unde"><!-- NO SPACE --></a>
-                                <p class="prod-i-info">
-                                    <a href="#" class="prod-i-favorites"><span>Wishlist</span><i class="fa fa-heart"></i></a>
-                                    <a href="#" class="prod-i-qview"><span>Quick View</span><i class="fa fa-search"></i></a>
-                                    <a class="prod-i-compare" href="#"><span>Compare</span><i class="fa fa-bar-chart"></i></a>
-                                </p>
-                                <p class="prod-i-addwrap">
-                                    <a href="#" class="prod-i-add">Add to cart</a>
-                                </p>
-                            </div>
-                            <h3>
-                                <a href="product.html">Amet tempore unde</a>
-                            </h3>
-                            <p class="prod-i-price">
-                                <b>$165</b>
-                            </p>
-                        </li>
-                        <li class="prod-i">
-                            <div class="prod-i-top">
-                                <a href="product.html" class="prod-i-img"><!-- NO SPACE --><img src="http://placehold.it/250x351" alt="Ratione magni"><!-- NO SPACE --></a>
-                                <p class="prod-i-info">
-                                    <a href="#" class="prod-i-favorites"><span>Wishlist</span><i class="fa fa-heart"></i></a>
-                                    <a href="#" class="prod-i-qview"><span>Quick View</span><i class="fa fa-search"></i></a>
-                                    <a class="prod-i-compare" href="#"><span>Compare</span><i class="fa fa-bar-chart"></i></a>
-                                </p>
-                                <p class="prod-i-addwrap">
-                                    <a href="#" class="prod-i-add">Add to cart</a>
-                                </p>
-                            </div>
-                            <h3>
-                                <a href="product.html">Ratione magni</a>
-                            </h3>
-                            <p class="prod-i-price">
-                                <b>$125</b>
-                            </p>
-                        </li>
-                    </ul>
-                </div>
-
-                <p data-frpoptab-num="4" class="fr-pop-tab-mob" data-frpoptab="#frpoptab-tab-4">Men</p>
-                <div class="flexslider prod-items fr-pop-tab" id="frpoptab-tab-4">
-
-                    <ul class="slides">
-
-                        <li class="prod-i">
-                            <div class="prod-i-top">
-                                <a href="product.html" class="prod-i-img"><!-- NO SPACE --><img src="http://placehold.it/250x422" alt="Nisi provident atque"><!-- NO SPACE --></a>
-                                <p class="prod-i-info">
-                                    <a href="#" class="prod-i-favorites"><span>Wishlist</span><i class="fa fa-heart"></i></a>
-                                    <a href="#" class="prod-i-qview"><span>Quick View</span><i class="fa fa-search"></i></a>
-                                    <a class="prod-i-compare" href="#"><span>Compare</span><i class="fa fa-bar-chart"></i></a>
-                                </p>
-                                <p class="prod-i-addwrap">
-                                    <a href="#" class="prod-i-add">Add to cart</a>
-                                </p>
-                            </div>
-                            <h3>
-                                <a href="product.html">Nisi provident atque</a>
-                            </h3>
-                            <p class="prod-i-price">
-                                <b>$130</b>
-                            </p>
-                        </li>
-                        <li class="prod-i">
-                            <div class="prod-i-top">
-                                <a href="product.html" class="prod-i-img"><!-- NO SPACE --><img src="http://placehold.it/250x409" alt="Dignissimos fuga"><!-- NO SPACE --></a>
-                                <p class="prod-i-info">
-                                    <a href="#" class="prod-i-favorites"><span>Wishlist</span><i class="fa fa-heart"></i></a>
-                                    <a href="#" class="prod-i-qview"><span>Quick View</span><i class="fa fa-search"></i></a>
-                                    <a class="prod-i-compare" href="#"><span>Compare</span><i class="fa fa-bar-chart"></i></a>
-                                </p>
-                                <p class="prod-i-addwrap">
-                                    <a href="#" class="prod-i-add">Add to cart</a>
-                                </p>
-                            </div>
-                            <h3>
-                                <a href="product.html">Dignissimos fuga</a>
-                            </h3>
-                            <p class="prod-i-price">
-                                <b>$205</b>
-                            </p>
-                        </li>
-
-                    </ul>
-
-                </div>
-
-
-                <p data-frpoptab-num="5" class="fr-pop-tab-mob" data-frpoptab="#frpoptab-tab-5">Shoes</p>
-                <div class="flexslider prod-items fr-pop-tab" id="frpoptab-tab-5">
-
-                    <ul class="slides">
-
-                        <li class="prod-i">
-                            <div class="prod-i-top">
-                                <a href="product.html" class="prod-i-img"><!-- NO SPACE --><img src="http://placehold.it/252x250" alt="Nisi autem error"><!-- NO SPACE --></a>
-                                <p class="prod-i-info">
-                                    <a href="#" class="prod-i-favorites"><span>Wishlist</span><i class="fa fa-heart"></i></a>
-                                    <a href="#" class="prod-i-qview"><span>Quick View</span><i class="fa fa-search"></i></a>
-                                    <a class="prod-i-compare" href="#"><span>Compare</span><i class="fa fa-bar-chart"></i></a>
-                                </p>
-                                <p class="prod-i-addwrap">
-                                    <a href="#" class="prod-i-add">Go to detail</a>
-                                </p>
-                            </div>
-                            <h3>
-                                <a href="product.html">Nisi autem error</a>
-                            </h3>
-                            <p class="prod-i-price">
-                                <b>$95</b>
-                            </p>
-                            <div class="prod-i-skuwrapcolor">
-                                <ul class="prod-i-skucolor">
-                                    <li class="bx_active"><img src="img/color/red.jpg" alt="Red"></li>
-                                    <li><img src="img/color/blue.jpg" alt="Blue"></li>
-                                </ul>
-                            </div>
-                        </li>
-                        <li class="prod-i">
-                            <div class="prod-i-top">
-                                <a href="product.html" class="prod-i-img"><!-- NO SPACE --><img src="http://placehold.it/316x250" alt="Tempora ea ratione vel"><!-- NO SPACE --></a>
-                                <p class="prod-i-info">
-                                    <a href="#" class="prod-i-favorites"><span>Wishlist</span><i class="fa fa-heart"></i></a>
-                                    <a href="#" class="prod-i-qview"><span>Quick View</span><i class="fa fa-search"></i></a>
-                                    <a class="prod-i-compare" href="#"><span>Compare</span><i class="fa fa-bar-chart"></i></a>
-                                </p>
-                                <p class="prod-i-addwrap">
-                                    <a href="#" class="prod-i-add">Add to cart</a>
-                                </p>
-
-                                <div class="prod-sticker">
-                                    <p class="prod-sticker-2">HIT</p>
-                                </div>
-                            </div>
-                            <h3>
-                                <a href="product.html">Tempora ea ratione vel</a>
-                            </h3>
-                            <p class="prod-i-price">
-                                <b>$120</b>
-                            </p>
-                        </li>
-                        <li class="prod-i">
-                            <div class="prod-i-top">
-                                <a href="product.html" class="prod-i-img"><!-- NO SPACE --><img src="http://placehold.it/281x250" alt="Minus sequi iste"><!-- NO SPACE --></a>
-                                <p class="prod-i-info">
-                                    <a href="#" class="prod-i-favorites"><span>Wishlist</span><i class="fa fa-heart"></i></a>
-                                    <a href="#" class="prod-i-qview"><span>Quick View</span><i class="fa fa-search"></i></a>
-                                    <a class="prod-i-compare" href="#"><span>Compare</span><i class="fa fa-bar-chart"></i></a>
-                                </p>
-                                <p class="prod-i-addwrap">
-                                    <a href="#" class="prod-i-add">Add to cart</a>
-                                </p>
-                            </div>
-                            <h3>
-                                <a href="product.html">Minus sequi iste</a>
-                            </h3>
-                            <p class="prod-i-price">
-                                <b>$135</b>
-                            </p>
-                        </li>
-                        <li class="prod-i">
-                            <div class="prod-i-top">
-                                <a href="product.html" class="prod-i-img"><!-- NO SPACE --><img src="http://placehold.it/265x250" alt="Dignissimos fuga voluptates totam"><!-- NO SPACE --></a>
-                                <p class="prod-i-info">
-                                    <a href="#" class="prod-i-favorites"><span>Wishlist</span><i class="fa fa-heart"></i></a>
-                                    <a href="#" class="prod-i-qview"><span>Quick View</span><i class="fa fa-search"></i></a>
-                                    <a class="prod-i-compare" href="#"><span>Compare</span><i class="fa fa-bar-chart"></i></a>
-                                </p>
-                                <p class="prod-i-addwrap">
-                                    <a href="#" class="prod-i-add">Add to cart</a>
-                                </p>
-                            </div>
-                            <h3>
-                                <a href="product.html">Dignissimos fuga voluptates totam</a>
-                            </h3>
-                            <p class="prod-i-price">
-                                <b>$85</b>
-                            </p>
-                        </li>
-                        <li class="prod-i">
-                            <div class="prod-i-top">
-                                <a href="product.html" class="prod-i-img"><!-- NO SPACE --><img src="http://placehold.it/291x250" alt="Perferendis recusandae"><!-- NO SPACE --></a>
-                                <p class="prod-i-info">
-                                    <a href="#" class="prod-i-favorites"><span>Wishlist</span><i class="fa fa-heart"></i></a>
-                                    <a href="#" class="prod-i-qview"><span>Quick View</span><i class="fa fa-search"></i></a>
-                                    <a class="prod-i-compare" href="#"><span>Compare</span><i class="fa fa-bar-chart"></i></a>
-                                </p>
-                                <p class="prod-i-addwrap">
-                                    <a href="#" class="prod-i-add">Add to cart</a>
-                                </p>
-                            </div>
-                            <h3>
-                                <a href="product.html">Perferendis recusandae</a>
-                            </h3>
-                            <p class="prod-i-price">
-                                <b>$70</b>
-                            </p>
-                        </li>
-                        <li class="prod-i">
-                            <div class="prod-i-top">
-                                <a href="product.html" class="prod-i-img"><!-- NO SPACE --><img src="http://placehold.it/277x250" alt="Officiis nihil culpa"><!-- NO SPACE --></a>
-                                <p class="prod-i-info">
-                                    <a href="#" class="prod-i-favorites"><span>Wishlist</span><i class="fa fa-heart"></i></a>
-                                    <a href="#" class="prod-i-qview"><span>Quick View</span><i class="fa fa-search"></i></a>
-                                    <a class="prod-i-compare" href="#"><span>Compare</span><i class="fa fa-bar-chart"></i></a>
-                                </p>
-                                <p class="prod-i-addwrap">
-                                    <a href="#" class="prod-i-add">Add to cart</a>
-                                </p>
-                            </div>
-                            <h3>
-                                <a href="product.html">Officiis nihil culpa</a>
-                            </h3>
-                            <p class="prod-i-price">
-                                <b>$180</b>
-                            </p>
-                        </li>
-                        <li class="prod-i">
-                            <div class="prod-i-top">
-                                <a href="product.html" class="prod-i-img"><!-- NO SPACE --><img src="http://placehold.it/295x250" alt="Distinctio modi quos"><!-- NO SPACE --></a>
-                                <p class="prod-i-info">
-                                    <a href="#" class="prod-i-favorites"><span>Wishlist</span><i class="fa fa-heart"></i></a>
-                                    <a href="#" class="prod-i-qview"><span>Quick View</span><i class="fa fa-search"></i></a>
-                                    <a class="prod-i-compare" href="#"><span>Compare</span><i class="fa fa-bar-chart"></i></a>
-                                </p>
-                                <p class="prod-i-addwrap">
-                                    <a href="#" class="prod-i-add">Add to cart</a>
-                                </p>
-                            </div>
-                            <h3>
-                                <a href="product.html">Distinctio modi quos</a>
-                            </h3>
-                            <p class="prod-i-price">
-                                <b>$195</b>
-                            </p>
-                        </li>
-                        <li class="prod-i">
-                            <div class="prod-i-top">
-                                <a href="product.html" class="prod-i-img"><!-- NO SPACE --><img src="http://placehold.it/301x250" alt="Corrupti velit vero"><!-- NO SPACE --></a>
-                                <p class="prod-i-info">
-                                    <a href="#" class="prod-i-favorites"><span>Wishlist</span><i class="fa fa-heart"></i></a>
-                                    <a href="#" class="prod-i-qview"><span>Quick View</span><i class="fa fa-search"></i></a>
-                                    <a class="prod-i-compare" href="#"><span>Compare</span><i class="fa fa-bar-chart"></i></a>
-                                </p>
-                                <p class="prod-i-addwrap">
-                                    <a href="#" class="prod-i-add">Add to cart</a>
-                                </p>
-                            </div>
-                            <h3>
-                                <a href="product.html">Corrupti velit vero</a>
-                            </h3>
-                            <p class="prod-i-price">
-                                <b>$220</b>
-                            </p>
-                        </li>
-                        <li class="prod-i">
-                            <div class="prod-i-top">
-                                <a href="product.html" class="prod-i-img"><!-- NO SPACE --><img src="http://placehold.it/289x250" alt="Dicta doloremque hic"><!-- NO SPACE --></a>
-                                <p class="prod-i-info">
-                                    <a href="#" class="prod-i-favorites"><span>Wishlist</span><i class="fa fa-heart"></i></a>
-                                    <a href="#" class="prod-i-qview"><span>Quick View</span><i class="fa fa-search"></i></a>
-                                    <a class="prod-i-compare" href="#"><span>Compare</span><i class="fa fa-bar-chart"></i></a>
-                                </p>
-                                <p class="prod-i-addwrap">
-                                    <a href="#" class="prod-i-add">Add to cart</a>
-                                </p>
-                            </div>
-                            <h3>
-                                <a href="product.html">Dicta doloremque hic</a>
-                            </h3>
-                            <p class="prod-i-price">
-                                <b>$90</b>
-                            </p>
-                        </li>
-
-                    </ul>
-
-                </div>
-
-
-            </div><!-- .fr-pop-tab-cont -->
-
-
-        </div><!-- .fr-pop-wrap -->
-
-
-        <!-- Banners -->
-        <div class="banners-wrap">
-            <div class="banners-list">
-                <div class="banner-i style_11">
-                    <span class="banner-i-bg" style="background: url(http://placehold.it/560x360);"></span>
-                    <div class="banner-i-cont">
-                        <p class="banner-i-subttl">SOLUTION</p>
-                        <h3 class="banner-i-ttl">NEB XI<br>SOLUTION</h3>
-                        <p class="banner-i-link"><a href="section.html">View More</a></p>
-                    </div>
-                </div>
-                <div class="banner-i style_22">
-                    <span class="banner-i-bg" style="background: url(http://placehold.it/270x360);"></span>
-                    <div class="banner-i-cont">
-                        <p class="banner-i-subttl">GREAT COLLECTION</p>
-                        <h3 class="banner-i-ttl">CLOTHING<br>ACCESSORIES</h3>
-                        <p class="banner-i-link"><a href="section.html">Show more</a></p>
-                    </div>
-                </div>
-                <div class="banner-i style_21">
-                    <span class="banner-i-bg" style="background: url(http://placehold.it/270x360);"></span>
-                    <div class="banner-i-cont">
-                        <h3 class="banner-i-ttl">SPORT<br>CLOTHES</h3>
-                        <p class="banner-i-link"><a href="section.html">Go to catalog</a></p>
-                    </div>
-                </div>
-                <div class="banner-i style_12">
-                    <span class="banner-i-bg" style="background: url(http://placehold.it/560x360);"></span>
-                    <div class="banner-i-cont">
-                        <p class="banner-i-subttl">STYLISH CLOTHES</p>
-                        <h3 class="banner-i-ttl">WOMEN'S COLLECTION</h3>
-                        <p>A great selection of dresses, <br>blouses and women's suits</p>
-                        <p class="banner-i-link"><a href="section.html">View More</a></p>
                     </div>
                 </div>
             </div>
         </div>
+        <div class="col-6 col-md-2">
+            <div class="bbb_viewed">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col">
+                            <div class="bbb_main_container">
+                                <div class="bbb_viewed_slider_container" style="margin: 5px">
+                                    <img src="https://i.pinimg.com/originals/20/1f/d2/201fd2f442af458b8d07499028f2bd19.jpg" alt="" style="height: 420px; width: available;">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+   @foreach($categories as $categories)
+        <div class="row">
+            <div class="col-12 col-md-12">
+                <div class="bbb_viewed">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col">
+                                <div class="bbb_main_container">
+                                    <div class="bbb_viewed_title_container">
+                                        <div class="col-12 col-md-12">
+                                        <div class="col-6 col-md-6">
+                                            <h3 class="bbb_viewed_title">{{$categories->name}}</h3>
+                                        </div>
+                                        <div class="col-6 col-md-6">
+                                            <button class="">View All</button>
+                                        </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="bbb_viewed_slider_container">
+                                        <div class="row" style="margin: 10px">
+                                            <div class="MultiCarousel" data-items="1,3,5,6,7" data-slide="1" id="MultiCarousel"  data-interval="1000">
+                                                <div class="MultiCarousel-inner">
+                                                    <div class="prod-items section-items">
+                                                        @foreach($products as $product)
+                                                            @if($product->category==$categories->name)
+                                                            <div class="item">
+                                                                <div class="pad15">
+                                                                    <div class="prod-i">
+                                                                        <div class="prod-i-top">
+                                                                            <a href="{{url('productDetails/'.$product->id)}}" class="prod-i-img"><!-- NO SPACE --><img src="{{$product->getImage()}}" alt="Adipisci aperiam commodi"><!-- NO SPACE --></a>
+                                                                            <p class="prod-i-info">
+                                                                                <a href="#" class="prod-i-favorites"><span>Wishlist</span><i class="fa fa-heart"></i></a>
+                                                                                <a href="#" class="qview-btn prod-i-qview"><span>Quick View</span><i class="fa fa-search"></i></a>
+                                                                                <a class="prod-i-compare" href="#"><span>Compare</span><i class="fa fa-bar-chart"></i></a>
+                                                                            </p>
+                                                                            <a href="{{url('add/to/cart/'.$product->id)}}" class="prod-i-buy">Add to cart</a>
+                                                                            <p class="prod-i-properties-label"><a class="fa fa-info" href="{{url('productDetails/'.$product->id)}}"></a></p>
+                                                                        </div>
+                                                                        <div class="prod-sticker">
+                                                                            <p class="prod-sticker-3">-30%</p><p class="prod-sticker-4 countdown" data-date="29 Jan 2017, 14:30:00"></p>
+                                                                        </div>
+                                                                        <h3>
+                                                                            <a href="{{url('productDetails/'.$product->id)}}">{{$product->name}}</a>
+                                                                        </h3>
+                                                                        <p class="prod-i-price">
+                                                                            <b>{{$product->price}}</b>
+                                                                            <del>{{$product->price}}</del>
+                                                                        </p>
+                                                                        <div class="prod-i-skuwrapcolor">
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            @endif
+                                                        @endforeach
+                                                    </div>
+
+
+                                                </div>
+                                                <button class="btn btn-primary leftLst"><</button>
+                                                <button class="btn btn-primary rightLst">></button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+       @endforeach
+
+    <div class="bbb_viewed">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col">
+                    <div class="bbb_main_container">
+                        <div class="bbb_viewed_title_container">
+                            <h3 class="bbb_viewed_title">Best selling products</h3>
+                            <div class="bbb_viewed_nav_container">
+                                <div class="bbb_viewed_nav bbb_viewed_prev"><i class="fas fa-chevron-left"></i></div>
+                                <div class="bbb_viewed_nav bbb_viewed_next"><i class="fas fa-chevron-right"></i></div>
+                            </div>
+                        </div>
+                        <div class="bbb_viewed_slider_container">
+                            <div class="banners-list">
+                                <div class="banner-i style_11">
+                                    <span class="banner-i-bg" style="background: url(http://placehold.it/560x360);"></span>
+                                    <div class="banner-i-cont">
+                                        <p class="banner-i-subttl">SOLUTION</p>
+                                        <h3 class="banner-i-ttl">NEB XI<br>SOLUTION</h3>
+                                        <p class="banner-i-link"><a href="section.html">View More</a></p>
+                                    </div>
+                                </div>
+                                <div class="banner-i style_22">
+                                    <span class="banner-i-bg" style="background: url(http://placehold.it/270x360);"></span>
+                                    <div class="banner-i-cont">
+                                        <p class="banner-i-subttl">GREAT COLLECTION</p>
+                                        <h3 class="banner-i-ttl">CLOTHING<br>ACCESSORIES</h3>
+                                        <p class="banner-i-link"><a href="section.html">Show more</a></p>
+                                    </div>
+                                </div>
+                                <div class="banner-i style_21">
+                                    <span class="banner-i-bg" style="background: url(http://placehold.it/270x360);"></span>
+                                    <div class="banner-i-cont">
+                                        <h3 class="banner-i-ttl">SPORT<br>CLOTHES</h3>
+                                        <p class="banner-i-link"><a href="section.html">Go to catalog</a></p>
+                                    </div>
+                                </div>
+                                <div class="banner-i style_12">
+                                    <span class="banner-i-bg" style="background: url(http://placehold.it/560x360);"></span>
+                                    <div class="banner-i-cont">
+                                        <p class="banner-i-subttl">STYLISH CLOTHES</p>
+                                        <h3 class="banner-i-ttl">WOMEN'S COLLECTION</h3>
+                                        <p>A great selection of dresses, <br>blouses and women's suits</p>
+                                        <p class="banner-i-link"><a href="section.html">View More</a></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
 
         <!-- Special offer -->
@@ -796,5 +563,362 @@
 
 
     @endsection
+@push('scripts')
+    <script>
+        $(document).ready(function()
+        {
+            if($('.bbb_viewed_slider').length)
+            {
+                var viewedSlider = $('.bbb_viewed_slider');
 
+                viewedSlider.owlCarousel(
+                    {
+                        loop:true,
+                        margin:30,
+                        autoplay:true,
+                        autoplayTimeout:6000,
+                        nav:false,
+                        dots:false,
+                        responsive:
+                            {
+                                0:{items:1},
+                                575:{items:2},
+                                768:{items:3},
+                                991:{items:4},
+                                1199:{items:6}
+                            }
+                    });
+
+                if($('.bbb_viewed_prev').length)
+                {
+                    var prev = $('.bbb_viewed_prev');
+                    prev.on('click', function()
+                    {
+                        viewedSlider.trigger('prev.owl.carousel');
+                    });
+                }
+
+                if($('.bbb_viewed_next').length)
+                {
+                    var next = $('.bbb_viewed_next');
+                    next.on('click', function()
+                    {
+                        viewedSlider.trigger('next.owl.carousel');
+                    });
+                }
+            }
+
+
+        });
+    </script>
+
+    <script>
+        // The Slideshow class.
+        class Slideshow {
+            constructor(el) {
+
+                this.DOM = {el: el};
+
+                this.config = {
+                    slideshow: {
+                        delay: 3000,
+                        pagination: {
+                            duration: 3,
+                        }
+                    }
+                };
+
+                // Set the slideshow
+                this.init();
+
+            }
+            init() {
+
+                var self = this;
+
+                // Charmed title
+                this.DOM.slideTitle = this.DOM.el.querySelectorAll('.slide-title');
+                this.DOM.slideTitle.forEach((slideTitle) => {
+                    charming(slideTitle);
+                });
+
+                // Set the slider
+                this.slideshow = new Swiper (this.DOM.el, {
+
+                    loop: true,
+                    autoplay: {
+                        delay: this.config.slideshow.delay,
+                        disableOnInteraction: false,
+                    },
+                    speed: 500,
+                    preloadImages: true,
+                    updateOnImagesReady: true,
+
+                    // lazy: true,
+                    // preloadImages: false,
+
+                    pagination: {
+                        el: '.slideshow-pagination',
+                        clickable: true,
+                        bulletClass: 'slideshow-pagination-item',
+                        bulletActiveClass: 'active',
+                        clickableClass: 'slideshow-pagination-clickable',
+                        modifierClass: 'slideshow-pagination-',
+                        renderBullet: function (index, className) {
+
+                            var slideIndex = index,
+                                number = (index <= 8) ? '0' + (slideIndex + 1) : (slideIndex + 1);
+
+                            var paginationItem = '<span class="slideshow-pagination-item">';
+                            paginationItem += '<span class="pagination-number">' + number + '</span>';
+                            paginationItem = (index <= 8) ? paginationItem + '<span class="pagination-separator"><span class="pagination-separator-loader"></span></span>' : paginationItem;
+                            paginationItem += '</span>';
+
+                            return paginationItem;
+
+                        },
+                    },
+
+                    // Navigation arrows
+                    navigation: {
+                        nextEl: '.slideshow-navigation-button.next',
+                        prevEl: '.slideshow-navigation-button.prev',
+                    },
+
+                    // And if we need scrollbar
+                    scrollbar: {
+                        el: '.swiper-scrollbar',
+                    },
+
+                    on: {
+                        init: function() {
+                            self.animate('next');
+                        },
+                    }
+
+                });
+
+                // Init/Bind events.
+                this.initEvents();
+
+            }
+            initEvents() {
+
+                this.slideshow.on('paginationUpdate', (swiper, paginationEl) => this.animatePagination(swiper, paginationEl));
+                //this.slideshow.on('paginationRender', (swiper, paginationEl) => this.animatePagination());
+
+                this.slideshow.on('slideNextTransitionStart', () => this.animate('next'));
+
+                this.slideshow.on('slidePrevTransitionStart', () => this.animate('prev'));
+
+            }
+            animate(direction = 'next') {
+
+                // Get the active slide
+                this.DOM.activeSlide = this.DOM.el.querySelector('.swiper-slide-active'),
+                    this.DOM.activeSlideImg = this.DOM.activeSlide.querySelector('.slide-image'),
+                    this.DOM.activeSlideTitle = this.DOM.activeSlide.querySelector('.slide-title'),
+                    this.DOM.activeSlideTitleLetters = this.DOM.activeSlideTitle.querySelectorAll('span');
+
+                // Reverse if prev
+                this.DOM.activeSlideTitleLetters = direction === "next" ? this.DOM.activeSlideTitleLetters : [].slice.call(this.DOM.activeSlideTitleLetters).reverse();
+
+                // Get old slide
+                this.DOM.oldSlide = direction === "next" ? this.DOM.el.querySelector('.swiper-slide-prev') : this.DOM.el.querySelector('.swiper-slide-next');
+                if (this.DOM.oldSlide) {
+                    // Get parts
+                    this.DOM.oldSlideTitle = this.DOM.oldSlide.querySelector('.slide-title'),
+                        this.DOM.oldSlideTitleLetters = this.DOM.oldSlideTitle.querySelectorAll('span');
+                    // Animate
+                    this.DOM.oldSlideTitleLetters.forEach((letter,pos) => {
+                        TweenMax.to(letter, .3, {
+                            ease: Quart.easeIn,
+                            delay: (this.DOM.oldSlideTitleLetters.length-pos-1)*.04,
+                            y: '50%',
+                            opacity: 0
+                        });
+                    });
+                }
+
+                // Animate title
+                this.DOM.activeSlideTitleLetters.forEach((letter,pos) => {
+                    TweenMax.to(letter, .6, {
+                        ease: Back.easeOut,
+                        delay: pos*.05,
+                        startAt: {y: '50%', opacity: 0},
+                        y: '0%',
+                        opacity: 1
+                    });
+                });
+
+                // Animate background
+                TweenMax.to(this.DOM.activeSlideImg, 1.5, {
+                    ease: Expo.easeOut,
+                    startAt: {x: direction === 'next' ? 200 : -200},
+                    x: 0,
+                });
+
+                //this.animatePagination()
+
+            }
+            animatePagination(swiper, paginationEl) {
+
+                // Animate pagination
+                this.DOM.paginationItemsLoader = paginationEl.querySelectorAll('.pagination-separator-loader');
+                this.DOM.activePaginationItem = paginationEl.querySelector('.slideshow-pagination-item.active');
+                this.DOM.activePaginationItemLoader = this.DOM.activePaginationItem.querySelector('.pagination-separator-loader');
+
+                console.log(swiper.pagination);
+                // console.log(swiper.activeIndex);
+
+                // Reset and animate
+                TweenMax.set(this.DOM.paginationItemsLoader, {scaleX: 0});
+                TweenMax.to(this.DOM.activePaginationItemLoader, this.config.slideshow.pagination.duration, {
+                    startAt: {scaleX: 0},
+                    scaleX: 1,
+                });
+
+
+            }
+
+        }
+
+        const slideshow = new Slideshow(document.querySelector('.slideshow'));
+
+    </script>
+
+    <script>
+
+        $(document).ready(function () {
+            var itemsMainDiv = ('.MultiCarousel');
+            var itemsDiv = ('.MultiCarousel-inner');
+            var itemWidth = "";
+
+            $('.leftLst, .rightLst').click(function () {
+                var condition = $(this).hasClass("leftLst");
+                if (condition)
+                    click(0, this);
+                else
+                    click(1, this)
+            });
+
+            ResCarouselSize();
+
+
+
+
+            $(window).resize(function () {
+                ResCarouselSize();
+            });
+
+            //this function define the size of the items
+            function ResCarouselSize() {
+                var incno = 0;
+                var dataItems = ("data-items");
+                var itemClass = ('.item');
+                var id = 0;
+                var btnParentSb = '';
+                var itemsSplit = '';
+                var sampwidth = $(itemsMainDiv).width();
+                var bodyWidth = $('body').width();
+                $(itemsDiv).each(function () {
+                    id = id + 1;
+                    var itemNumbers = $(this).find(itemClass).length;
+                    btnParentSb = $(this).parent().attr(dataItems);
+                    itemsSplit = btnParentSb.split(',');
+                    $(this).parent().attr("id", "MultiCarousel" + id);
+
+                    if (bodyWidth >= 1200) {
+                        incno = itemsSplit[3];
+                        itemWidth = sampwidth / incno;
+                    }
+                    else if (bodyWidth >= 992) {
+                        incno = itemsSplit[2];
+                        itemWidth = sampwidth / incno;
+                    }
+                    else if (bodyWidth >= 768) {
+                        incno = itemsSplit[1];
+                        itemWidth = sampwidth / incno;
+                    }
+                    else {
+                        incno = itemsSplit[0];
+                        itemWidth = sampwidth / incno;
+                    }
+                    $(this).css({ 'transform': 'translateX(0px)', 'width': itemWidth * itemNumbers });
+                    $(this).find(itemClass).each(function () {
+                        $(this).outerWidth(itemWidth);
+                    });
+
+                    $(".leftLst").addClass("over");
+                    $(".rightLst").removeClass("over");
+
+                });
+            }
+
+
+            //this function used to move the items
+            function ResCarousel(e, el, s) {
+                var leftBtn = ('.leftLst');
+                var rightBtn = ('.rightLst');
+                var translateXval = '';
+                var divStyle = $(el + ' ' + itemsDiv).css('transform');
+                var values = divStyle.match(/-?[\d\.]+/g);
+                var xds = Math.abs(values[4]);
+                if (e == 0) {
+                    translateXval = parseInt(xds) - parseInt(itemWidth * s);
+                    $(el + ' ' + rightBtn).removeClass("over");
+
+                    if (translateXval <= itemWidth / 2) {
+                        translateXval = 0;
+                        $(el + ' ' + leftBtn).addClass("over");
+                    }
+                }
+                else if (e == 1) {
+                    var itemsCondition = $(el).find(itemsDiv).width() - $(el).width();
+                    translateXval = parseInt(xds) + parseInt(itemWidth * s);
+                    $(el + ' ' + leftBtn).removeClass("over");
+
+                    if (translateXval >= itemsCondition - itemWidth / 2) {
+                        translateXval = itemsCondition;
+                        $(el + ' ' + rightBtn).addClass("over");
+                    }
+                }
+                $(el + ' ' + itemsDiv).css('transform', 'translateX(' + -translateXval + 'px)');
+            }
+
+            //It is used to get some elements from btn
+            function click(ell, ee) {
+                var Parent = "#" + $(ee).parent().attr("id");
+                var slide = $(Parent).attr("data-slide");
+                ResCarousel(ell, Parent, slide);
+            }
+
+        });
+
+    </script>
+<script>
+    $(document).ready(function(){
+        $("#search").focus(function() {
+            $(".search-box").addClass("border-searching");
+            $(".search-icon").addClass("si-rotate");
+        });
+        $("#search").blur(function() {
+            $(".search-box").removeClass("border-searching");
+            $(".search-icon").removeClass("si-rotate");
+        });
+        $("#search").keyup(function() {
+            if($(this).val().length > 0) {
+                $(".go-icon").addClass("go-in");
+            }
+            else {
+                $(".go-icon").removeClass("go-in");
+            }
+        });
+        $(".go-icon").click(function(){
+            $(".search-form").submit();
+        });
+    });
+
+</script>
+    @endpush
 

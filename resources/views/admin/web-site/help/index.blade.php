@@ -2,7 +2,6 @@
 @extends('admin.layout.app')
 
 @section('content')
-    @include('admin.partials.common.page-title', ['page_title' => 'Help Quote'])
     <div>
         <div class="row-fluid">
             <div class="span12">

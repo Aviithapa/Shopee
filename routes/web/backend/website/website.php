@@ -145,6 +145,16 @@ Route::group(['namespace' => 'WebSite'], function () {
             'destroy' => 'dashboard.product.destroy',
         ]
     ]);
+    Route::resource('products','ProductsController',[
+        'names' => [
+            'index' => 'dashboard.products.index',
+            'create' => 'dashboard.products.create',
+            'store' => 'dashboard.products.store',
+            'edit' => 'dashboard.products.edit',
+            'update' => 'dashboard.products.update',
+            'destroy' => 'dashboard.products.destroy',
+        ]
+    ]);
     Route::match(['put', 'patch'], 'events/approve/{event}', 'EventController@approve')->name('dashboard.events.approve');
 
 });

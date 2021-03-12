@@ -6,6 +6,8 @@
  * Time: 2:17 PM
  */
 
+use Illuminate\Support\Facades\Auth;
+
 if (!function_exists('pagination_links')) {
 
     /**
@@ -182,7 +184,8 @@ function getCartAmount()
 {
     $mac_address = exec('getmac');
     $mac = strtok($mac_address, ' ');
-    return $cart_amount = \App\Models\Website\Cart::where('mac', $mac)->count();
+    $user=Auth::user()->id;
+    return $cart_amount = \App\Models\Website\Cart::where('user_id', $user)->count();
 }
 
 function getCartTotalPrice()
