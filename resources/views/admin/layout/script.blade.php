@@ -69,10 +69,10 @@
         });
     });
     $(".text-editor2").each(function(){$(this).wysihtml5();});
-//    $('.text-editor2').wysihtml5({
-//        "stylesheets": false,
-//        "color": false,
-//    });
+    //    $('.text-editor2').wysihtml5({
+    //        "stylesheets": false,
+    //        "color": false,
+    //    });
     /**
      * Calls data table instance
      */
@@ -133,8 +133,8 @@
         $('a[data-toggle="'+tog+'"][data-title="'+sel+'"]').removeClass('notActive').addClass('active');
     })
 
-//    CKEDITOR.replace( 'ckeditor', {
-////        filebrowserBrowseUrl: '/ckfinder/ckfinder.html',
-////        filebrowserUploadUrl: '/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Files'
-//    } );
+    //    CKEDITOR.replace( 'ckeditor', {
+    ////        filebrowserBrowseUrl: '/ckfinder/ckfinder.html',
+    ////        filebrowserUploadUrl: '/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Files'
+    //    } );
 </script>

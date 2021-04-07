@@ -1,8 +1,11 @@
 @if(isset($model))
-    {{ Form::model($model, ['url' => route('dashboard.product.update', $model->id), 'method' => 'PUT','files' => true]) }}
+    {{ Form::model($model, ['url' => route('dashboard.products.update', $model->id), 'method' => 'PUT','files' => true]) }}
 @else
-    {{ Form::open(['url' => route('dashboard.product.store'), 'method' => 'post', 'files' => true]) }}
+    {{ Form::open(['url' => route('dashboard.products.store'), 'method' => 'post', 'files' => true]) }}
 @endif
+<link href="{{asset('assets/plugins/jquery-datatable/css/jquery.dataTables.css')}}" rel="stylesheet" type="text/css" />
+<link href="{{asset('assets/plugins/datatables-responsive/css/datatables.responsive.css')}}" rel="stylesheet" type="text/css" media="screen" />
+<link href="{{asset('webarch/css/themes/webarch.coporate.css')}}" rel="stylesheet" type="text/css" />
 
 <div class="grid simple ">
 

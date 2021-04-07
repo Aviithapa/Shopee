@@ -1,5 +1,4 @@
-
-    @extends('admin.layout.admin')
+@extends('admin.layout.app')
 
 
 @section('content')
@@ -14,7 +13,7 @@
                         </div>
                     </div>
                     <div class="grid-body ">
-                        @include('admin.web-site.product.form', ['model' => $product])
+                        @include('admin.web-site.products.form', ['model' => $product])
                     </div>
                 </div>
             </div>

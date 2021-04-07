@@ -47,6 +47,27 @@
                     <li><a href="{{route('dashboard.news.index')}}">Blogs Management</a></li>
                 </ul>
             </li>
+            <li class="start ">
+                <a href="javascript:void(0)"><i class="material-icons">category</i>
+                    <span class="title">Categories</span> <span class="selected"></span> <span class="arrow "></span>
+                </a>
+                <ul class="sub-menu">
+                    <li><a href="{{route('dashboard.faculty.index')}}">Faculty</a></li>
+                    <li><a href="{{route('dashboard.semester.index')}}">Semester</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="{{route('dashboard.product.index')}}">
+                    <i class="material-icons">book</i>
+                    <span class="title">Add Book</span>
+                </a>
+            </li>
+            <li>
+                <a href="{{route('dashboard.order.index')}}">
+                    <i class="fa fa-list"></i>
+                    <span class="title">Orders</span>
+                </a>
+            </li>
             <li>
                 <a href="{{route('dashboard.users.index')}}">
                     <i class="fa fa-users"></i>
@@ -62,40 +83,8 @@
                     <li><a href="{{route('dashboard.permissions.index')}}">Permission</a></li>
                 </ul>
             </li>
-{{--            <li>--}}
-{{--                <a href="{{route('dashboard.help.index')}}">--}}
-{{--                    <i class="fa fa-hands-helping"></i>--}}
-{{--                    <span class="title">Help Request</span>--}}
-{{--                </a>--}}
-{{--            </li>--}}
-{{--            <li>--}}
-{{--                <a href="{{route('dashboard.donor.index')}}">--}}
-{{--                    <i class="fa fa-donate"></i>--}}
-{{--                    <span class="title">Donor List</span>--}}
-{{--                </a>--}}
-{{--            </li>--}}
-{{--            <li>--}}
-{{--                <a href="{{route('dashboard.category.index')}}">--}}
-{{--                    <i class="fa fa-donate"></i>--}}
-{{--                    <span class="title">Category List</span>--}}
-{{--                </a>--}}
-{{--            </li>--}}
 
-{{--            <li>--}}
-{{--                <a href="{{route('dashboard.product.index')}}">--}}
-{{--                    <i class="fa fa-donate"></i>--}}
-{{--                    <span class="title">Product</span>--}}
-{{--                </a>--}}
-{{--            </li>--}}
-            <li class="start ">
-                <a href="javascript:void(0)"><i class="material-icons">rowing</i>
-                    <span class="title">Setting</span> <span class="selected"></span> <span class="arrow "></span>
-                </a>
-                <ul class="sub-menu">
-                    <li><a href="{{route('dashboard.category.index')}}">Category</a></li>
-                    <li><a href="{{route('dashboard.product.index')}}">Product</a></li>
-                </ul>
-            </li>
+
         </ul>
         <div class="clearfix"></div>
         <!-- END SIDEBAR MENU -->

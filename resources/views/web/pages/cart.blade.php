@@ -7,7 +7,7 @@
 
             <ul class="b-crumbs">
                 <li>
-                    <a href="index.html">
+                    <a href="{{url('/')}}">
                         Home
                     </a>
                 </li>
@@ -104,7 +104,7 @@
                         <input placeholder="your coupon" type="text">
                         <a class="cart-coupon-btn" href="#"><img src="img/ok.png" alt=""></a>
                     </div>
-                    <a href="#" class="cart-submit-btn">Checkout</a>
+                    <a href="{{url('checkout')}}" class="cart-submit-btn">Checkout</a>
                     <a href="#" class="cart-clear">Clear cart</a>
                 </div>
             </form>

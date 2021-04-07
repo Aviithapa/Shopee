@@ -125,16 +125,6 @@ Route::group(['namespace' => 'WebSite'], function () {
             'show'=>'dashboard.donation.show',
         ]
     ]);
-    Route::resource('category','CategoryController',[
-        'names' => [
-            'index' => 'dashboard.category.index',
-            'create' => 'dashboard.category.create',
-            'store' => 'dashboard.category.store',
-            'edit' => 'dashboard.category.edit',
-            'update' => 'dashboard.category.update',
-            'destroy' => 'dashboard.category.destroy',
-    ]
-    ]);
     Route::resource('product','ProductController',[
         'names' => [
             'index' => 'dashboard.product.index',
@@ -153,6 +143,44 @@ Route::group(['namespace' => 'WebSite'], function () {
             'edit' => 'dashboard.products.edit',
             'update' => 'dashboard.products.update',
             'destroy' => 'dashboard.products.destroy',
+        ]
+    ]);
+    Route::resource('order','OrderController',[
+        'names' => [
+            'index' => 'dashboard.order.index',
+            'create' => 'dashboard.order.create',
+            'store' => 'dashboard.order.store',
+            'edit' => 'dashboard.order.edit',
+            'show' => 'dashboard.order.show',
+            'update' => 'dashboard.order.update',
+            'destroy' => 'dashboard.order.destroy',
+        ]
+    ]);
+    Route::resource('semester','SemesterController',[
+        'names' => [
+            'index' => 'dashboard.semester.index',
+            'create' => 'dashboard.semester.create',
+            'store' => 'dashboard.semester.store',
+            'edit' => 'dashboard.semester.edit',
+            'show' => 'dashboard.semester.show',
+            'update' => 'dashboard.semester.update',
+            'destroy' => 'dashboard.semester.destroy',
+        ]
+    ]);
+    Route::resource('faculty','FacultyController',[
+        'names' => [
+            'index' => 'dashboard.faculty.index',
+            'create' => 'dashboard.faculty.create',
+            'store' => 'dashboard.faculty.store',
+            'edit' => 'dashboard.faculty.edit',
+            'show' => 'dashboard.faculty.show',
+            'update' => 'dashboard.faculty.update',
+            'destroy' => 'dashboard.faculty.destroy',
+        ]
+    ]);
+    Route::resource('invoice','InvoiceController',[
+        'names' => [
+            'show' => 'dashboard.invoice.show',
         ]
     ]);
     Route::match(['put', 'patch'], 'events/approve/{event}', 'EventController@approve')->name('dashboard.events.approve');

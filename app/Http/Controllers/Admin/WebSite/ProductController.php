@@ -6,26 +6,28 @@ namespace App\Http\Controllers\Admin\WebSite;
 
 
 use App\Http\Controllers\Admin\BaseController;
-use App\Modules\Backend\Website\Category\Repositories\CategoryRepository;
+use App\Modules\Backend\Website\Faculty\Repositories\FacultyRepository;
 use App\Modules\Backend\Website\Product\Repositories\ProductRepository;
 use App\Modules\Backend\Website\Product\Requests\CreateProductRequest;
 use App\Modules\Backend\Website\Product\Requests\UpdateProductRequest;
+use App\Modules\Backend\Website\Semester\Repositories\SemesterRepository;
 use Illuminate\Contracts\Logging\Log;
 use Illuminate\Support\Facades\Auth;
 use Yajra\DataTables\Facades\DataTables;
 
 class ProductController extends BaseController
 {
-    private $productRepository, $log ,$categoryRepository;
+    private $productRepository, $log ,$facultyRepository, $semesterRepository;
     private $commonRoute='dashboard.product';
     private $commonView='web-site.product.';
     private $commonMessage='Product';
     private $viewData;
-    public function __construct(Log $log, ProductRepository $productRepository , CategoryRepository $categoryRepository)
+    public function __construct(Log $log, ProductRepository $productRepository , FacultyRepository $facultyRepository,SemesterRepository $semesterRepository)
     {
 
         $this->productRepository = $productRepository;
-        $this->categoryRepository = $categoryRepository;
+        $this->facultyRepository = $facultyRepository;
+        $this->semesterRepository = $semesterRepository;
         $this->log = $log;
         $this->viewData['commonRoute']=$this->commonRoute;
         $this->viewData['commonView']=$this->commonView;
@@ -71,7 +73,7 @@ class ProductController extends BaseController
 
         }
         $this->viewData['role']=$role;
-        $this->viewData['categories'] = $this->categoryRepository->getAll();
+        $this->viewData['categories'] = $this->facultyRepository->getAll();
         return $this->view('web-site.product.index',$this->viewData);
     }
 
@@ -83,7 +85,8 @@ class ProductController extends BaseController
     public function create()
     {
         $this->viewData['role'] = Auth::user()->mainRole()?Auth::user()->mainRole()->name:'default';
-        $this->viewData['category']=$this->categoryRepository->getAll();
+        $this->viewData['faculty']=$this->facultyRepository->getAll();
+        $this->viewData['semester']=$this->semesterRepository->getAll();
         return $this->view('web-site.product.create',$this->viewData);
     }
 
@@ -134,9 +137,10 @@ class ProductController extends BaseController
     public function edit($id)
     {
         $role = Auth::user()->mainRole()?Auth::user()->mainRole()->name:'default';
-        $category=$this->categoryRepository->getAll();
+        $faculty=$this->facultyRepository->getAll();
+        $semester=$this->semesterRepository->getAll();
         $product = $this->productRepository->findById($id);
-        return $this->view('web-site.product.edit', compact('product','category','role'));
+        return $this->view('web-site.product.edit', compact('product','faculty','semester','role'));
     }
 
     /**

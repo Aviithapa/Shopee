@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Web\General;
 
+use App\Http\Controllers\Admin\WebSite\FacultyController;
 use App\Http\Controllers\Admin\WebSite\ProductController;
 use App\Http\Controllers\Web\BaseController;
 use App\Models\Auth\Role;
@@ -9,6 +10,8 @@ use App\Models\Website\Cart;
 use App\Models\Website\Donation;
 use App\Models\Website\GetTouch;
 use App\Models\Website\Help;
+use App\Models\Website\Order;
+use App\Models\Website\OrderItem;
 use App\Models\Website\Product;
 use App\Models\Website\StoreRequestQuote;
 use App\Modules\Backend\Authentication\Role\Repositories\RoleRepository;
@@ -48,7 +51,7 @@ class HomeController extends BaseController
                                 PostRepository $postRepository,
                                 RoleRepository $roleRepository,
                                 UserRepository $userRepository,
-                                Request $request,CategoryRepository $categoryRepository,ProductRepository $productRepository,CartRepository $cartRepository)
+                                Request $request,FacultyController $categoryRepository,ProductRepository $productRepository,CartRepository $cartRepository)
     {
         $this->sliderRepository = $sliderRepository;
         $this->postRepository = $postRepository;
@@ -107,20 +110,20 @@ class HomeController extends BaseController
         $slug = $slug ? $slug : 'index';
         $this->view_data['pageContent'] = $this->postRepository->findBySlug($slug, false);
         $this->view_data['authUser']=Auth::User();
-        $this->view_data['categories'] = $this->categoryRepository->getAll();
+//        $this->view_data['categories'] = $this->categoryRepository->getModel();
         $file_path = resource_path() . DIRECTORY_SEPARATOR . 'views' . DIRECTORY_SEPARATOR . 'web/pages' . DIRECTORY_SEPARATOR . $slug . '.blade.php';
         if (file_exists($file_path)) {
             switch ($slug) {
                 case 'index':
                     $this->view_data['banners'] = $this->postRepository->findBy('type', 'homepage_banner', '=',false,2);
-                    $this->view_data['categories'] = $this->categoryRepository->getAll();
+//                    $this->view_data['categories'] = $this->categoryRepository->getModel();
                     $this->view_data['products'] = $this->productRepository->getAll();
                      $this->view_data['blogs'] = $this->postRepository->findBy('type', 'news', '=',false,4);
                     $this->view_data['blog']=$this->postRepository->findById(5);
                     break;
                 case 'catalog':
-                    $this->view_data['categories'] = $this->categoryRepository->getAll();
-                    $this->view_data['products'] =Product::paginate(6);
+                    $this->view_data['categories'] = $this->categoryRepository->getModel();
+                    $this->view_data['products'] =Product::paginate(12);
                     break;
 
                 case 'productlist':
@@ -202,6 +205,44 @@ class HomeController extends BaseController
 
         }
     }
+    public function Order(Request $request){
+        try{
+            $data=new Order();
+            $data->name=$request->name;
+            $data->address=$request->address;
+            $data->collage_name=$request->collage_name;
+            $data->collage_address=$request->collage_address;
+            $data->phone_number=$request->phone_number;
+            $data->email=auth()->user()->email;
+            $data['user_id']=auth()->user()->id;
+            $data['grand_total']=getCartTotalPrice();
+            $data['item_count']=getTotalQuanity();
+            $data['status'] = "received";
+            $data->save();
+            if ($data) {
+
+                $items = Cart::all();
+
+                foreach ($items as $item)
+                {
+                    $orderItem = new OrderItem([
+                        'order_id'      => $data['id'],
+                        'product_id'    =>  $item->product_id,
+                        'quantity'      =>  $item->quantity,
+                        'price'         =>  "10"
+                    ]);
+
+                    $data->items()->save($orderItem);
+
+                    session()->flash('success', 'User added successfully');
+                    return view('web.pages.success',compact('events'));
+                }
+            }
+
+        }catch (\Exception $ex){
+dd($ex);
+        }
+    }
     public function User(Request $request,$id=null){
         try {
             $data=$request->all();
@@ -235,10 +276,9 @@ class HomeController extends BaseController
         $available_quantity = Product::find($request->id)->quantity;
         $cart_info = Cart::where('mac', $mac)->where('product_id', $request->id)->first();
 
-        //2nd part coding-2222222222
         if($cart_info)
         {
-            //here old_cart_quantity holo cart table a oi product ta already koyta quantity add kora ache
+            //here old_cart_quantity holo cart table  product ta already house of books quantity add hos ache
             $old_cart_quantity = $cart_info->quantity;
         }
         else

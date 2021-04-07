@@ -17,37 +17,61 @@
             </div>
             <div class="col-md-6 col-lg-6">
                 <div class="form-group">
-                    {!! Form::label('category', 'Category:', ['class' => 'form-label']) !!}
-                    {!! Form::select('category',$category->pluck('name','name'),null, ['class' => 'form-control']) !!}
-                    {!! $errors->first('category', '<div class="text-danger">:message</div>') !!}
+                    {!! Form::label('publication', 'Publication:', ['class' => 'form-label']) !!}
+                    {!! Form::select('publication',array('asmita' => 'Asmita ', 'saraswati' => 'Saraswati '),null, ['class' => 'form-control']) !!}
+                    {!! $errors->first('publication', '<div class="text-danger">:message</div>') !!}
+                </div>
+            </div>
+
+        </div>
+        <div class="row">
+            <div class="col-md-6 col-lg-6">
+                <div class="form-group">
+                    {!! Form::label('university', 'University:', ['class' => 'form-label']) !!}
+                    {!! Form::select('university',array('TU' => 'Tribhuwan University ', 'PU' => 'Pokhara University '),null, ['class' => 'form-control']) !!}
+                    {!! $errors->first('university', '<div class="text-danger">:message</div>') !!}
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-6">
+                <div class="form-group">
+                    {!! Form::label('faculty', 'Faculty:', ['class' => 'form-label']) !!}
+                    {!! Form::select('faculty',$faculty->pluck('display_name','name'),null, ['class' => 'form-control']) !!}
+                    {!! $errors->first('faculty', '<div class="text-danger">:message</div>') !!}
                 </div>
             </div>
         </div>
         <div class="row">
             <div class="col-md-6 col-lg-6">
                 <div class="form-group">
-                    {!! Form::label('excerpt', 'Publication:', ['class' => 'form-label']) !!}
-                    {!! Form::text('excerpt', null, ['class' => 'form-control']) !!}
-                    {!! $errors->first('excerpt', '<div class="text-danger">:message</div>') !!}
+                    {!! Form::label('semester', 'Semester:', ['class' => 'form-label']) !!}
+                    {!! Form::select('semester',$semester->pluck('display_name','name'),null, ['class' => 'form-control']) !!}
+                    {!! $errors->first('semester', '<div class="text-danger">:message</div>') !!}
                 </div>
             </div>
             <div class="col-md-6 col-lg-6">
+                <div class="form-group">
+                    {!! Form::label('edition', 'Edition:', ['class' => 'form-label']) !!}
+                    {!! Form::text('edition',null, ['class' => 'form-control']) !!}
+                    {!! $errors->first('edition', '<div class="text-danger">:message</div>') !!}
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4 col-lg-4">
                 <div class="form-group">
                     {!! Form::label('quantity', 'Quantity:', ['class' => 'form-label']) !!}
                     {!! Form::number('quantity',null, ['class' => 'form-control']) !!}
                     {!! $errors->first('quantity', '<div class="text-danger">:message</div>') !!}
                 </div>
             </div>
-        </div>
-        <div class="row">
-            <div class="col-md-6 col-lg-6">
+            <div class="col-md-4 col-lg-4">
                 <div class="form-group">
                     {!! Form::label('price', 'Price:', ['class' => 'form-label']) !!}
                     {!! Form::number('price',null, ['class' => 'form-control']) !!}
                     {!! $errors->first('price', '<div class="text-danger">:message</div>') !!}
                 </div>
             </div>
-            <div class="col-md-6 col-lg-6">
+            <div class="col-md-4 col-lg-4">
                 <div class="form-group">
                     {!! Form::label('discount', 'Discount:', ['class' => 'form-label']) !!}
                     {!! Form::number('discount',null, ['class' => 'form-control']) !!}
@@ -58,7 +82,16 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="form-group">
-                    {!! Form::label('content', 'Content:', ['class' => 'form-label']) !!}
+                    {!! Form::label('excerpt', 'Short Description:', ['class' => 'form-label']) !!}
+                    {!! Form::textarea('excerpt',null, ['class' => 'form-control ckeditor','id'=>'ckeditor']) !!}
+                    {!! $errors->first('excerpt', '<div class="text-danger">:message</div>') !!}
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="form-group">
+                    {!! Form::label('content', 'Description:', ['class' => 'form-label']) !!}
                     {!! Form::textarea('content',null, ['class' => 'form-control ckeditor','id'=>'ckeditor']) !!}
                     {!! $errors->first('content', '<div class="text-danger">:message</div>') !!}
                 </div>

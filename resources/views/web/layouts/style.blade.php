@@ -9,10 +9,12 @@
 <link rel="stylesheet" href="{{asset('asset/css/jquery.fancybox.css')}}">
 <link rel="stylesheet" href="{{asset('asset/css/flexslider.css')}}">
 <link rel="stylesheet" href="{{asset('asset/css/swiper.css')}}">
-<link rel="stylesheet" href="{{asset('asset/css/swiper.css')}}">
 <link rel="stylesheet" href="{{asset('asset/css/style.css')}}">
+<link rel="stylesheet" href="{{asset('asset/css/headerstyle.css')}}">
 <link rel="stylesheet" href="{{asset('asset/css/media.css')}}">
 <link rel="stylesheet" href="{{asset('asset/css/aos.css')}}">
+<link rel="stylesheet" href="{{asset('asset/css/ui.css')}}">
+<link rel="stylesheet" href="{{asset('asset/css/responsive.css')}}">
 <link rel="stylesheet" href="{{asset('asset/css/flaticon.css')}}">
 <link rel="stylesheet" href="{{asset('css/icomoon.css')}}">
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>

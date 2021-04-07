@@ -1,5 +1,5 @@
 
-    @extends('admin.layout.admin')
+@extends('admin.layout.app')
 
 @section('content')
     <div class="container" style="height: max-content">

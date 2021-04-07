@@ -65,13 +65,13 @@
         background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
     }
 
-     .rating {
-         display: inline-block;
-         position: relative;
-         height: 50px;
-         line-height: 50px;
-         font-size: 50px;
-     }
+    .rating {
+        display: inline-block;
+        position: relative;
+        height: 50px;
+        line-height: 50px;
+        font-size: 50px;
+    }
 
     .rating label {
         position: absolute;

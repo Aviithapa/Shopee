@@ -12,14 +12,22 @@ use App\Modules\Backend\Website\Donation\Repositories\DonationRepository;
 use App\Modules\Backend\Website\Donation\Repositories\EloquentDonationRepository;
 use App\Modules\Backend\Website\Event\Repositories\EloquentEventRepository;
 use App\Modules\Backend\Website\Event\Repositories\EventRepository;
+use App\Modules\Backend\Website\Faculty\Repositories\EloquentFacultyRepository;
+use App\Modules\Backend\Website\Faculty\Repositories\FacultyRepository;
 use App\Modules\Backend\Website\Help\Repositories\EloquentHelpRepository;
 use App\Modules\Backend\Website\Help\Repositories\HelpRepository;
+use App\Modules\Backend\Website\Order\Repositories\EloquentOrderRepository;
+use App\Modules\Backend\Website\Order\Repositories\OrderRepository;
+use App\Modules\Backend\Website\OrderItem\Repositories\EloquentOrderItemRepository;
+use App\Modules\Backend\Website\OrderItem\Repositories\OrderItemRepository;
 use App\Modules\Backend\Website\Post\Repositories\EloquentPostRepository;
 use App\Modules\Backend\Website\Post\Repositories\PostRepository;
 use App\Modules\Backend\Website\Product\Repositories\EloquentProductRepository;
 use App\Modules\Backend\Website\Product\Repositories\ProductRepository;
 use App\Modules\Backend\Website\RequestQuote\Repositories\EloquentGetTouchRepository;
 use App\Modules\Backend\Website\RequestQuote\Repositories\GetTouchRepository;
+use App\Modules\Backend\Website\Semester\Repositories\EloquentSemesterRepository;
+use App\Modules\Backend\Website\Semester\Repositories\SemesterRepository;
 use Illuminate\Support\ServiceProvider;
 
 class DependencyInjectionServiceProvider extends ServiceProvider
@@ -117,10 +125,7 @@ class DependencyInjectionServiceProvider extends ServiceProvider
            DonationRepository::class,
            EloquentDonationRepository::class
        );
-       $this->app->bind(
-           CategoryRepository::class,
-           EloquentCategoryRepository::class
-       );
+
        $this->app->bind(
            ProductRepository::class,
            EloquentProductRepository::class
@@ -128,6 +133,24 @@ class DependencyInjectionServiceProvider extends ServiceProvider
        $this->app->bind(
            CartRepository::class,
            EloquentCartRepository::class
+       );
+       $this->app->bind(
+           OrderItemRepository::class,
+           EloquentOrderItemRepository::class
+       );
+       $this->app->bind(
+           OrderRepository::class,
+           EloquentOrderRepository::class
+       );
+
+       $this->app->bind(
+           SemesterRepository::class,
+           EloquentSemesterRepository::class
+       );
+
+       $this->app->bind(
+           FacultyRepository::class,
+           EloquentFacultyRepository::class
        );
     }
 }

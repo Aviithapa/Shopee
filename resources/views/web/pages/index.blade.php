@@ -105,80 +105,80 @@
             </div>
         </div>
 
-   @foreach($categories as $categories)
-        <div class="row">
-            <div class="col-12 col-md-12">
-                <div class="bbb_viewed">
-                    <div class="container-fluid">
-                        <div class="row">
-                            <div class="col">
-                                <div class="bbb_main_container">
-                                    <div class="bbb_viewed_title_container">
-                                        <div class="col-12 col-md-12">
-                                        <div class="col-6 col-md-6">
-                                            <h3 class="bbb_viewed_title">{{$categories->name}}</h3>
-                                        </div>
-                                        <div class="col-6 col-md-6">
-                                            <button class="">View All</button>
-                                        </div>
-                                        </div>
-                                    </div>
+{{--   @foreach($categories as $categories)--}}
+{{--        <div class="row">--}}
+{{--            <div class="col-12 col-md-12">--}}
+{{--                <div class="bbb_viewed">--}}
+{{--                    <div class="container-fluid">--}}
+{{--                        <div class="row">--}}
+{{--                            <div class="col">--}}
+{{--                                <div class="bbb_main_container">--}}
+{{--                                    <div class="bbb_viewed_title_container">--}}
+{{--                                        <div class="col-12 col-md-12">--}}
+{{--                                        <div class="col-6 col-md-6">--}}
+{{--                                            <h3 class="bbb_viewed_title">{{$categories->name}}</h3>--}}
+{{--                                        </div>--}}
+{{--                                        <div class="col-6 col-md-6">--}}
+{{--                                            <button class="">View All</button>--}}
+{{--                                        </div>--}}
+{{--                                        </div>--}}
+{{--                                    </div>--}}
 
-                                    <div class="bbb_viewed_slider_container">
-                                        <div class="row" style="margin: 10px">
-                                            <div class="MultiCarousel" data-items="1,3,5,6,7" data-slide="1" id="MultiCarousel"  data-interval="1000">
-                                                <div class="MultiCarousel-inner">
-                                                    <div class="prod-items section-items">
-                                                        @foreach($products as $product)
-                                                            @if($product->category==$categories->name)
-                                                            <div class="item">
-                                                                <div class="pad15">
-                                                                    <div class="prod-i">
-                                                                        <div class="prod-i-top">
-                                                                            <a href="{{url('productDetails/'.$product->id)}}" class="prod-i-img"><!-- NO SPACE --><img src="{{$product->getImage()}}" alt="Adipisci aperiam commodi"><!-- NO SPACE --></a>
-                                                                            <p class="prod-i-info">
-                                                                                <a href="#" class="prod-i-favorites"><span>Wishlist</span><i class="fa fa-heart"></i></a>
-                                                                                <a href="#" class="qview-btn prod-i-qview"><span>Quick View</span><i class="fa fa-search"></i></a>
-                                                                                <a class="prod-i-compare" href="#"><span>Compare</span><i class="fa fa-bar-chart"></i></a>
-                                                                            </p>
-                                                                            <a href="{{url('add/to/cart/'.$product->id)}}" class="prod-i-buy">Add to cart</a>
-                                                                            <p class="prod-i-properties-label"><a class="fa fa-info" href="{{url('productDetails/'.$product->id)}}"></a></p>
-                                                                        </div>
-                                                                        <div class="prod-sticker">
-                                                                            <p class="prod-sticker-3">-30%</p><p class="prod-sticker-4 countdown" data-date="29 Jan 2017, 14:30:00"></p>
-                                                                        </div>
-                                                                        <h3>
-                                                                            <a href="{{url('productDetails/'.$product->id)}}">{{$product->name}}</a>
-                                                                        </h3>
-                                                                        <p class="prod-i-price">
-                                                                            <b>{{$product->price}}</b>
-                                                                            <del>{{$product->price}}</del>
-                                                                        </p>
-                                                                        <div class="prod-i-skuwrapcolor">
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            @endif
-                                                        @endforeach
-                                                    </div>
+{{--                                    <div class="bbb_viewed_slider_container">--}}
+{{--                                        <div class="row" style="margin: 10px">--}}
+{{--                                            <div class="MultiCarousel" data-items="1,3,5,6,7" data-slide="1" id="MultiCarousel"  data-interval="1000">--}}
+{{--                                                <div class="MultiCarousel-inner">--}}
+{{--                                                    <div class="prod-items section-items">--}}
+{{--                                                        @foreach($products as $product)--}}
+{{--                                                            @if($product->category==$categories->name)--}}
+{{--                                                            <div class="item">--}}
+{{--                                                                <div class="pad15">--}}
+{{--                                                                    <div class="prod-i">--}}
+{{--                                                                        <div class="prod-i-top">--}}
+{{--                                                                            <a href="{{url('productDetails/'.$product->id)}}" class="prod-i-img"><!-- NO SPACE --><img src="{{$product->getImage()}}" alt="Adipisci aperiam commodi"><!-- NO SPACE --></a>--}}
+{{--                                                                            <p class="prod-i-info">--}}
+{{--                                                                                <a href="#" class="prod-i-favorites"><span>Wishlist</span><i class="fa fa-heart"></i></a>--}}
+{{--                                                                                <a href="#" class="qview-btn prod-i-qview"><span>Quick View</span><i class="fa fa-search"></i></a>--}}
+{{--                                                                                <a class="prod-i-compare" href="#"><span>Compare</span><i class="fa fa-bar-chart"></i></a>--}}
+{{--                                                                            </p>--}}
+{{--                                                                            <a href="{{url('add/to/cart/'.$product->id)}}" class="prod-i-buy">Add to cart</a>--}}
+{{--                                                                            <p class="prod-i-properties-label"><a class="fa fa-info" href="{{url('productDetails/'.$product->id)}}"></a></p>--}}
+{{--                                                                        </div>--}}
+{{--                                                                        <div class="prod-sticker">--}}
+{{--                                                                            <p class="prod-sticker-3">-30%</p><p class="prod-sticker-4 countdown" data-date="29 Jan 2017, 14:30:00"></p>--}}
+{{--                                                                        </div>--}}
+{{--                                                                        <h3>--}}
+{{--                                                                            <a href="{{url('productDetails/'.$product->id)}}">{{$product->name}}</a>--}}
+{{--                                                                        </h3>--}}
+{{--                                                                        <p class="prod-i-price">--}}
+{{--                                                                            <b>{{$product->price}}</b>--}}
+{{--                                                                            <del>{{$product->price}}</del>--}}
+{{--                                                                        </p>--}}
+{{--                                                                        <div class="prod-i-skuwrapcolor">--}}
+{{--                                                                        </div>--}}
+{{--                                                                    </div>--}}
+{{--                                                                </div>--}}
+{{--                                                            </div>--}}
+{{--                                                            @endif--}}
+{{--                                                        @endforeach--}}
+{{--                                                    </div>--}}
 
 
-                                                </div>
-                                                <button class="btn btn-primary leftLst"><</button>
-                                                <button class="btn btn-primary rightLst">></button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+{{--                                                </div>--}}
+{{--                                                <button class="btn btn-primary leftLst"><</button>--}}
+{{--                                                <button class="btn btn-primary rightLst">></button>--}}
+{{--                                            </div>--}}
+{{--                                        </div>--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
 
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-       @endforeach
+{{--                        </div>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
+{{--            </div>--}}
+{{--        </div>--}}
+{{--       @endforeach--}}
 
     <div class="bbb_viewed">
         <div class="container-fluid">

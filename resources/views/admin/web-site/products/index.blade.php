@@ -1,7 +1,9 @@
-
-@extends('admin.layout.admin')
+@extends('admin.layout.app')
 
 @section('content')
+    <link href="{{asset('assets/plugins/jquery-datatable/css/jquery.dataTables.css')}}" rel="stylesheet" type="text/css" />
+    <link href="{{asset('assets/plugins/datatables-responsive/css/datatables.responsive.css')}}" rel="stylesheet" type="text/css" media="screen" />
+    <link href="{{asset('webarch/css/themes/webarch.coporate.css')}}" rel="stylesheet" type="text/css" />
     <div class="container" style="margin-top: 30px">
         <div class="row-fluid">
             <div class="span12">
@@ -38,7 +40,7 @@
         $('#data-table').DataTable({
             processing: true,
             serverSide: true,
-            ajax: '{{ route('dashboard.product.index') }}',
+            ajax: '{{ route('dashboard.products.index') }}',
             columns: [
                 {data: 'id', name: 'id'},
                 {data: 'name', name: 'name'},

@@ -192,7 +192,8 @@ function getCartTotalPrice()
 {
     $mac_address = exec('getmac');
     $mac = strtok($mac_address, ' ');
-    $cart_products = \App\Models\Website\Cart::where('mac', $mac)->get();
+    $user=Auth::user()->id;
+    $cart_products = \App\Models\Website\Cart::where('user_id', $user)->get();
     $final_amount = 0;
     foreach($cart_products as $cart_product)
     {
@@ -200,7 +201,16 @@ function getCartTotalPrice()
     }
     return $final_amount;
 }
-
+function getTotalQuanity(){
+    $user=Auth::user()->id;
+    $cart_products = \App\Models\Website\Cart::where('user_id', $user)->get();
+    $final_quantity =  0;
+    foreach($cart_products as $cart_product)
+    {
+        $final_quantity += $cart_product->quantity ;
+    }
+    return $final_quantity;
+}
 if(!function_exists('checkForPermission')) {
     /**
      * @param $permission_name

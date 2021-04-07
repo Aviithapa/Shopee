@@ -6,7 +6,7 @@
     <meta charset="utf-8">
     <meta name="description" content="`{{isset($pageContent->meta_description)?$pageContent->meta_description:""}}`">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    @include('admin.layouts.style')
+    @include('web.layouts.style')
     @include('admin.layout.style')
     @stack('styles')
 </head>
@@ -14,7 +14,7 @@
 <!-- BEGIN BODY -->
 <body class="" style="background: #f5f5f5">
 <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v4.0&appId=386251685274332&autoLogAppEvents=1"></script>
-@include('admin.layouts.header')
+@include('web.layouts.header')
 <!-- BEGIN CONTAINER -->
 
 <div class="body">

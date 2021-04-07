@@ -18,3 +18,4 @@
 <script src="{{asset('asset/js/jquery.stellar.min.js')}}"></script>
 <script src="{{asset('asset/js/aos.js')}}"></script>
 <script src="{{asset('asset/js/main.js')}}"></script>
+<script src="{{asset('asset/js/function.js')}}"></script>

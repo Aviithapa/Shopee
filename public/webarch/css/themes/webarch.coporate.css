@@ -210,7 +210,6 @@ body.boxed-layout .footer-widget {
   transition: transform 0.3s ease,left  0.3s ease, right  0.3s ease;
   padding: 0 !important;
   margin: 0 !important;
-  position: fixed;
   width: 100%;
   z-index: 999;
   min-height: 60px;
@@ -1419,7 +1418,7 @@ body.boxed-layout .footer-widget {
 .page-content .content {
   padding-left: 26px;
   padding-right: 26px;
-  padding-top: 83px;
+  padding-top: 20px;
 }
 .inner-menu {
   display: inline-block;
@@ -8764,9 +8763,8 @@ body.rtl .footer-widget {
   .page-sidebar {
     display: inline-block;
     float: left;
-    position: fixed;
+    position: absolute;
     width: 250px;
-    margin-top: 58px;
     padding-bottom: 119px;
   }
   .menu-non-fixed .footer-widget {

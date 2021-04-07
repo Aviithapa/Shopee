@@ -1,5 +1,5 @@
 
-    @extends('web.layouts.app')
+@extends('admin.layout.app')
 
 @section('content')
     <div class="container" style="margin-top: 30px">
@@ -20,7 +20,7 @@
                             <tr>
                                 <th>ID</th>
                                 <th>Name</th>
-                                <th>Type</th>
+                                <th>Faculty</th>
                                 <th>Image</th>
                                 <th class="disabled-sorting">Action</th>
                             </tr>
@@ -42,7 +42,7 @@
             columns: [
                 {data: 'id', name: 'id'},
                 {data: 'name', name: 'name'},
-                {data: 'category', name: 'category'},
+                {data: 'faculty', name: 'faculty'},
                 {data: 'product_image', name: 'product_image'},
 //                {data: 'status', name: 'status'},
                 {className: 'td-actions', data: 'action', name: 'action', orderable: false, searchable: false}
