@@ -28,17 +28,6 @@
                 </div>
             </div>
             </div>
-        <div class="row">
-            <div class="col-md-12">
-
-                <div class="form-group">
-                    {!! Form::label('description', 'Description:', ['class' => 'form-label']) !!}
-                    {!! Form::textarea('description', null, ['class' => 'form-control']) !!}
-                    {!! $errors->first('description', '<div class="text-danger">:message</div>') !!}
-                </div>
-            </div>
-
-        </div>
 
     </div>
 </div>

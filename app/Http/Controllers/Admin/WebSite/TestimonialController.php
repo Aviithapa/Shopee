@@ -6,7 +6,9 @@ use App\Http\Controllers\Admin\BaseController;
 use App\Models\Website\Post;
 use App\Modules\Backend\Website\Post\Repositories\PostRepository;
 use App\Modules\Backend\Website\Post\Requests\CreateCategoryRequest;
+use App\Modules\Backend\Website\Post\Requests\CreatePostRequest;
 use App\Modules\Backend\Website\Post\Requests\UpdateCategoryRequest;
+use App\Modules\Backend\Website\Post\Requests\UpdatePostRequest;
 use Illuminate\Http\Request;
 use Yajra\DataTables\Facades\DataTables;
 use Illuminate\Contracts\Logging\Log;
@@ -69,7 +71,7 @@ class TestimonialController extends BaseController
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(CreateCategoryRequest $createPostRequest)
+    public function store(CreatePostRequest $createPostRequest)
     {
 
         $this->authorize('create', $this->postRepository->getModel());
@@ -122,7 +124,7 @@ class TestimonialController extends BaseController
      * @param  \App\Models\Website\Post $post
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateCategoryRequest $updatePostRequest, $id)
+    public function update(UpdatePostRequest $updatePostRequest, $id)
     {
         $this->authorize('update', $this->postRepository->getModel());
         $data = $updatePostRequest->all();

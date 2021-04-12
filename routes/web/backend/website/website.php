@@ -82,6 +82,16 @@ Route::group(['namespace' => 'WebSite'], function () {
             'destroy' => 'dashboard.pages.destroy',
         ]
     ]);
+    Route::resource('category', 'CategoryController', [
+        'names' => [
+            'index' => 'dashboard.category.index',
+            'create' => 'dashboard.category.create',
+            'store' => 'dashboard.category.store',
+            'edit' => 'dashboard.category.edit',
+            'update' => 'dashboard.category.update',
+            'destroy' => 'dashboard.category.destroy',
+        ]
+    ]);
     Route::resource('pages', 'PagesController', [
         'names' => [
             'index' => 'dashboard.pages.index',

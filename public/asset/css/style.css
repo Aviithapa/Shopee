@@ -638,7 +638,7 @@ body {
 	font-size: 15px;
 	font-family: 'Roboto', sans-serif;
 	-webkit-text-size-adjust: 100%;
-	color: #373d54;
+	color: #ff682c;
 }
 
 
@@ -837,7 +837,7 @@ body {
 	font-size: 14px;
 	padding: 2px 0;
 	line-height: 1;
-	color: #373d54;
+	color: #ff682c;
 	display: inline-block;
 }
 .shop-menu ul li * {
@@ -908,7 +908,7 @@ body {
 }
 .topmenu .topcatalog .topcatalog-btn {
 	position: relative;
-	color: #373d54;
+	color: #ff682c;
 	text-transform: uppercase;
 	display: block;
     text-align: center;
@@ -990,7 +990,7 @@ body {
 }
 .topcatalog-list li:after {
 	content: '';
-	background: #373d54;
+	background: #ff682c;
 	position: absolute;
 	top: -1px;
 	bottom: -1px;
@@ -1049,7 +1049,7 @@ body {
 }
 .topmenu .mainmenu-btn {
 	position: relative;
-	color: #373d54;
+	color: #ff682c;
 	text-transform: uppercase;
 	border: 1px solid #e0e4f6;
 	border-right: none;
@@ -1164,7 +1164,7 @@ body {
 .topmenu .mainmenu > li > .sub-menu li a {
 	text-transform: none;
 	font-weight: 400;
-	color: #373d54;
+	color: #ff682c;
 	font-size: 14px;
 	line-height: 120%;
 	border-bottom: 1px solid #e0e4f6;
@@ -1197,7 +1197,7 @@ body {
 }
 .topmenu .mainmenu > li > .sub-menu li:after {
 	content: '';
-	background: #373d54;
+	background: #ff682c;
 	position: absolute;
 	top: -1px;
 	bottom: -1px;
@@ -1326,7 +1326,7 @@ body {
 .topmenu .mainmenu li.mainmenu-more .mainmenu-sub li a {
 	text-transform: none;
 	font-weight: 400;
-	color: #373d54;
+	color: #ff682c;
 	font-size: 14px;
 	line-height: 120%;
 	border-bottom: 1px solid #e0e4f6;
@@ -1345,7 +1345,7 @@ body {
 }
 .topmenu .mainmenu li.mainmenu-more .mainmenu-sub li:after {
 	content: '';
-	background: #373d54;
+	background: #ff682c;
 	position: absolute;
 	top: -1px;
 	bottom: -1px;
@@ -1511,7 +1511,7 @@ body {
 .stylization h4,
 .stylization h5,
 .stylization h6 {
-	color: #373d54;
+	color: #ff682c;
 	margin: 0 0 30px;
 }
 .stylization h1 {
@@ -1544,7 +1544,7 @@ body {
 }
 .stylization strong,
 .stylization b {
-	color: #373d54;
+	color: #ff682c;
 }
 .stylization ul {
 	margin: 0 0 30px 18px;
@@ -1579,7 +1579,7 @@ body {
 .stylization code {
 	background-color: #e8e8e8;
 	padding: 2px 4px;
-	color: #373d54;
+	color: #ff682c;
 	font-family: Inconsolata, monospace;
 }
 .stylization pre {
@@ -1595,7 +1595,7 @@ body {
 	white-space: pre-wrap;
 	word-wrap: break-word;
 	font-family: Inconsolata, monospace;
-	color: #373d54;
+	color: #ff682c;
 }
 .stylization mark,
 .stylization ins {
@@ -1649,11 +1649,11 @@ body {
 }
 .stylization blockquote p {
 	margin-bottom: 20px !important;
-	color: #373d54;
+	color: #ff682c;
 }
 .stylization cite {
 	font-style: italic;
-	color: #373d54;
+	color: #ff682c;
 	font-weight: 700;
 }
 .stylization dl {
@@ -1662,7 +1662,7 @@ body {
 }
 .stylization dt {
 	font-weight: 700;
-	color: #373d54;
+	color: #ff682c;
 	line-height: 1.7;
 }
 .stylization dd {
@@ -1682,7 +1682,7 @@ body {
 	margin: 0 0 34px;
 	table-layout: fixed;
 	width: 100%;
-	color: #373d54;
+	color: #ff682c;
 	border-radius: 3px;
 }
 .stylization caption,
@@ -1726,7 +1726,7 @@ body {
 .stylization input[type=text] {
 	display: block;
 	padding: 0 15px;
-	color: #373d54;
+	color: #ff682c;
 	width: 100%;
 	background: #f8fafc;
 	font-size: 14px;
@@ -1767,7 +1767,7 @@ body {
 	display: block;
 	padding: 12px 15px;
 	background: #f8fafc;
-	color: #373d54;
+	color: #ff682c;
 	width: 100%;
 	font-size: 14px;
 	height: 150px;
@@ -1793,7 +1793,7 @@ body {
 	border: none;
 	transition: all 0.2s;
 	font-weight: 500;
-	background: #373d54;
+	background: #ff682c;
 	padding: 10px 35px;
 	color: #ffffff;
 	letter-spacing: 0.01em;
@@ -1812,7 +1812,7 @@ body {
 .main-ttl {
 	font-size: 22px;
 	text-transform: uppercase;
-	color: #373d54;
+	color: #ff682c;
 	margin: 0 0 35px;
 	font-weight: 900;
 	position: relative;
@@ -1845,7 +1845,7 @@ h1.main-ttl {
 	height: 2px;
 	left: 0;
 	width: 60px;
-	background: #373d54;
+	background: #ff682c;
 }
 .maincont-ct .main-ttl {
 	text-align: center;
@@ -1866,7 +1866,7 @@ h1.main-ttl {
 ----------------------------------*/
 ul.b-crumbs {
 	font-size: 14px;
-	color: #373d54;
+	color: #ff682c;
 	padding: 0 0 1px 0;
 	margin: 0;
 }
@@ -1885,7 +1885,7 @@ ul.b-crumbs {
 	content: "\f105";
 	font-size: 12px;
 	font-family: FontAwesome;
-	color: #373d54;
+	color: #ff682c;
 	display: block;
 	left: auto;
 	top: 0;
@@ -1903,12 +1903,12 @@ ul.b-crumbs {
 	text-decoration: none;
 	border-bottom: 1px solid rgba(0,0,0,0);
 	transition: all 0.2s;
-	color: #373d54;
+	color: #ff682c;
 	line-height: 100%;
 }
 .b-crumbs li a:hover {
-	border-bottom: 1px solid #373d54;
-	color: #373d54;
+	border-bottom: 1px solid #ff682c;
+	color: #ff682c;
 	text-decoration: none;
 }
 .b-crumbs li span {
@@ -5203,11 +5203,11 @@ ul.b-crumbs {
 	transition: all 0.2s;
 	text-transform: uppercase;
 	color: #fff;
-	background: #373d54;
+	background: #ff682c ;
 	position: relative;
 }
 .prod-cont .prod-add:hover {
-	background: #474f6e;
+	background: #ff682c ;
 }
 .prod-cont .prod-addwrap .prod-addres {
 	display: none;
@@ -5219,7 +5219,7 @@ ul.b-crumbs {
 	background: #fff;
 	position: absolute;
 	bottom: 100%;
-	color: #373d54;
+	color: #ff682c;
 	font-weight: 500;
 	left: 50%;
 	line-height: 140%;
@@ -5275,7 +5275,7 @@ ul.b-crumbs {
 	height: 39px;
 	font-weight: 700;
 	font-size: 14px;
-	color: #373d54;
+	color:  #ff682c;
 	text-align: center;
 	display: block;
 	margin: 0 2px 0 0;
@@ -5286,7 +5286,7 @@ ul.b-crumbs {
 	float: left;
 	width: 17px;
 	margin: 5px 0 0;
-	color: #373d54;
+	color:  #ff682c;
 	text-align: center;
 	line-height: 1;
 	font-size: 14px;
@@ -5299,7 +5299,7 @@ ul.b-crumbs {
 	float: left;
 	border-top: none;
 	width: 17px;
-	color: #373d54;
+	color:  #ff682c;
 	text-align: center;
 	line-height: 1;
 	font-size: 14px;
@@ -5347,11 +5347,11 @@ ul.b-crumbs {
 }
 .prod-cont .prod-compare:hover,
 .prod-cont .prod-favorites:hover {
-	color: #373d54;
+	color:  #ff682c;
 }
 .prod-cont .prod-compare:hover .fa,
 .prod-cont .prod-favorites:hover .fa {
-	color: #373d54;
+	color:  #ff682c;
 }
 .prod-cont .prod-compare.compare-added .fa:before,
 .prod-cont .prod-favorites.favorite-added .fa:before {
@@ -5474,7 +5474,7 @@ ul.b-crumbs {
 	content: "\f107";
 	top: 50%;
 	font-size: 18px;
-	color: #373d54;
+	color:  #ff682c;
 	right: 9px;
 	-ms-transform: translate(0,-50%);
 	-o-transform: translate(0,-50%);
@@ -5519,7 +5519,7 @@ ul.b-crumbs {
 }
 .prod-cont .offer-props-select ul li a:hover {
 	text-decoration: none;
-	color: #373d54;
+	color:  #ff682c;
 }
 .prod-cont .offer-props-select ul li a:after {
 	position: absolute;
@@ -5532,10 +5532,10 @@ ul.b-crumbs {
 	top: 0;
 }
 .prod-cont .offer-props-select ul li a:hover {
-	color: #373d54;
+	color:  #ff682c;
 }
 .prod-cont .offer-props-select ul li.active a {
-	background-color: #373d54;
+	background-color:  #ff682c;
 	color: #FFF;
 	margin-left: -1px;
 	margin-right: -1px;
@@ -5563,7 +5563,7 @@ ul.b-crumbs {
 	margin: 0 0 4px;
 }
 .prod-cont .prod-i-props b {
-	color: #373d54;
+	color:  #000;
 	font-weight: 500;
 }
 /*----------------------------------
@@ -5607,7 +5607,7 @@ ul.b-crumbs {
 	font-size: 14px;
 	position: relative;
 	font-weight: 500;
-	color: #373d54;
+	color:  #ff682c;
 }
 .prod-tabs li a:hover {
 	color: #3a89cf;
@@ -5615,7 +5615,7 @@ ul.b-crumbs {
 }
 .prod-tabs li a.active {
 	color: #fff;
-	background: #373d54;
+	background:  #ff682c;
 	margin: -1px 0;
 	padding: 16px 22px 16px;
 }

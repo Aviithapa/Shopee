@@ -52,6 +52,7 @@
                     <span class="title">Categories</span> <span class="selected"></span> <span class="arrow "></span>
                 </a>
                 <ul class="sub-menu">
+                    <li><a href="{{route('dashboard.category.index')}}">Category</a></li>
                     <li><a href="{{route('dashboard.faculty.index')}}">Faculty</a></li>
                     <li><a href="{{route('dashboard.semester.index')}}">Semester</a></li>
                 </ul>

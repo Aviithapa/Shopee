@@ -112,6 +112,10 @@ class DependencyInjectionServiceProvider extends ServiceProvider
             \App\Modules\Backend\Website\GetTouch\Repositories\EloquentGetTouchRepository::class
         );
 
+         $this->app->bind(
+             CategoryRepository::class,
+             EloquentCategoryRepository::class
+         );
         $this->app->bind(
             EventRepository::class,
             EloquentEventRepository::class

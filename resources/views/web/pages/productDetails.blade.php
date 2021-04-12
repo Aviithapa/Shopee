@@ -6,24 +6,7 @@
         <section class="container">
 
 
-            <ul class="b-crumbs">
-                <li>
-                    <a href="{{url('/')}}">
-                        Home
-                    </a>
-                </li>
-                <li>
-                    <a href="{{url('catelog')}}">
-                        Catalog
-                    </a>
-                </li>
-                <li>
-                  {{$product->category}}
-                </li>
-                <li>
-                    <span>{{$product->name}}</span>
-                </li>
-            </ul>
+
             <h1 class="main-ttl"><span>{{$product->name}}</span></h1>
             <!-- Single Product - start -->
             <div class="prod-wrap">
@@ -73,23 +56,23 @@
                         <li>
                             <b>Author</b> 05464207
                         </li>
-                        <li style="margin-top: 20px">
-                            <!-- Product Tabs -->
-                            <div class="prod-tabs-wrap">
-                                <ul class="prod-tabs">
-                                    <li><a data-prodtab-num="1" class="active" href="#" data-prodtab="#prod-tab-1">Description</a></li>
-
-                                </ul>
-                                <div class="prod-tab-cont">
-
-                                    <p data-prodtab-num="1" class="prod-tab-mob active" data-prodtab="#prod-tab-1">Description</p>
-                                   <div class="prod-tab stylization" id="prod-tab-1">
-                                        {{$product->description}}
-                                    </div>
-                                </div>
-                            </div>
+                        <li>
+                            Short Description
                         </li>
                     </ul>
+                </div>
+                <div class="prod-tabs-wrap">
+                    <ul class="prod-tabs">
+                        <li><a data-prodtab-num="1" class="active" href="#" data-prodtab="#prod-tab-1">Description</a></li>
+
+                    </ul>
+                    <div class="prod-tab-cont">
+
+                        <p data-prodtab-num="1" class="prod-tab-mob active" data-prodtab="#prod-tab-1">Description</p>
+                        <div class="prod-tab stylization" id="prod-tab-1">
+                            {{$product->description}}
+                        </div>
+                    </div>
                 </div>
 
 

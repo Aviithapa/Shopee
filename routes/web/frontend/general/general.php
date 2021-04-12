@@ -11,6 +11,7 @@ Route::group(['namespace' => 'General','middleware' => 'auth'], function () {
     Route::get('donation/{id}','HomeController@donation')->name('donation');
     Route::post('donation/{id}','HomeController@User')->name('user');
     Route::get('/productDetails/{id}','HomeController@productDetails');
+    Route::get('/catalog/{slug}','HomeController@catalog');
     Route::post('order','HomeController@Order');
     Route::get('/single-blog/{slug}','HomeController@singleBlog');
     Route::match(['get', 'post'], '/{slug}', 'HomeController@slug')->where('slug', '.*');

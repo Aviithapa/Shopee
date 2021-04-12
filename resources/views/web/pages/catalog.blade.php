@@ -17,24 +17,59 @@
                     </a>
                 </li>
             </ul>
-            <h1 class="main-ttl"><span>Category</span></h1>
+            <h1 class="main-ttl"><span> Category</span></h1>
             <!-- Catalog Sidebar - start -->
             <div class="section-sb">
 
                 <!-- Catalog Categories - start -->
                 <div class="section-sb-current">
-                    <h3><a href="{{url('catalog')}}">Category <span id="section-sb-toggle" class="section-sb-toggle"><span class="section-sb-ico"></span></span></a></h3>
+                    <h3><a href="catalog-list.html" style="color: #25a521 !important">University <span id="section-sb-toggle" class="section-sb-toggle"><span class="section-sb-ico"></span></span></a></h3>
                     <ul class="section-sb-list" id="section-sb-list">
-                        @foreach($categories as $category)
                         <li class="categ-1">
-                            <a href="catalog-list.html">
-                                <span class="categ-1-label">{{$category->name}}</span>
+                                <a href="#" >
+                                    <span class="categ-1-label" style="text-align: left !important;" >Tribhuwan University</span>
+                                </a>
+                        </li>
+                        <li class="categ-1">
+                            <a href="catalog-list.html" >
+                                <span class="categ-1-label" style="text-align: left !important;">Pokhara University</span>
                             </a>
                         </li>
-                        @endforeach
+                        <li class="categ-1">
+                            <a href="catalog-list.html" >
+                                <span class="categ-1-label" style="text-align: left !important;">Purbanchal University</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="section-sb-current">
+                    <h3><a href="catalog-list.html" style="color: #25a521 !important">Faculty <span id="section-sb-toggle" class="section-sb-toggle"><span class="section-sb-ico"></span></span></a></h3>
+                    <ul class="section-sb-list" id="section-sb-list">
+                        <li class="categ-1">
+                            @foreach($faculty as $faculty)
+                            <a href="{{url('catelog/'.$faculty->name)}}" >
+                                <span class="categ-1-label" style="text-align: left !important;">{{$faculty->name}}</span>
+                            </a>
+                                @endforeach
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="section-sb-current">
+                    <h3><a href="catalog-list.html" style="color: #25a521 !important">Semister <span id="section-sb-toggle" class="section-sb-toggle"><span class="section-sb-ico"></span></span></a></h3>
+                    <ul class="section-sb-list" id="section-sb-list">
+                        <li class="categ-1">
+                            @foreach($semester as $semester)
+                                <a href="catalog-list.html" >
+                                    <span class="categ-1-label" style="text-align: left !important;">{{$semester->name}}</span>
+                                </a>
+                            @endforeach
+                        </li>
                     </ul>
                 </div>
                 <!-- Catalog Categories - end -->
+
             </div>
             <!-- Catalog Sidebar - end -->
             <!-- Catalog Items | Gallery V1 - start -->
@@ -272,3 +307,25 @@
     </main>
     <!-- Main Content - end -->
     @endsection
+
+   @push('scripts')
+       <script>
+           $(document).ready(function(){
+               $(".categ-1").click(function(){
+                   var university = $("#catID").val();
+                   // var price = $('#priceID').val();
+                   //
+                   $.ajax({
+                       type: 'get',
+                       dataType: 'html',
+                       url: '{{url('/catalog')}}',
+                       data: 'university=' + university,
+                       success:function(response){
+                           console.log(response);
+                           $("#productData").html(response);
+                       }
+                   });
+               });
+           });
+       </script>
+       @endpush

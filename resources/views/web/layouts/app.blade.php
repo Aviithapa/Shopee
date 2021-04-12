@@ -12,7 +12,7 @@
 </head>
 <!-- END HEAD -->
 <!-- BEGIN BODY -->
-<body style="background:#e8fbe8">
+<body>
 <div id="fb-root"></div>
 @include('web.layouts.header')
 <!-- BEGIN CONTAINER -->
@@ -20,8 +20,6 @@
 @yield('content')
 <!-- END CONTAINER -->
 @include('web.layouts.footer')
-
-@stack('scripts')
 @include('web.layouts.script')
 @stack('scripts')
 </body>

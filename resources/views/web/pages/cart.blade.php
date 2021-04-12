@@ -4,17 +4,6 @@
     <main>
         <section class="container stylization maincont">
 
-
-            <ul class="b-crumbs">
-                <li>
-                    <a href="{{url('/')}}">
-                        Home
-                    </a>
-                </li>
-                <li>
-                    <span>Cart</span>
-                </li>
-            </ul>
             <h1 class="main-ttl"><span>Cart</span></h1>
             <!-- Cart Items - start -->
             <form action="#">

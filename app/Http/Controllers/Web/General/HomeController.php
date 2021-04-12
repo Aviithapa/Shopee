@@ -25,8 +25,10 @@ use App\Modules\Backend\Website\Cart\Repositories\CartRepository;
 use App\Modules\Backend\Website\Category\Repositories\CategoryRepository;
 use App\Modules\Backend\Website\Donation\Repositories\DonationRepository;
 use App\Modules\Backend\Website\Event\Repositories\EventRepository;
+use App\Modules\Backend\Website\Faculty\Repositories\FacultyRepository;
 use App\Modules\Backend\Website\Post\Repositories\PostRepository;
 use App\Modules\Backend\Website\Product\Repositories\ProductRepository;
+use App\Modules\Backend\Website\Semester\Repositories\SemesterRepository;
 use App\Modules\Frontend\Website\Slider\Repositories\SliderRepository;
 use App\Save;
 use http\Exception\UnexpectedValueException;
@@ -42,7 +44,7 @@ use Models;
 
 class HomeController extends BaseController
 {
-    private $sliderRepository, $view_data, $postRepository,$categoryRepository,$productRepository,$cartRepository;
+    private $sliderRepository, $view_data, $postRepository,$semesterRepository,$productRepository,$cartRepository,$facultyRepository;
     private $roleRepository;
     private $userRepository;
     private $request;
@@ -51,15 +53,16 @@ class HomeController extends BaseController
                                 PostRepository $postRepository,
                                 RoleRepository $roleRepository,
                                 UserRepository $userRepository,
-                                Request $request,FacultyController $categoryRepository,ProductRepository $productRepository,CartRepository $cartRepository)
+                                Request $request,FacultyRepository $facultyRepository,SemesterRepository $semesterRepository,  ProductRepository $productRepository,CartRepository $cartRepository)
     {
         $this->sliderRepository = $sliderRepository;
         $this->postRepository = $postRepository;
         $this->roleRepository = $roleRepository;
         $this->userRepository = $userRepository;
-        $this->categoryRepository= $categoryRepository;
+        $this->facultyRepository= $facultyRepository;
         $this->productRepository= $productRepository;
         $this->cartRepository=$cartRepository;
+        $this->semesterRepository=$semesterRepository;
         $this->request = $request;
 
         parent::__construct();
@@ -116,14 +119,18 @@ class HomeController extends BaseController
             switch ($slug) {
                 case 'index':
                     $this->view_data['banners'] = $this->postRepository->findBy('type', 'homepage_banner', '=',false,2);
-//                    $this->view_data['categories'] = $this->categoryRepository->getModel();
-                    $this->view_data['products'] = $this->productRepository->getAll();
-                     $this->view_data['blogs'] = $this->postRepository->findBy('type', 'news', '=',false,4);
-                    $this->view_data['blog']=$this->postRepository->findById(5);
-                    break;
+                    $this->view_data['banner'] = $this->postRepository->findById(123);
+                    $this->view_data['add'] = $this->postRepository->findById(125);
+                    $this->view_data['add1'] = $this->postRepository->findById(126);
+                   $this->view_data['testimonial'] = $this->postRepository->findBy('type', 'testimonial', '=');
+                    $this->view_data['products'] =Product::paginate(6);
+                    $this->view_data['loksewa'] =$this->productRepository->findBy('category','loksewa-examination','=',true,6);
+                    $this->view_data['coursebook'] =$this->productRepository->findBy('category','coursebook','=',true,6);
+                     break;
                 case 'catalog':
-                    $this->view_data['categories'] = $this->categoryRepository->getModel();
                     $this->view_data['products'] =Product::paginate(12);
+                    $this->view_data['faculty'] =$this->facultyRepository->getAll();
+                    $this->view_data['semester'] =$this->semesterRepository->getAll();
                     break;
 
                 case 'productlist':
@@ -132,6 +139,7 @@ class HomeController extends BaseController
                 case 'about':
                     $this->view_data['testimonial'] = $this->postRepository->findBy('type', 'testimonial', '=');
                     $this->view_data['testimonials'] = $this->postRepository->findById(4);
+                    $this->view_data['aboutBanner'] = $this->postRepository->findById(127);
 
                     break;
                 case 'events':
@@ -167,11 +175,16 @@ class HomeController extends BaseController
 
     }
 
+    public function catalog($slug=null, Request $request){
+        dd("you are here");
+        $this->view_data['products']=$this->productRepository->findBy('faculty',$slug,'=',true,12);
+        return view('web.pages.catalog' , $this->view_data);
+    }
      public function productDetails($id=null, Request $request){
          $this->view_data['authUser']=Auth::User();
         $this->view_data['pageContent'] = $this->postRepository->findBySlug('/productDetails/'.$id, false);
          $this->view_data['product'] = $this->productRepository->findById($id);
-         $this->view_data['related_product']=$this->productRepository->findBy('category',$this->view_data['product']->category,'=',false,6)
+         $this->view_data['related_product']=$this->productRepository->findBy('faculty',$this->view_data['product']->faculty,'=',false,6)
          ->where('id',"!=",$this->view_data['product']->id);
         return view('web.pages.productDetails' , $this->view_data);
 

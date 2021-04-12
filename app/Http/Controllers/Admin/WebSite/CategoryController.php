@@ -4,32 +4,27 @@
 namespace App\Http\Controllers\Admin\WebSite;
 
 
-
 use App\Http\Controllers\Admin\BaseController;
 use App\Modules\Backend\Website\Category\Repositories\CategoryRepository;
 use App\Modules\Backend\Website\Faculty\Repositories\FacultyRepository;
 use App\Modules\Backend\Website\Product\Repositories\ProductRepository;
 use App\Modules\Backend\Website\Product\Requests\CreateProductRequest;
 use App\Modules\Backend\Website\Product\Requests\UpdateProductRequest;
-use App\Modules\Backend\Website\Semester\Repositories\SemesterRepository;
 use Illuminate\Contracts\Logging\Log;
 use Illuminate\Support\Facades\Auth;
 use Yajra\DataTables\Facades\DataTables;
 
-class ProductController extends BaseController
+class CategoryController extends BaseController
 {
-    private $productRepository, $log ,$facultyRepository, $semesterRepository, $categoryRepository;
-    private $commonRoute='dashboard.product';
-    private $commonView='web-site.product.';
-    private $commonMessage='Product';
+    private $categoryRepository, $log ;
+    private $commonRoute='dashboard.category';
+    private $commonView='web-site.category.';
+    private $commonMessage='Category';
     private $viewData;
-    public function __construct(Log $log, ProductRepository $productRepository , FacultyRepository $facultyRepository,SemesterRepository $semesterRepository, CategoryRepository $categoryRepository)
+    public function __construct(Log $log, CategoryRepository $categoryRepository )
     {
 
-        $this->productRepository = $productRepository;
-        $this->facultyRepository = $facultyRepository;
-        $this->semesterRepository = $semesterRepository;
-        $this->categoryRepository=$categoryRepository;
+        $this->categoryRepository = $categoryRepository;
         $this->log = $log;
         $this->viewData['commonRoute']=$this->commonRoute;
         $this->viewData['commonView']=$this->commonView;
@@ -44,39 +39,23 @@ class ProductController extends BaseController
      */
     public function index()
     {
-        $this->authorize('read', $this->productRepository->getModel());
-        $role = Auth::user()->mainRole()?Auth::user()->mainRole()->name:'default';
+        $this->authorize('read', $this->categoryRepository->getModel());
+        $category = $this->categoryRepository->getAll();
 
-        switch ($role)
-        {
-            case 'administrator':
-                $product = $this->productRepository->getAll();
-                break;
-            case 'customer':
-                $product = $this->productRepository->findByDataTable('user_id',Auth::user()['id'],'=');
-                break;
-
-        }
         if(\request()->ajax()) {
-            return DataTables::of($product)
-                ->addColumn('action', function ($products) {
-                    $data = $products;
-                    $name = 'dashboard.product';
+            return DataTables::of($category)
+                ->addColumn('action', function ($category) {
+                    $data = $category;
+                    $name = 'dashboard.category';
                     $view = false;
                     return $this->view('partials.common.action', compact('data', 'name', 'view'))->render();
                 })
-                ->editColumn('product_image', function ($product) {
-                    $url=asset($product->getImage());
-                    return '<img src='.$url.' border="0" width="40"  />';
-                })
+
                 ->editColumn('id', 'ID: {{$id}}')
-                ->rawColumns(['product_image', 'action'])
                 ->make(true);
 
         }
-        $this->viewData['role']=$role;
-        $this->viewData['categories'] = $this->facultyRepository->getAll();
-        return $this->view('web-site.product.index',$this->viewData);
+        return $this->view('web-site.category.index',$this->viewData);
     }
 
     /**
@@ -86,11 +65,8 @@ class ProductController extends BaseController
      */
     public function create()
     {
-        $this->viewData['role'] = Auth::user()->mainRole()?Auth::user()->mainRole()->name:'default';
-        $this->viewData['faculty']=$this->facultyRepository->getAll();
-        $this->viewData['semester']=$this->semesterRepository->getAll();
         $this->viewData['category']=$this->categoryRepository->getAll();
-        return $this->view('web-site.product.create',$this->viewData);
+        return $this->view('web-site.category.create',$this->viewData);
     }
 
     /**
@@ -102,16 +78,14 @@ class ProductController extends BaseController
     public function store(CreateProductRequest $createProductRequest)
     {
         $data = $createProductRequest->all();
-        $data['user_id']=Auth::user()['id'];
-        $data['image']=$data['product_image'];
         try {
-            $post = $this->productRepository->create($data);
+            $post = $this->categoryRepository->create($data);
             if($post == false) {
                 session()->flash('danger', 'Oops! Something went wrong.');
                 return redirect()->back()->withInput();
             }
             session()->flash('success', 'Content created successfully');
-            return redirect()->route('dashboard.product.index');
+            return redirect()->route('dashboard.category.index');
         }
         catch (\Exception $e) {
             $this->log->error('Content create : '.$e->getMessage());
@@ -140,11 +114,8 @@ class ProductController extends BaseController
     public function edit($id)
     {
         $role = Auth::user()->mainRole()?Auth::user()->mainRole()->name:'default';
-        $faculty=$this->facultyRepository->getAll();
-        $semester=$this->semesterRepository->getAll();
-        $product = $this->productRepository->findById($id);
-        $category = $this->categoryRepository->findById($id);
-        return $this->view('web-site.product.edit', compact('product','faculty','semester','role','category'));
+        $category=$this->categoryRepository->getAll();
+        return $this->view('web-site.category.edit', compact('category'));
     }
 
     /**
@@ -156,17 +127,16 @@ class ProductController extends BaseController
      */
     public function update(UpdateProductRequest $updateProductRequest, $id)
     {
-        $slug=$this->productRepository->findById($id)['slug'];
+        $slug=$this->categoryRepository->findById($id)['slug'];
         $data = $updateProductRequest->all();
-        $data['image']=$data['product_image'];
         try {
-            $post = $this->productRepository->update($data, $id);
+            $post = $this->categoryRepository->update($data, $id);
             if($post == false) {
                 session()->flash('danger', 'Oops! Something went wrong.');
                 return redirect()->back()->withInput();
             }
             session()->flash('success', 'Content updated successfully');
-            return redirect()->route('dashboard.product.index');
+            return redirect()->route('dashboard.category.index');
         }
         catch (\Exception $e) {
             $this->log->error('Content update : '.$e->getMessage());
@@ -183,12 +153,12 @@ class ProductController extends BaseController
      */
     public function destroy($id)
     {
-        $this->authorize('delete', $this->productRepository->getModel());
+        $this->authorize('delete', $this->categoryRepository->getModel());
         try {
             if(isset($request->hard_delete))
-                $this->productRepository->hardDelete($id);
+                $this->categoryRepository->hardDelete($id);
             else
-                $this->productRepository->delete($id);
+                $this->categoryRepository->delete($id);
             session()->flash('success', 'Content deleted successfully');
             return redirect()->back();
         }
