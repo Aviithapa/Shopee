@@ -6,8 +6,18 @@
                 <div class="row">
                     <div class="col">
                         <i class="fa fa-book" style="margin-right: 10px;"></i> <span style="margin-right: 20px;">Welcome to house of Books!!</span>
-                        <a href="{{url("login")}}"><button type="button" class="btn btn-primary btn-round-sm btn-sm float-right " >Login</button></a>
-                        <button type="button" class="btn btn-primary btn-round-sm btn-sm register">Register</button>
+                        @if(\Illuminate\Support\Facades\Auth::user())
+                        <img src="{{Auth::user()->getImage()}}" alt="{{\Illuminate\Support\Facades\Auth::user()}}" style="width:20px; height:20px; border-radius: 50%;">
+                            <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" style="color:#ff682c !important">
+                                <i class="fa fa-sign-out fa-2x" aria-hidden="true"></i>
+                                                                </a>
+                                                                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                                                    {{ csrf_field() }}
+                                                                </form>
+                        @else
+                            <a href="{{url("login")}}"><button type="button" class="btn btn-primary btn-round-sm btn-sm float-right " >Login</button></a>
+                        <a href="{{url("register/customer")}}"> <button type="button" class="btn btn-primary btn-round-sm btn-sm register">Register</button></a>
+                            @endif
                     </div>
                 </div>
             </div>
@@ -76,13 +86,13 @@
             <div class="topnav" id="myTopnav">
                 <a href="{{url('/')}}" class="active">Home</a>
 
-                <a href="#product">Who we are</a>
+                <a href="{{url('about')}}">Who we are</a>
                 <a href="{{url('catalog')}}">Books we deal with</a>
-                <a href="#about">Second hand books</a>
-                <a href="#contact">Contact Us</a>
+                <a href="{{url('secondhandbookcatalog')}}">Second hand books</a>
+                <a href="{{url('contact')}}">Contact Us</a>
 
                 <a href="#offers">Offers</a>
-                <a href="{{url("cart")}}" style="position: absolute; right: 0;"><button class="btn btn-primary btn-round-sm btn-sm"><i class="fa fa-shopping-cart" style="margin-right: 10px;"></i>@if($authUser)
+                <a href="{{url("cart")}}" style="position: absolute; right: 0;"><button class="btn btn-primary btn-round-sm btn-sm"><i class="fa fa-shopping-cart" style="margin-right: 10px;"></i>@if(\Illuminate\Support\Facades\Auth::user())
                             {{getCartAmount()}}
                         @else
                             0

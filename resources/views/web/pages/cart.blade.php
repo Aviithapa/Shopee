@@ -12,24 +12,17 @@
                     <table class="cart-items">
                         <thead>
                         <tr>
-                            <td class="cart-image">Photo</td>
-                            <td class="cart-ttl">Products</td>
-                            <td class="cart-price">Price</td>
-                            <td class="cart-quantity">Quantity</td>
-                            <td class="cart-summ">Summ</td>
+                            <td class="cart-ttl"><h3>Products</h3></td>
+                            <td class="cart-price"><h3>Price</h3></td>
+                            <td class="cart-quantity"><h3>Quantity</h3></td>
                             <td class="cart-del">&nbsp;</td>
                         </tr>
                         </thead>
                         <tbody>
                         @foreach($cart as $carts)
-                        <tr>
-                            <td class="cart-image">
-                                <a href="product.html">
-                                    <img src="http://placehold.it/61x80" alt="Similique delectus totam">
-                                </a>
-                            </td>
+                        <tr style="text-align: center;">
                             <td class="cart-ttl">
-                                <a href="product.html">{{$carts->product_name}}</a>
+                               <a href="{{url('productDetails/'.$carts->product_id)}}"><b>{{$carts->product_name}}</b></a>
                             </td>
                             <td class="cart-price">
                                 <b>{{$carts->product_price}}</b>
@@ -41,10 +34,7 @@
                                     <a href="#" class="cart-minus"><i class="fa fa-angle-down"></i></a>
                                 </p>
                             </td>
-                            <td class="cart-summ">
-                                <b>$220</b>
-                                <p class="cart-forone">unit price <b>$220</b></p>
-                            </td>
+
                             <td class="cart-del">
                                 <a data-toggle="modal" href="#modal-delete-{{ $carts->id }}" class="btn btn-danger btn-sm" title="Delete">
                                     <i class="fa fa-trash"></i>

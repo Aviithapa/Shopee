@@ -32,7 +32,7 @@
                 <div class="row ">
                     <div class="col-3" style=" margin-top:5px  ">
                         <div class="icons">
-                            <span><img src="QuestionBank.png" height="70px" width="70px"></span>
+                            <span><img src="{{$question->getPostImage()}}" height="70px" width="70px"></span>
                         </div>
                         <h5>QUESTION BANK <br>
                             AND SOLUTION SETS  <br>
@@ -40,7 +40,7 @@
                     </div>
                     <div class="col-3 vl">
                         <div class="icons">
-                            <span><img src="Books.png" height="70px" width="70px"></span>
+                            <span><img src="{{$course->getPostImage()}}" height="70px" width="70px"></span>
                         </div>
                         <h5>COURSE BOOKS<br>
                             Available FROM <br>
@@ -48,7 +48,7 @@
                     </div>
                     <div class="col-3 vl">
                         <div class="icons">
-                            <span><img src="EExam.png" height="70px" width="70px"></span>
+                            <span><img src="{{$entrance->getPostImage()}}" height="70px" width="70px"></span>
 
                         </div>
                         <h5>ENTRANCE EXAM <br>
@@ -57,7 +57,7 @@
                     </div>
                     <div class="col-3 vl" style=" margin-top:5px  ">
                         <div class="icons">
-                            <span><img src="SecondHand.png" height="70px" width="70px"></span>
+                            <span><img src="{{$second->getPostImage()}}" height="70px" width="70px"></span>
                         </div>
                         <h5>SECOND HAND <br>
                             BOOK SELLING AND <br>
@@ -78,30 +78,30 @@
                 <div class="row" style="margin-top: -25px; margin-left: 30px;">
                     <div class="col-lg-4 col-md-6 col-12 mt-4 pt-2">
                         <div class="team text-center rounded p-3 py-4">
-                            <img src="Binaya.png" class="img-fluid avatar avatar-medium shadow rounded-pill" alt="">
+                            <img src="{{$binaya->getPostImage()}}" class="img-fluid avatar avatar-medium shadow rounded-pill" alt="Abhishek">
                             <div class="content mt-3">
-                                <h4>Mr.Binaya Maharjan</h4>
-                                <small class="text-muted">Managing Director</small>
+                                <h4 class="">{{$binaya->title}}</h4>
+                                <small class="text-muted">{{$binaya->excerpt}}</small>
                             </div>
                         </div>
                     </div><!--end col-->
 
                     <div class="col-lg-4 col-md-6 col-12 mt-4 pt-2">
                         <div class="team text-center rounded p-3 py-4">
-                            <img src="Sajita.png" class="img-fluid avatar avatar-medium shadow rounded-pill" alt="sajita">
+                            <img src="{{$dipesh->getPostImage()}}" class="img-fluid avatar avatar-medium shadow rounded-pill" alt="Abhishek">
                             <div class="content mt-3">
-                                <h4 class="">Mr. Dipesh Singh Thapa</h4>
-                                <small class="text-muted">Chief Executive Officer</small>
+                                <h4 class="">{{$dipesh->title}}</h4>
+                                <small class="text-muted">{{$dipesh->excerpt}}</small>
                             </div>
                         </div>
                     </div><!--end col-->
 
                     <div class="col-lg-4 col-md-6 col-12 mt-4 pt-2">
                         <div class="team text-center rounded p-3 py-4">
-                            <img src="Hemanti.png" class="img-fluid avatar avatar-medium shadow rounded-pill" alt="Binaya ">
+                            <img src="{{$hemanti->getPostImage()}}" class="img-fluid avatar avatar-medium shadow rounded-pill" alt="Abhishek">
                             <div class="content mt-3">
-                                <h4 class="">Mrs. Hemanti Kr. Chand</h4>
-                                <small class="text-muted">Chief Financial Officer</small>
+                                <h4 class="">{{$hemanti->title}}</h4>
+                                <small class="text-muted">{{$hemanti->excerpt}}</small>
                             </div>
                         </div>
                     </div><!--end col-->
@@ -110,20 +110,20 @@
 
                     <div class="col-lg-6 col-md-6 col-12 mt-4 pt-2 " >
                         <div class="team text-center rounded p-3 py-4">
-                            <img src="Tilak Raj.png" class="img-fluid avatar avatar-medium shadow rounded-pill" alt="Tilak">
+                            <img src="{{$tilak->getPostImage()}}" class="img-fluid avatar avatar-medium shadow rounded-pill" alt="Abhishek">
                             <div class="content mt-3">
-                                <h4 class="">Mr. Tilak Raj Badu</h4>
-                                <small class="text-muted">Chief Marketing Officer</small>
+                                <h4 class="">{{$tilak->title}}</h4>
+                                <small class="text-muted">{{$tilak->excerpt}}</small>
                             </div>
                         </div>
                     </div><!--end col-->
 
                     <div class="col-lg-6 col-md-6 col-12 mt-4 pt-2">
                         <div class="team text-center rounded p-3 py-4">
-                            <img src="Gappu.png" class="img-fluid avatar avatar-medium shadow rounded-pill" alt="Abhishek">
+                            <img src="{{$abhishek->getPostImage()}}" class="img-fluid avatar avatar-medium shadow rounded-pill" alt="Abhishek">
                             <div class="content mt-3">
-                                <h4 class="">Mr. Abhishek Thapa</h4>
-                                <small class="text-muted">Chief Technology Officer</small>
+                                <h4 class="">{{$abhishek->title}}</h4>
+                                <small class="text-muted">{{$abhishek->excerpt}}</small>
                             </div>
                         </div>
                     </div><!--end col-->

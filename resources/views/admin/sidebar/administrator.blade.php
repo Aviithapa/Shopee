@@ -75,6 +75,12 @@
                     <span class="title">User</span>
                 </a>
             </li>
+            <li>
+                <a href="{{route('dashboard.contact.index')}}">
+                    <i class="fa fa-users"></i>
+                    <span class="title">Contact</span>
+                </a>
+            </li>
             <li class="start ">
                 <a href="javascript:void(0)"><i class="material-icons">rowing</i>
                     <span class="title">Auth Setting</span> <span class="selected"></span> <span class="arrow "></span>

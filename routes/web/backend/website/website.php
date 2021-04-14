@@ -1,6 +1,7 @@
 <?php
 
 
+
 Route::group(['namespace' => 'WebSite'], function () {
 
     Route::resource('posts', 'PostController', [
@@ -186,6 +187,14 @@ Route::group(['namespace' => 'WebSite'], function () {
             'show' => 'dashboard.faculty.show',
             'update' => 'dashboard.faculty.update',
             'destroy' => 'dashboard.faculty.destroy',
+        ]
+    ]);
+    Route::resource('contact', 'ContactController', [
+        'names' => [
+            'index' => 'dashboard.contact.index',
+            'edit' => 'dashboard.contact.edit',
+            'create' => 'dashboard.contact.create',
+            'update' => 'dashboard.contact.update',
         ]
     ]);
     Route::resource('invoice','InvoiceController',[

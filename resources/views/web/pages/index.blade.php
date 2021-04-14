@@ -32,7 +32,7 @@
             <div class="row ">
                 <div class="col-3" style=" margin-top:5px  ">
                     <div class="icons">
-                        <span><img src="QuestionBank.png" height="70px" width="70px"></span>
+                        <span><img src="{{$question->getPostImage()}}" height="70px" width="70px"></span>
                     </div>
                     <h5>QUESTION BANK <br>
                         AND SOLUTION SETS  <br>
@@ -40,7 +40,7 @@
                 </div>
                 <div class="col-3 vl">
                     <div class="icons">
-                        <span><img src="Books.png" height="70px" width="70px"></span>
+                        <span><img src="{{$course->getPostImage()}}" height="70px" width="70px"></span>
                     </div>
                     <h5>COURSE BOOKS<br>
                         Available FROM <br>
@@ -48,7 +48,7 @@
                 </div>
                 <div class="col-3 vl">
                     <div class="icons">
-                        <span><img src="EExam.png" height="70px" width="70px"></span>
+                        <span><img src="{{$entrance->getPostImage()}}" height="70px" width="70px"></span>
 
                     </div>
                     <h5>ENTRANCE EXAM <br>
@@ -57,7 +57,7 @@
                 </div>
                 <div class="col-3 vl" style=" margin-top:5px  ">
                     <div class="icons">
-                        <span><img src="SecondHand.png" height="70px" width="70px"></span>
+                        <span><img src="{{$second->getPostImage()}}" height="70px" width="70px"></span>
                     </div>
                     <h5>SECOND HAND <br>
                         BOOK SELLING AND <br>
@@ -88,37 +88,14 @@
 
         <div class="content">
             <div class="row">
-                <div class="columns">
-                    <div class="card">
-                        <img src="The Lean Startup.png" alt="">
-                        <h5 style="font-weight: bold; margin-bottom: 1px !important;"  style="line-height: 20px;">The Lean Startup </h5> <p style="font-style: italic;">Eric Ries </p>
-                        <p style="text-align: center; margin-bottom: -15px !important;"><button class="btn btn-primary btn-round-sm btn-sm" style="font-size: 14px;background-color:#25a521 !important; border-color:#25a521 !important; margin-right:3px; font-weight: 700 !important;">RS. 850</button><button class="btn btn-primary btn-round-sm btn-sm" style="font-size: 12px;">ADD TO CART</button></p>
-                    </div>
-                </div>
-                <div class="columns">
-                    <div class="card">
-                        <img src="The 8th Habbit.png" alt="">
-                        <h5 style="font-weight: bold; margin-bottom: 1px !important; "  style="line-height: 20px;">The 8th Habbit </h5> <p style="font-style: italic;">Stephen R. Covey </p>
-                        <p style="text-align: center; margin-bottom: -15px !important;"><button class="btn btn-primary btn-round-sm btn-sm" style="font-size: 14px;background-color:#25a521 !important; border-color:#25a521 !important; margin-right:3px; font-weight: 700 !important;">RS. 850</button><button class="btn btn-primary btn-round-sm btn-sm" style="font-size: 12px;">ADD TO CART</button></p>    </div>
-                </div>
-                <div class="columns">
-                    <div class="card">
-                        <img src="The Subtle Art.png" alt="">
-                        <h5 style="text-transform: uppercase; font-weight: bold; margin-bottom: 1px !important; "  style="line-height: 20px;">The Subtle Art...</h5> <p style="font-style: italic;">Mark Manson</p>
-                        <p style="text-align: center; margin-bottom: -15px !important;"><button class="btn btn-primary btn-round-sm btn-sm" style="font-size: 14px;background-color:#25a521 !important; border-color:#25a521 !important; margin-right:3px; font-weight: 700 !important;">RS. 850</button><button class="btn btn-primary btn-round-sm btn-sm" style="font-size: 12px;">ADD TO CART</button></p> </div>
-                </div>
-                <div class="columns">
-                    <div class="card">
-                        <img src="The Winner Stands alone.png" alt="">
-                        <h5 style="font-weight: bold; margin-bottom: 1px !important;"  style="line-height: 20px;">The Winner Stan... </h5><p style="font-style: italic;">Mark Manson</p>
-                        <p style="text-align: center; margin-bottom: -15px !important;"><button class="btn btn-primary btn-round-sm btn-sm" style="font-size: 14px;background-color:#25a521 !important; border-color:#25a521 !important; margin-right:3px; font-weight: 700 !important;">RS. 850</button><button class="btn btn-primary btn-round-sm btn-sm" style="font-size: 12px;">ADD TO CART</button></p>   </div>
-                </div>
+
                 @foreach($products as $product)
                 <div class="columns">
                     <div class="card">
                         <img src="{{$product->getImage()}}" alt="">
                         <h5 style="font-weight: bold;  margin-bottom: 1px !important;"  style="line-height: 20px;">{{$product->title}} </h5> <p style="font-style: italic;"></p>
-                        <p style="text-align: center; margin-bottom: -15px !important;"><button class="btn btn-primary btn-round-sm btn-sm" style="font-size: 14px;background-color:#25a521 !important; border-color:#25a521 !important; margin-right:3px; font-weight: 700 !important;">RS {{$product->price}}</button><button class="btn btn-primary btn-round-sm btn-sm" style="font-size: 12px;">ADD TO CART</button></p>  </div>
+                        <p style="text-align: center; margin-bottom: -15px !important;"><button class="btn btn-primary btn-round-sm btn-sm" style="font-size: 14px;background-color:#25a521 !important; border-color:#25a521 !important; margin-right:3px; font-weight: 700 !important;">RS {{$product->price}}</button><button class="btn btn-primary btn-round-sm btn-sm" style="font-size: 12px;">ADD TO CART</button></p>
+                    </div>
                 </div>
                     @endforeach
             </div>
@@ -142,7 +119,7 @@
                         </div>
                         <div class="bbb_viewed_slider_container">
                             <div class="owl-carousel owl-theme bbb_viewed_slider">
-                                @foreach($products as $products)
+                                @foreach($questionbankandsolution as $products)
                                 <div class="owl-item">
                                     <div class="bbb_viewed_item discount d-flex flex-column align-items-center justify-content-center text-center">
                                         <a href="{{url("productDetails/".$product->id)}}">
@@ -346,5 +323,31 @@
 
     @endsection
 @push('scripts')
+    <script>
+        {{--$(document).ready(function(){--}}
+
+        {{--    fetch_book_data();--}}
+
+        {{--    function fetch_book_data(query = '')--}}
+        {{--    {--}}
+        {{--        $.ajax({--}}
+        {{--            url:"{{ route('live_search.action') }}",--}}
+        {{--            method:'GET',--}}
+        {{--            data:{query:query},--}}
+        {{--            dataType:'json',--}}
+        {{--            success:function(data)--}}
+        {{--            {--}}
+        {{--                $('tbody').html(data.table_data);--}}
+        {{--                $('#total_records').text(data.total_data);--}}
+        {{--            }--}}
+        {{--        })--}}
+        {{--    }--}}
+
+        {{--    $(document).on('keyup', '#search', function(){--}}
+        {{--        var query = $(this).val();--}}
+        {{--        fetch_customer_data(query);--}}
+        {{--    });--}}
+        {{--});--}}
+    </script>
 @endpush
 

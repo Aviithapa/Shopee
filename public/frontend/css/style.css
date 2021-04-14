@@ -1083,3 +1083,9 @@ ul, ol {
     font-size: 20px;
     font-weight: 500;
 }
+.logo-holder{
+    height: 150px;
+    width: 150px;
+    background: whitesmoke;
+    border-radius: 20px;
+}

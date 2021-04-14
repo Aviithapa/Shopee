@@ -1,6 +1,6 @@
 @extends('web.layouts.app')
 @section('content')
-       <!-- Main Content - start -->
+    <!-- Main Content - start -->
     <main>
         <section class="container">
 
@@ -26,9 +26,9 @@
                     <h3><a href="#" style="color: #25a521 !important">University <span id="section-sb-toggle" class="section-sb-toggle"><span class="section-sb-ico"></span></span></a></h3>
                     <ul class="section-sb-list" id="section-sb-list">
                         <li class="categ-1">
-                                <a href="{{url('/catalog/university/TU')}}" >
-                                    <span class="categ-1-label" style="text-align: left !important;" >Tribhuwan University</span>
-                                </a>
+                            <a href="{{url('/catalog/university/TU')}}" >
+                                <span class="categ-1-label" style="text-align: left !important;" >Tribhuwan University</span>
+                            </a>
                         </li>
                         <li class="categ-1">
                             <a href="{{url('/catalog/university/PU')}}" >
@@ -48,10 +48,10 @@
                     <ul class="section-sb-list" id="section-sb-list">
                         <li class="categ-1">
                             @foreach($faculty as $faculty)
-                            <a href="{{url('catalog/faculty/'.$faculty->name)}}" >
-                                <span class="categ-1-label" style="text-align: left !important;">{{$faculty->name}}</span>
-                            </a>
-                                @endforeach
+                                <a href="{{url('catalog/faculty/'.$faculty->name)}}" >
+                                    <span class="categ-1-label" style="text-align: left !important;">{{$faculty->name}}</span>
+                                </a>
+                            @endforeach
                         </li>
                     </ul>
                 </div>
@@ -99,38 +99,37 @@
                 </div>
                 <!-- Catalog Topbar - end -->
                 <div class="prod-items section-items">
-                    @include('web.pages.flash-message')
-                @foreach($products as $product)
-                    <div class="prod-i">
-                        <div class="prod-i-top">
-                            <a href="{{url('productDetails/'.$product->id)}}" class="prod-i-img"><!-- NO SPACE --><img src="{{$product->getImage()}}" alt="Adipisci aperiam commodi"><!-- NO SPACE --></a>
-                            <p class="prod-i-info">
-                                <a href="#" class="prod-i-favorites"><span>Wishlist</span><i class="fa fa-heart"></i></a>
-                                <a href="{{url('productDetails/'.$product->id)}}" class="qview-btn prod-i-qview"><span>Quick View</span><i class="fa fa-search"></i></a>
-                                <a class="prod-i-compare" href="#"><span>Compare</span><i class="fa fa-bar-chart"></i></a>
+                    @foreach($products as $product)
+                        <div class="prod-i">
+                            <div class="prod-i-top">
+                                <a href="{{url('productDetails/'.$product->id)}}" class="prod-i-img"><!-- NO SPACE --><img src="{{$product->getImage()}}" alt="Adipisci aperiam commodi"><!-- NO SPACE --></a>
+                                <p class="prod-i-info">
+                                    <a href="#" class="prod-i-favorites"><span>Wishlist</span><i class="fa fa-heart"></i></a>
+                                    <a href="{{url('productDetails/'.$product->id)}}" class="qview-btn prod-i-qview"><span>Quick View</span><i class="fa fa-search"></i></a>
+                                    <a class="prod-i-compare" href="#"><span>Compare</span><i class="fa fa-bar-chart"></i></a>
+                                </p>
+                                <a href="{{url('add/to/cart/'.$product->id)}}" class="prod-i-buy">Add to cart</a>
+                                <p class="{{url('productDetails/'.$product->id)}}"><i class="fa fa-info"></i></p>
+                            </div>
+                            <div class="prod-sticker">
+                                <p class="prod-sticker-3">-30%</p><p class="prod-sticker-4 countdown" data-date="29 Jan 2017, 14:30:00"></p>
+                            </div>
+                            <h3>
+                                <a href="{{url('productDetails/'.$product->id)}}">{{$product->name}}</a>
+                            </h3>
+                            <p class="prod-i-price">
+                                <b>{{$product->price}}</b>
+                                <del>{{$product->price}}</del>
                             </p>
-                            <a href="{{url('add/to/cart/'.$product->id)}}" class="prod-i-buy">Add to cart</a>
-                            <p class="{{url('productDetails/'.$product->id)}}"><i class="fa fa-info"></i></p>
+                            <div class="prod-i-skuwrapcolor">
+                            </div>
                         </div>
-                        <div class="prod-sticker">
-                            <p class="prod-sticker-3">-30%</p><p class="prod-sticker-4 countdown" data-date="29 Jan 2017, 14:30:00"></p>
-                        </div>
-                        <h3>
-                            <a href="{{url('productDetails/'.$product->id)}}">{{$product->name}}</a>
-                        </h3>
-                        <p class="prod-i-price">
-                            <b>{{$product->price}}</b>
-                            <del>{{$product->price}}</del>
-                        </p>
-                        <div class="prod-i-skuwrapcolor">
-                        </div>
-                    </div>
                     @endforeach
                 </div>
 
                 <!-- Pagination - start -->
                 <ul class="pagi">
-                {{$products->links()}}
+                    {{$products->links()}}
                 </ul>
                 <!-- Pagination - end -->
             </div>
@@ -307,26 +306,26 @@
         </section>
     </main>
     <!-- Main Content - end -->
-    @endsection
+@endsection
 
-   @push('scripts')
-       <script>
-           $(document).ready(function(){
-               $(".categ-1").click(function(){
-                   var university = $("#catID").val();
-                   // var price = $('#priceID').val();
-                   //
-                   $.ajax({
-                       type: 'get',
-                       dataType: 'html',
-                       url: '{{url('/catalog')}}',
-                       data: 'university=' + university,
-                       success:function(response){
-                           console.log(response);
-                           $("#productData").html(response);
-                       }
-                   });
-               });
-           });
-       </script>
-       @endpush
+@push('scripts')
+    <script>
+        $(document).ready(function(){
+            $(".categ-1").click(function(){
+                var university = $("#catID").val();
+                // var price = $('#priceID').val();
+                //
+                $.ajax({
+                    type: 'get',
+                    dataType: 'html',
+                    url: '{{url('/catalog')}}',
+                    data: 'university=' + university,
+                    success:function(response){
+                        console.log(response);
+                        $("#productData").html(response);
+                    }
+                });
+            });
+        });
+    </script>
+@endpush

@@ -27,9 +27,9 @@
             <div class="col-md-2 col-xl-3" style="margin-left: 60px;">
                 <h3>Quick Links</h3>
                 <ul class="nav-list">
-                    <li><a href="#">About</a></li>
-                    <li><a href="#">Projects</a></li>
-                    <li><a href="#">Blog</a></li>
+                    <li><a href="{{url('about')}}">About</a></li>
+                    <li><a href="{{url('privacy')}}">Privacy</a></li>
+                    <li><a href="{{url('termsandcondition')}}">Terms and Condition</a></li>
                     <li><a href="#">Contacts</a></li>
                     <li><a href="#">Pricing</a></li>
                 </ul>

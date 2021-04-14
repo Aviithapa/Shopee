@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin\WebSite;
 use App\Http\Controllers\Admin\BaseController;
 use App\Models\Website\Post;
 use App\Modules\Backend\Website\Post\Repositories\PostRepository;
+use App\Modules\Backend\Website\Post\Requests\CreatePostRequest;
 use App\Modules\Backend\Website\Post\Requests\UpdatePostRequest;
 use Illuminate\Http\Request;
 use Yajra\DataTables\Facades\DataTables;

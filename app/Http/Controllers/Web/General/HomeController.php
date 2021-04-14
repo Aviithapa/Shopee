@@ -7,6 +7,7 @@ use App\Http\Controllers\Admin\WebSite\ProductController;
 use App\Http\Controllers\Web\BaseController;
 use App\Models\Auth\Role;
 use App\Models\Website\Cart;
+use App\Models\Website\Contact;
 use App\Models\Website\Donation;
 use App\Models\Website\GetTouch;
 use App\Models\Website\Help;
@@ -122,29 +123,38 @@ class HomeController extends BaseController
                     $this->view_data['banner'] = $this->postRepository->findById(123);
                     $this->view_data['add'] = $this->postRepository->findById(125);
                     $this->view_data['add1'] = $this->postRepository->findById(126);
-                   $this->view_data['testimonial'] = $this->postRepository->findBy('type', 'testimonial', '=');
+                    $this->view_data['testimonial'] = $this->postRepository->findBy('type', 'testimonial', '=');
                     $this->view_data['products'] =Product::paginate(6);
                     $this->view_data['loksewa'] =$this->productRepository->findBy('category','loksewa-examination','=',true,6);
                     $this->view_data['coursebook'] =$this->productRepository->findBy('category','coursebook','=',true,6);
+                    $this->view_data['questionbankandsolution'] =$this->productRepository->findBy('category','question-bank-and-solution','=',true,6);
+                    $this->view_data['question'] = $this->postRepository->findById(135);
+                    $this->view_data['course'] = $this->postRepository->findById(136);
+                    $this->view_data['entrance'] = $this->postRepository->findById(137);
+                    $this->view_data['second'] = $this->postRepository->findById(138);
                      break;
                 case 'catalog':
-                    $this->view_data['products'] =Product::paginate(12);
+                    $this->view_data['products'] =Product::paginate(6);
                     $this->view_data['faculty'] =$this->facultyRepository->getAll();
                     $this->view_data['semester'] =$this->semesterRepository->getAll();
                     break;
-
                 case 'productlist':
                     $this->view_data['products'] =Product::paginate(6);
                     break;
                 case 'about':
-                    $this->view_data['testimonial'] = $this->postRepository->findBy('type', 'testimonial', '=');
-                    $this->view_data['testimonials'] = $this->postRepository->findById(4);
+                    $this->view_data['question'] = $this->postRepository->findById(135);
+                    $this->view_data['course'] = $this->postRepository->findById(136);
+                    $this->view_data['entrance'] = $this->postRepository->findById(137);
+                    $this->view_data['second'] = $this->postRepository->findById(138);
                     $this->view_data['aboutBanner'] = $this->postRepository->findById(127);
-
+                    $this->view_data['dipesh'] = $this->postRepository->findById(130);
+                    $this->view_data['abhishek'] = $this->postRepository->findById(131);
+                    $this->view_data['hemanti'] = $this->postRepository->findById(132);
+                    $this->view_data['tilak'] = $this->postRepository->findById(133);
+                    $this->view_data['binaya'] = $this->postRepository->findById(134);
                     break;
                 case 'events':
                     $this->view_data['testimonial'] = $this->postRepository->findBy('type', 'testimonial', '=');
-
                     break;
                 case 'blog':
                     $this->view_data['blogs'] = $this->postRepository->findBy('type', 'news', '=',false,4);
@@ -152,7 +162,15 @@ class HomeController extends BaseController
                     $this->view_data['testimonial'] = $this->postRepository->findBy('type', 'testimonial', '=');
                     break;
                 case 'contact':
-                    $this->view_data['testimonial'] = $this->postRepository->findBy('type', 'testimonial', '=');
+                    $this->view_data['contactBanner'] = $this->postRepository->findById(128);
+                    break;
+                case 'privacy':
+                    $this->view_data['privacy'] = $this->postRepository->findById(129);
+                    break;
+                case 'termsandcondition':
+                    break;
+                case 'secondhandbookcatalog':
+                    $this->view_data['books'] =$this->productRepository->findBy('category','second-hand-book','=',true,18);
                     break;
                 case 'productDetails':
                 $this->view_data['company_info'] = $this->postRepository->findById(2);
@@ -160,9 +178,7 @@ class HomeController extends BaseController
                 $this->view_data['services'] = $this->postRepository->findBy('type', 'services', '=', false, 6);
                 $this->view_data['Subscribe'] = $this->postRepository->findById(9);
                 break;
-                case 'cart':
-                    $this->view_data['cart'] = $this->cartRepository->getAll()->where('user_id','=',Auth::user()->id);
-                    break;
+
                 case 'donation':
                     $this->view_data['Subscribe'] = $this->postRepository->findById(9);
 
@@ -174,12 +190,35 @@ class HomeController extends BaseController
         return view('web.pages.404', $this->view_data);
 
     }
-
-    public function catalog($slug=null, Request $request){
-        dd("you are here");
-        $this->view_data['products']=$this->productRepository->findBy('faculty',$slug,'=',true,12);
-        return view('web.pages.catalog' , $this->view_data);
+    public function UniversityCatalog($slug=null, Request $request){
+        $slug = $slug ? $slug : 'TU';
+        $this->view_data['faculty'] =$this->facultyRepository->getAll();
+        $this->view_data['semester'] =$this->semesterRepository->getAll();
+        $this->view_data['products']=$this->productRepository->findBy('University',$slug,'=',true,12);
+        return view('web.pages.catalog.universityCatalog' , $this->view_data);
     }
+    public function publicationCatalog($slug=null, Request $request){
+        $slug = $slug ? $slug : 'asmita';
+        $this->view_data['faculty'] =$this->facultyRepository->getAll();
+        $this->view_data['semester'] =$this->semesterRepository->getAll();
+        $this->view_data['products']=$this->productRepository->findBy('publication',$slug,'=',true,12);
+        return view('web.pages.catalog.faculty' , $this->view_data);
+    }
+    public function semesterCatalog($slug=null, Request $request){
+        $slug = $slug ? $slug : 'First Semester';
+        $this->view_data['faculty'] =$this->facultyRepository->getAll();
+        $this->view_data['semester'] =$this->semesterRepository->getAll();
+        $this->view_data['products']=$this->productRepository->findBy('semester',$slug,'=',true,12);
+        return view('web.pages.catalog.semester' , $this->view_data);
+    }
+    public function facultyCatalog($slug=null, Request $request){
+        $slug = $slug ? $slug : 'BBA';
+        $this->view_data['faculty'] =$this->facultyRepository->getAll();
+        $this->view_data['semester'] =$this->semesterRepository->getAll();
+        $this->view_data['products']=$this->productRepository->findBy('faculty',$slug,'=',true,12);
+        return view('web.pages.catalog.faculty' , $this->view_data);
+    }
+
      public function productDetails($id=null, Request $request){
          $this->view_data['authUser']=Auth::User();
         $this->view_data['pageContent'] = $this->postRepository->findBySlug('/productDetails/'.$id, false);
@@ -232,6 +271,7 @@ class HomeController extends BaseController
             $data['item_count']=getTotalQuanity();
             $data['status'] = "received";
             $data->save();
+            dd("you are here");
             if ($data) {
 
                 $items = Cart::all();
@@ -253,7 +293,7 @@ class HomeController extends BaseController
             }
 
         }catch (\Exception $ex){
-dd($ex);
+
         }
     }
     public function User(Request $request,$id=null){
@@ -281,11 +321,14 @@ dd($ex);
 
         }
     }
-    public function addtocart(Request $request, $id){
 
+    public function cart(){
+        $this->view_data['cart'] = $this->cartRepository->getAll()->where('user_id','=',Auth::user()->id);
+        return view('web.pages.cart' , $this->view_data);
+    }
+    public function addtocart(Request $request, $id){
         $mac_address = exec('getmac');
         $mac = strtok($mac_address, ' ');
-
         $available_quantity = Product::find($request->id)->quantity;
         $cart_info = Cart::where('mac', $mac)->where('product_id', $request->id)->first();
 
@@ -299,16 +342,11 @@ dd($ex);
             $old_cart_quantity = 0;
         }
 
+
         //3rd part of coding-33333333333
         if($available_quantity >= ($request->quantity + $old_cart_quantity))
         {
             //first part coding-111111111111
-            if($cart_info)
-            {
-                Cart::where('mac', $mac)->where('product_id', $request->id)->increment('quantity', $request->quantity);
-            }
-            else
-            {
                 $data=new Cart();
                 $mac_address = exec('getmac');
                 $mac = strtok($mac_address, ' ');
@@ -321,16 +359,51 @@ dd($ex);
                 $data->user_id=$user;
                 $data->mac=$mac;
                 $data->save();
-            }
         }
         else
         {
             $short_amount = $request->quantity - $available_quantity;
             session()->flash('danger', 'not available quantity, shortage amount is '.$short_amount);
             return redirect()->back();
-        }
-        session()->flash('success', 'User added successfully');
-        return redirect()->back();
+        };
+        return redirect()->back()->with('success','Product Added to Cart');
     }
 
+    public function Contact(Request $req){
+        try {
+            $contact = new Contact();
+            $contact->name = $req->name;
+            $contact->email = $req->email;
+            $contact->phoneNumber = $req->phoneNumber;
+            $contact->address = $req->address;
+            $contact->message = $req->message;
+            $contact->save();
+            return view('web.pages.contact');
+
+        } catch (UnexpectedValueException $e) {
+            dd($e);
+        }
+
+    }
+
+//    public function sendContactMail($isfeedbacksends){
+//        try {
+//            $to_name = "House of Books";
+//            $to_email = "houseofbooksnepal@gmail.com";
+//            $from_name = $isfeedbacksends['name'];
+//            $feedback_message = $isfeedbacksends['message'];
+//            $from_email = $isfeedbacksends['email'];
+//
+//            $data = array('name' => $from_name, "body" => $feedback_message);
+//dd($);
+//            Mail::send('emails.feedback-email', $data, function ($message) use ($from_email, $to_name, $to_email, $from_name) {
+//                $message->to($to_email, $to_name)->subject('Feedback From');
+//                $message->from($from_email, $from_name);
+//            });
+//        }catch(\Exception $e){
+//            session()->flash('danger','Oops! Somethings went wrong');
+//            return redirect()->back();
+//        }
+//
+//    }
 }

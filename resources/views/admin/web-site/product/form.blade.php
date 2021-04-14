@@ -18,7 +18,7 @@
             <div class="col-md-6 col-lg-6">
                 <div class="form-group">
                     {!! Form::label('category', ' Category:', ['class' => 'form-label']) !!}
-                    {!! Form::select('faculty',$category->pluck('name','slug'),null, ['class' => 'form-control']) !!}
+                    {!! Form::select('category',$category->pluck('name','slug'),null, ['class' => 'form-control']) !!}
                     {!! $errors->first('name', '<div class="text-danger">:message</div>') !!}
                 </div>
             </div>
@@ -34,7 +34,7 @@
             <div class="col-md-6 col-lg-6">
                 <div class="form-group">
                     {!! Form::label('publication', 'Publication:', ['class' => 'form-label']) !!}
-                    {!! Form::select('publication',array('asmita' => 'Asmita ', 'saraswati' => 'Saraswati '),null, ['class' => 'form-control']) !!}
+                    {!! Form::select('publication',array('null'=>'-- Select --','asmita' => 'Asmita ', 'saraswati' => 'Saraswati '),null, ['class' => 'form-control']) !!}
                     {!! $errors->first('publication', '<div class="text-danger">:message</div>') !!}
                 </div>
             </div>
@@ -44,7 +44,7 @@
             <div class="col-md-6 col-lg-6">
                 <div class="form-group">
                     {!! Form::label('university', 'University:', ['class' => 'form-label']) !!}
-                    {!! Form::select('university',array('TU' => 'Tribhuwan University ', 'PU' => 'Pokhara University '),null, ['class' => 'form-control']) !!}
+                    {!! Form::select('university',array('null'=>'-- Select --','TU' => 'Tribhuwan University ', 'PU' => 'Pokhara University ','PBU'=>'Purbanchal University'),null, ['class' => 'form-control']) !!}
                     {!! $errors->first('university', '<div class="text-danger">:message</div>') !!}
                 </div>
             </div>

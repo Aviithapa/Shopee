@@ -8,6 +8,8 @@ use App\Modules\Backend\Website\Cart\Repositories\CartRepository;
 use App\Modules\Backend\Website\Cart\Repositories\EloquentCartRepository;
 use App\Modules\Backend\Website\Category\Repositories\CategoryRepository;
 use App\Modules\Backend\Website\Category\Repositories\EloquentCategoryRepository;
+use App\Modules\Backend\Website\Contact\Repositories\ContactRepository;
+use App\Modules\Backend\Website\Contact\Repositories\EloquentContactRepository;
 use App\Modules\Backend\Website\Donation\Repositories\DonationRepository;
 use App\Modules\Backend\Website\Donation\Repositories\EloquentDonationRepository;
 use App\Modules\Backend\Website\Event\Repositories\EloquentEventRepository;
@@ -155,6 +157,11 @@ class DependencyInjectionServiceProvider extends ServiceProvider
        $this->app->bind(
            FacultyRepository::class,
            EloquentFacultyRepository::class
+       );
+
+       $this->app->bind(
+           ContactRepository::class,
+           EloquentContactRepository::class
        );
     }
 }
