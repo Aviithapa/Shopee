@@ -32,34 +32,34 @@
             <div class="row ">
                 <div class="col-3" style=" margin-top:5px  ">
                     <div class="icons">
-                        <span><img src="{{$question->getPostImage()}}" height="70px" width="70px"></span>
+                        <span><img src="{{$question->getPostImage()}}" height="80px" width="80px"></span>
                     </div>
-                    <h5>QUESTION BANK <br>
+                    <h5 style="line-height: 1.4 !important;">QUESTION BANK <br>
                         AND SOLUTION SETS  <br>
                         FOR DIFFERENT COURSE</h5>
                 </div>
                 <div class="col-3 vl">
                     <div class="icons">
-                        <span><img src="{{$course->getPostImage()}}" height="70px" width="70px"></span>
+                        <span><img src="{{$course->getPostImage()}}" height="80px" width="80px"></span>
                     </div>
-                    <h5>COURSE BOOKS<br>
+                    <h5 style="line-height: 1.4 !important;">COURSE BOOKS<br>
                         Available FROM <br>
                         VARIOUS PUBLICATION</h5>
                 </div>
                 <div class="col-3 vl">
                     <div class="icons">
-                        <span><img src="{{$entrance->getPostImage()}}" height="70px" width="70px"></span>
+                        <span><img src="{{$entrance->getPostImage()}}" height="80px" width="80px"></span>
 
                     </div>
-                    <h5>ENTRANCE EXAM <br>
+                    <h5 style="line-height: 1.4 !important;">ENTRANCE EXAM <br>
                         PREPARATION BOOKS <br>
                         FOR DIFFERENT LEVELS</h5>
                 </div>
                 <div class="col-3 vl" style=" margin-top:5px  ">
                     <div class="icons">
-                        <span><img src="{{$second->getPostImage()}}" height="70px" width="70px"></span>
+                        <span><img src="{{$second->getPostImage()}}" height="80px" width="80px"></span>
                     </div>
-                    <h5>SECOND HAND <br>
+                    <h5 style="line-height: 1.4 !important;">SECOND HAND <br>
                         BOOK SELLING AND <br>
                         BUYING PLATFORM</h5>
                 </div>
@@ -84,7 +84,7 @@
         <div class="title" >
             <h4>Best Selling Product</h4>
         </div>
-        <p style="float: right; margin-top: -40px; margin-right: 70px;"><button class="btn btn-primary btn-round-sm btn-sm">View All</button></p>
+        <p style="float: right; margin-top: -40px; margin-right: 70px;"><a href="{{url('catalog')}}"><button class="btn btn-primary btn-round-sm btn-sm">View All</button></a></p>
 
         <div class="content">
             <div class="row">
@@ -94,7 +94,7 @@
                     <div class="card">
                         <img src="{{$product->getImage()}}" alt="">
                         <h5 style="font-weight: bold;  margin-bottom: 1px !important;"  style="line-height: 20px;">{{$product->title}} </h5> <p style="font-style: italic;"></p>
-                        <p style="text-align: center; margin-bottom: -15px !important;"><button class="btn btn-primary btn-round-sm btn-sm" style="font-size: 14px;background-color:#25a521 !important; border-color:#25a521 !important; margin-right:3px; font-weight: 700 !important;">RS {{$product->price}}</button><button class="btn btn-primary btn-round-sm btn-sm" style="font-size: 12px;">ADD TO CART</button></p>
+                        <p style="text-align: center; margin-bottom: -15px !important;"><button class="btn btn-primary btn-round-sm btn-sm" style="font-size: 14px;background-color:#25a521 !important; border-color:#25a521 !important; margin-right:3px; font-weight: 700 !important;">RS {{$product->price}}</button><a href="{{url('add/to/cart/'.$product->id)}}"><button class="btn btn-primary btn-round-sm btn-sm" style="font-size: 12px;">ADD TO CART</button></a></p>
                     </div>
                 </div>
                     @endforeach
@@ -103,31 +103,30 @@
     </div>
 
 
-    <div class="bbb_viewed">
+    <div class="bbb_viewed" style="background-color: whitesmoke !important;">
         <div class="container-fluid">
             <div class="row">
                 <div class="col">
-                    <div class="bbb_main_container">
+                    <div class="bbb_main_container" style="background-color: whitesmoke !important;">
                         <div class="bbb_viewed_title_container">
                             <h3 class="bbb_viewed_title">
                                 <div class="title" >
                                     <h4>Question Bank and Solution</h4>
                                 </div>
                             </h3>
-                            <p style="float: right; margin-top: -60px; margin-right: 70px;"><button class="btn btn-primary btn-round-sm btn-sm">View All</button></p>
+                            <p style="float: right; margin-top: -60px; margin-right: 70px;"><a href="{{url('catalog/category/question-bank-and-solution')}}"><button class="btn btn-primary btn-round-sm btn-sm">View All</button></a></p>
 
                         </div>
                         <div class="bbb_viewed_slider_container">
                             <div class="owl-carousel owl-theme bbb_viewed_slider">
                                 @foreach($questionbankandsolution as $products)
                                 <div class="owl-item">
-                                    <div class="bbb_viewed_item discount d-flex flex-column align-items-center justify-content-center text-center">
+                                    <div class="bbb_viewed_item discount d-flex flex-column align-items-center justify-content-center text-center"  style="border-radius: 20px;">
                                         <a href="{{url("productDetails/".$product->id)}}">
                                         <div class="bbb_viewed_image"><img src="{{$products->getImage()}}" alt=""></div>
                                         </a>
                                         <div class="bbb_viewed_content text-center">
-                                            <div class="bbb_viewed_price">{{$products->price}}</div>
-                                            <p style="text-align: center; margin-top: 10px !important;"><a href="{{url('add/to/cart/'.$product->id)}}"><button class="btn btn-primary btn-round-sm btn-sm">Add to Cart</button></a></p>
+                                            <p><button class="btn btn-primary btn-round-sm btn-sm" style=" width:70px; font-size: 10px;background-color:#25a521 !important; border-color:#25a521 !important; margin-right:3px; font-weight: 700 !important;">RS {{$product->price}}</button><button class="btn btn-primary btn-round-sm btn-sm" style="font-size: 10px; font-weight: 600; width: 85px;">ADD TO CART</button></p>
 
                                             <!-- <div class="bbb_viewed_name"><a href="#">Alkatel Phone</a></div> -->
                                         </div>
@@ -147,45 +146,7 @@
         </div>
     </div>
 
-    <div class="bbb_viewed">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col">
-                    <div class="bbb_main_container">
-                        <div class="bbb_viewed_title_container">
-                            <h3 class="bbb_viewed_title">
-                                <div class="title" >
-                                    <h4>Loksewa Examination Books</h4>
-                                </div>
-                            </h3>
-                            <p style="float: right; margin-top: -60px; margin-right: 70px;"><button class="btn btn-primary btn-round-sm btn-sm">View All</button></p>
 
-                        </div>
-                        <div class="bbb_viewed_slider_container">
-                            <div class="owl-carousel owl-theme bbb_viewed_slider">
-                                @foreach($loksewa as $loksewa)
-                                <div class="owl-item">
-                                    <div class="bbb_viewed_item discount d-flex flex-column align-items-center justify-content-center text-center">
-                                        <div class="bbb_viewed_image"><img src="{{$loksewa->getImage()}}" alt=""></div>
-                                        <div class="bbb_viewed_content text-center">
-                                            <div class="bbb_viewed_price">{{$loksewa->price}}</div>
-                                            <p style="text-align: center; margin-top: 10px !important;"><a href="{{url('add/to/cart/'.$loksewa->id)}}"><button class="btn btn-primary btn-round-sm btn-sm">Add to Cart</button></a></p>
-                                            <!-- <div class="bbb_viewed_name"><a href="#">Alkatel Phone</a></div> -->
-                                        </div>
-                                        <ul class="item_marks">
-                                            <li class="item_mark item_discount">{{$lowsewa->discount}}</li>
-                                            <li class="item_mark item_new">new</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                @endforeach
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
 
 
     <div class="bbb_viewed">
@@ -198,7 +159,7 @@
                                 <div class="title" >
                                     <h4>Course Books</h4>
                                 </div>
-                                <p style="float: right; margin-top: -60px; margin-right: 70px;"><button class="btn btn-primary btn-round-sm btn-sm">View All</button></p>
+                                <p style="float: right; margin-top: -60px; margin-right: 70px;"><a href="{{url('catalog/category/coursebook')}}"><button class="btn btn-primary btn-round-sm btn-sm">View All</button></a></p>
 
                             </h3>
 
@@ -207,7 +168,7 @@
                             <div class="owl-carousel owl-theme bbb_viewed_slider">
                                 @foreach($coursebook as $coursework)
                                     <div class="owl-item">
-                                        <div class="bbb_viewed_item discount d-flex flex-column align-items-center justify-content-center text-center">
+                                        <div class="bbb_viewed_item discount d-flex flex-column align-items-center justify-content-center text-center" style="border-radius: 20px;">
                                             <div class="bbb_viewed_image"><img src="{{$coursework->getImage()}}" alt=""></div>
                                             <div class="bbb_viewed_content text-center">
                                                 <div class="bbb_viewed_price">{{$coursework->price}}</div>
@@ -216,6 +177,47 @@
                                             </div>
                                             <ul class="item_marks">
                                                 <li class="item_mark item_discount">{{$coursework->discount}}</li>
+                                                <li class="item_mark item_new">new</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                @endforeach
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="bbb_viewed" style="background-color: whitesmoke !important;">>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col">
+                    <div class="bbb_main_container" style="background-color: whitesmoke !important;">>
+                        <div class="bbb_viewed_title_container">
+                            <h3 class="bbb_viewed_title">
+                                <div class="title" >
+                                    <h4>Loksewa Examination Books</h4>
+                                </div>
+                            </h3>
+                            <p style="float: right; margin-top: -60px; margin-right: 70px;"><a href="{{url('catalog/category/loksewa-examination')}}"><button class="btn btn-primary btn-round-sm btn-sm">View All</button></a></p>
+
+                        </div>
+                        <div class="bbb_viewed_slider_container">
+                            <div class="owl-carousel owl-theme bbb_viewed_slider">
+                                @foreach($loksewa as $loksewa)
+                                    <div class="owl-item">
+                                        <div class="bbb_viewed_item discount d-flex flex-column align-items-center justify-content-center text-center" style="border-radius: 20px;">
+                                            <div class="bbb_viewed_image"><img src="{{$loksewa->getImage()}}" alt=""></div>
+                                            <div class="bbb_viewed_content text-center">
+                                                <div class="bbb_viewed_price">{{$loksewa->price}}</div>
+                                                <p style="text-align: center; margin-top: 10px !important;"><a href="{{url('add/to/cart/'.$loksewa->id)}}"><button class="btn btn-primary btn-round-sm btn-sm">Add to Cart</button></a></p>
+                                                <!-- <div class="bbb_viewed_name"><a href="#">Alkatel Phone</a></div> -->
+                                            </div>
+                                            <ul class="item_marks">
+                                                <li class="item_mark item_discount">{{$lowsewa->discount}}</li>
                                                 <li class="item_mark item_new">new</li>
                                             </ul>
                                         </div>

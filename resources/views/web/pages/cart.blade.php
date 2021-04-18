@@ -4,10 +4,9 @@
     <main>
         <section class="container stylization maincont">
 
-            <h1 class="main-ttl"><span>Cart</span></h1>
+            <h1 style="align-content: center" ><span>Cart</span></h1>
             <!-- Cart Items - start -->
             <form action="#">
-
                 <div class="cart-items-wrap">
                     <table class="cart-items">
                         <thead>

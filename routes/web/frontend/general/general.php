@@ -15,6 +15,7 @@
     Route::get('/catalog/publication/{slug}','HomeController@publicationCatalog');
     Route::get('/catalog/semester/{slug}','HomeController@semesterCatalog');
     Route::get('/catalog/faculty/{slug}','HomeController@facultyCatalog');
+    Route::get('/catalog/category/{slug}','HomeController@categoryCatalog');
     Route::get('/catalog/{slug}','HomeController@catalog');
     Route::get('/cart','HomeController@cart')->middleware('auth');
     Route::get('add/to/cart/{id}', 'HomeController@addtocart')->middleware('auth');

@@ -219,6 +219,15 @@ class HomeController extends BaseController
         return view('web.pages.catalog.faculty' , $this->view_data);
     }
 
+    public function categoryCatalog($slug=null, Request $request){
+        $slug = $slug ? $slug : 'question-bank-and-solution';
+        $this->view_data['category'] =$this->facultyRepository->getAll();
+        $this->view_data['faculty'] =$this->facultyRepository->getAll();
+        $this->view_data['semester'] =$this->semesterRepository->getAll();
+        $this->view_data['products']=$this->productRepository->findBy('category',$slug,'=',true,12);
+        return view('web.pages.catalog.category' , $this->view_data);
+    }
+
      public function productDetails($id=null, Request $request){
          $this->view_data['authUser']=Auth::User();
         $this->view_data['pageContent'] = $this->postRepository->findBySlug('/productDetails/'.$id, false);

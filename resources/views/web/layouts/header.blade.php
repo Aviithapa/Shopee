@@ -7,7 +7,7 @@
                     <div class="col">
                         <i class="fa fa-book" style="margin-right: 10px;"></i> <span style="margin-right: 20px;">Welcome to house of Books!!</span>
                         @if(\Illuminate\Support\Facades\Auth::user())
-                        <img src="{{Auth::user()->getImage()}}" alt="{{\Illuminate\Support\Facades\Auth::user()}}" style="width:20px; height:20px; border-radius: 50%;">
+                        <img src="{{Auth::user()->getImage()}}" alt="#" style="width:20px; height:20px; border-radius: 50%;">
                             <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" style="color:#ff682c !important">
                                 <i class="fa fa-sign-out fa-2x" aria-hidden="true"></i>
                                                                 </a>
@@ -26,8 +26,7 @@
     <div class="header-logo">
         <div class="container-fluid">
             <div class="row">
-                <div class="col-lg-2 col-xs-2 col-md-2 logo mt-3" style="    max-width: 150px;
-                    margin-left: 60px;" >
+                <div class="col-lg-2 col-xs-2 col-md-2 logo mt-3" style="    max-width: 150px;" >
                     <img src="{{getSiteSetting('logo_image') != null? getSiteSetting('logo_image'): ''}}" alt="House of Books" width="125" height="100">
                 </div>
                 <div class="col-lg-4 col-xs-4 col-md-4" style="margin-top: 32px;">
@@ -83,9 +82,8 @@
     </div>
     <div class="nav">
         <div class="container-fluid">
-            <div class="topnav" id="myTopnav">
+            <div class="topnav" id="myTopnav" style="margin-left:-13px !important;">
                 <a href="{{url('/')}}" class="active">Home</a>
-
                 <a href="{{url('about')}}">Who we are</a>
                 <a href="{{url('catalog')}}">Books we deal with</a>
                 <a href="{{url('secondhandbookcatalog')}}">Second hand books</a>
