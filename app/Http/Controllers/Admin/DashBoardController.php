@@ -30,8 +30,8 @@ ProductRepository $productRepository)
         $role = Auth::user()->mainRole()?Auth::user()->mainRole()->name:'default';
         switch ($role) {
             case 'administrator':
-                 $product_created=$this->productRepository->getAllInActive();
-                return $this->view('dashboard.administrator',compact($product_created));
+                $book_created=$this->productRepository->getAllInActive();
+                return $this->view('dashboard.administrator',compact("book_created"));
                 break;
             case 'customer':
                 $product=$this->productRepository->getAll()->where('user_id','=',Auth::user()['id']);

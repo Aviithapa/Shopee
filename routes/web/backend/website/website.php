@@ -202,6 +202,6 @@ Route::group(['namespace' => 'WebSite'], function () {
             'show' => 'dashboard.invoice.show',
         ]
     ]);
-    Route::match(['put', 'patch'], 'events/approve/{event}', 'EventController@approve')->name('dashboard.events.approve');
+    Route::match(['put', 'patch'], 'product/approve/{event}', 'ProductController@approve')->name('dashboard.product.approve');
 
 });

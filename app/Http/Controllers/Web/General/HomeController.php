@@ -114,7 +114,6 @@ class HomeController extends BaseController
         $slug = $slug ? $slug : 'index';
         $this->view_data['pageContent'] = $this->postRepository->findBySlug($slug, false);
         $this->view_data['authUser']=Auth::User();
-//        $this->view_data['categories'] = $this->categoryRepository->getModel();
         $file_path = resource_path() . DIRECTORY_SEPARATOR . 'views' . DIRECTORY_SEPARATOR . 'web/pages' . DIRECTORY_SEPARATOR . $slug . '.blade.php';
         if (file_exists($file_path)) {
             switch ($slug) {
@@ -124,7 +123,7 @@ class HomeController extends BaseController
                     $this->view_data['add'] = $this->postRepository->findById(125);
                     $this->view_data['add1'] = $this->postRepository->findById(126);
                     $this->view_data['testimonial'] = $this->postRepository->findBy('type', 'testimonial', '=');
-                    $this->view_data['products'] =Product::paginate(6);
+                    $this->view_data['products'] =Product::paginate(5);
                     $this->view_data['loksewa'] =$this->productRepository->findBy('category','loksewa-examination','=',true,6);
                     $this->view_data['coursebook'] =$this->productRepository->findBy('category','coursebook','=',true,6);
                     $this->view_data['questionbankandsolution'] =$this->productRepository->findBy('category','question-bank-and-solution','=',true,6);
@@ -134,7 +133,7 @@ class HomeController extends BaseController
                     $this->view_data['second'] = $this->postRepository->findById(138);
                      break;
                 case 'catalog':
-                    $this->view_data['products'] =Product::paginate(6);
+                    $this->view_data['products'] =Product::paginate(12);
                     $this->view_data['faculty'] =$this->facultyRepository->getAll();
                     $this->view_data['semester'] =$this->semesterRepository->getAll();
                     break;
@@ -395,24 +394,11 @@ class HomeController extends BaseController
 
     }
 
-//    public function sendContactMail($isfeedbacksends){
-//        try {
-//            $to_name = "House of Books";
-//            $to_email = "houseofbooksnepal@gmail.com";
-//            $from_name = $isfeedbacksends['name'];
-//            $feedback_message = $isfeedbacksends['message'];
-//            $from_email = $isfeedbacksends['email'];
-//
-//            $data = array('name' => $from_name, "body" => $feedback_message);
-//dd($);
-//            Mail::send('emails.feedback-email', $data, function ($message) use ($from_email, $to_name, $to_email, $from_name) {
-//                $message->to($to_email, $to_name)->subject('Feedback From');
-//                $message->from($from_email, $from_name);
-//            });
-//        }catch(\Exception $e){
-//            session()->flash('danger','Oops! Somethings went wrong');
-//            return redirect()->back();
-//        }
-//
-//    }
+    public function search(Request $request)
+    {
+            $this->view_data['products'] = Product::where('name', 'LIKE', '%' . $request->search . "%")->get();
+            $this->view_data['faculty'] = $this->facultyRepository->getAll();
+            $this->view_data['semester'] = $this->semesterRepository->getAll();
+            return view('web.pages.search', $this->view_data);
+    }
 }

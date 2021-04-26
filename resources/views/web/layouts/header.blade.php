@@ -30,9 +30,10 @@
                     <img src="{{getSiteSetting('logo_image') != null? getSiteSetting('logo_image'): ''}}" alt="House of Books" width="125" height="100">
                 </div>
                 <div class="col-lg-4 col-xs-4 col-md-4" style="margin-top: 32px;">
-                    <form action="#" method="#" role="search">
+                    <form action="{{url("search")}}" method="GET" role="search">
+                        {{csrf_field()}}
                         <div class="input-group">
-                            <input class="form-control" placeholder="Search . . ." name="srch-term" id="ed-srch-term" type="text">
+                            <input class="form-control" placeholder="Search . . ." name="search" id="ed-srch-term" type="text">
                             <div class="input-group-btn">
                                 <button type="submit" id="searchbtn">search</button>
                             </div>
@@ -88,7 +89,12 @@
                 <a href="{{url('catalog')}}">Books we deal with</a>
                 <a href="{{url('secondhandbookcatalog')}}">Second hand books</a>
                 <a href="{{url('contact')}}">Contact Us</a>
-
+                @if(\Illuminate\Support\Facades\Auth::user())
+                @if(\Illuminate\Support\Facades\Auth::user()->mainRole()->name ==='customer')
+                    <a href="{{route('dashboard.products.index')}}">Sell Book</a>
+                    <a href="{{url('Profile')}}">My Profile</a>
+                    @endif
+                @endif
                 <a href="#offers">Offers</a>
                 <a href="{{url("cart")}}" style="position: absolute; right: 0;"><button class="btn btn-primary btn-round-sm btn-sm"><i class="fa fa-shopping-cart" style="margin-right: 10px;"></i>@if(\Illuminate\Support\Facades\Auth::user())
                             {{getCartAmount()}}

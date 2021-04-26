@@ -108,6 +108,6 @@ class RegisterController extends Controller
 
     public function success()
     {
-        return redirect()->intended('dashboard');
+        return redirect()->intended('/');
     }
 }

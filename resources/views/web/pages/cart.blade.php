@@ -1,10 +1,69 @@
 @extends('web.layouts.app')
 @section('content')
+
+
+
     <!-- Main Content - start -->
     <main>
         <section class="container stylization maincont">
 
             <h1 style="align-content: center" ><span>Cart</span></h1>
+
+
+
+            <div class="conatiner">
+                <div class="row">
+                    <div class="col-md-8">
+                        <table>
+                            <tr style="border-bottom: 1px solid">
+                                <th>First Name</th>
+                                <th>Last Name</th>
+                                <th>Points</th>
+                            </tr>
+                            <tr>
+                                <td>Peter</td>
+                                <td>Griffin</td>
+                                <td>$100</td>
+                            </tr>
+                            <tr>
+                                <td>Lois</td>
+                                <td>Griffin</td>
+                                <td>$150</td>
+                            </tr>
+                            <tr>
+                                <td>Joe</td>
+                                <td>Swanson</td>
+                                <td>$300</td>
+                            </tr>
+                            <tr>
+                                <td>Cleveland</td>
+                                <td>Brown</td>
+                                <td>$250</td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="card">
+                                    <header class="card-header">
+                                        <h4 class="card-title mt-2">Your Order</h4>
+                                    </header>
+                                    <article class="card-body">
+                                        <dl class="dlist-align">
+                                            <dt>Total cost: </dt>
+                                            <dd class="text-right h5 b">{{getCartTotalPrice()}} </dd>
+                                        </dl>
+                                    </article>
+                                </div>
+                            </div>
+                            <div class="col-md-12 mt-4">
+                                <button type="submit" class="subscribe btn btn-success btn-lg btn-block">Place Order</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
             <!-- Cart Items - start -->
             <form action="#">
                 <div class="cart-items-wrap">

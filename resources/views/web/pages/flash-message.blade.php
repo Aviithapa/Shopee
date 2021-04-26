@@ -36,3 +36,14 @@
         Please check the form below for errors
     </div>
 @endif
+
+@push('scripts')
+    <script>
+        $("document").ready(function(){
+            setTimeout(function(){
+                $("div.alert").remove();
+            }, 5000 ); // 5 secs
+
+        });
+    </script>
+    @endpush

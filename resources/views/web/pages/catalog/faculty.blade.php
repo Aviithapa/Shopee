@@ -100,6 +100,7 @@
                 <!-- Catalog Topbar - end -->
                 <div class="prod-items section-items">
                     @foreach($products as $product)
+                        @if($product->status=='active')
                         <div class="prod-i">
                             <div class="prod-i-top">
                                 <a href="{{url('productDetails/'.$product->id)}}" class="prod-i-img"><!-- NO SPACE --><img src="{{$product->getImage()}}" alt="Adipisci aperiam commodi"><!-- NO SPACE --></a>
@@ -124,6 +125,7 @@
                             <div class="prod-i-skuwrapcolor">
                             </div>
                         </div>
+                        @endif
                     @endforeach
                 </div>
 

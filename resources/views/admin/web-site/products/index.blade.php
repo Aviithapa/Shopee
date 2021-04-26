@@ -1,4 +1,4 @@
-@extends('admin.layout.app')
+@extends('web.layouts.app')
 
 @section('content')
     <link href="{{asset('assets/plugins/jquery-datatable/css/jquery.dataTables.css')}}" rel="stylesheet" type="text/css" />

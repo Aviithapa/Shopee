@@ -15,9 +15,14 @@ class EloquentProductRepository extends RepositoryImplementation implements Prod
             return new Product();
         }
 
+        public function getAll()
+        {
+            return $this->getModel()->where('status', 'active')->get();
+        }
+
     public function getAllInActive()
     {
-        //return $this->getModel()->where('status', 'in-active')->get();
+        return $this->getModel()->where('status', 'in-active')->get();
     }
 
     public function getDataWithPagination($limit=null)

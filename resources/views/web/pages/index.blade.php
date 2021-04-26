@@ -88,15 +88,17 @@
 
         <div class="content">
             <div class="row">
-
+                @include('web.pages.flash-message')
                 @foreach($products as $product)
+                    @if($product->status=='active')
                 <div class="columns">
                     <div class="card">
                         <img src="{{$product->getImage()}}" alt="">
-                        <h5 style="font-weight: bold;  margin-bottom: 1px !important;"  style="line-height: 20px;">{{$product->title}} </h5> <p style="font-style: italic;"></p>
+                        <h5 style="font-weight: bold;  margin-bottom: 1px !important;"  style="line-height: 20px;">{{ str_limit($product->name, 14) }} </h5> <p style="font-style: italic;"></p>
                         <p style="text-align: center; margin-bottom: -15px !important;"><button class="btn btn-primary btn-round-sm btn-sm" style="font-size: 14px;background-color:#25a521 !important; border-color:#25a521 !important; margin-right:3px; font-weight: 700 !important;">RS {{$product->price}}</button><a href="{{url('add/to/cart/'.$product->id)}}"><button class="btn btn-primary btn-round-sm btn-sm" style="font-size: 12px;">ADD TO CART</button></a></p>
                     </div>
                 </div>
+                    @endif
                     @endforeach
             </div>
         </div>
@@ -118,14 +120,18 @@
 
                         </div>
                         <div class="bbb_viewed_slider_container">
+                            @include('web.pages.flash-message')
+
                             <div class="owl-carousel owl-theme bbb_viewed_slider">
                                 @foreach($questionbankandsolution as $products)
+                                    @if($products->status=='active')
                                 <div class="owl-item">
                                     <div class="bbb_viewed_item discount d-flex flex-column align-items-center justify-content-center text-center"  style="border-radius: 20px;">
                                         <a href="{{url("productDetails/".$product->id)}}">
                                         <div class="bbb_viewed_image"><img src="{{$products->getImage()}}" alt=""></div>
                                         </a>
                                         <div class="bbb_viewed_content text-center">
+                                            <h5 style="  color:black !important;  font-size:14px !important;  margin-bottom: 1px !important;"  style="line-height: 20px;">{{$products->name}} </h5>
                                             <p><button class="btn btn-primary btn-round-sm btn-sm" style=" width:70px; font-size: 10px;background-color:#25a521 !important; border-color:#25a521 !important; margin-right:3px; font-weight: 700 !important;">RS {{$product->price}}</button><button class="btn btn-primary btn-round-sm btn-sm" style="font-size: 10px; font-weight: 600; width: 85px;">ADD TO CART</button></p>
 
                                             <!-- <div class="bbb_viewed_name"><a href="#">Alkatel Phone</a></div> -->
@@ -136,6 +142,7 @@
                                         </ul>
                                     </div>
                                 </div>
+                                    @endif
                                 @endforeach
 
                             </div>
@@ -167,6 +174,7 @@
                         <div class="bbb_viewed_slider_container">
                             <div class="owl-carousel owl-theme bbb_viewed_slider">
                                 @foreach($coursebook as $coursework)
+                                    @if($coursework->status=='active')
                                     <div class="owl-item">
                                         <div class="bbb_viewed_item discount d-flex flex-column align-items-center justify-content-center text-center" style="border-radius: 20px;">
                                             <div class="bbb_viewed_image"><img src="{{$coursework->getImage()}}" alt=""></div>
@@ -181,6 +189,7 @@
                                             </ul>
                                         </div>
                                     </div>
+                                    @endif
                                 @endforeach
                             </div>
                         </div>
@@ -208,6 +217,7 @@
                         <div class="bbb_viewed_slider_container">
                             <div class="owl-carousel owl-theme bbb_viewed_slider">
                                 @foreach($loksewa as $loksewa)
+                                    @if($loksewa->status=='active')
                                     <div class="owl-item">
                                         <div class="bbb_viewed_item discount d-flex flex-column align-items-center justify-content-center text-center" style="border-radius: 20px;">
                                             <div class="bbb_viewed_image"><img src="{{$loksewa->getImage()}}" alt=""></div>
@@ -222,6 +232,7 @@
                                             </ul>
                                         </div>
                                     </div>
+                                    @endif
                                 @endforeach
                             </div>
                         </div>

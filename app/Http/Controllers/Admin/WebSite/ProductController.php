@@ -13,6 +13,7 @@ use App\Modules\Backend\Website\Product\Requests\CreateProductRequest;
 use App\Modules\Backend\Website\Product\Requests\UpdateProductRequest;
 use App\Modules\Backend\Website\Semester\Repositories\SemesterRepository;
 use Illuminate\Contracts\Logging\Log;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Yajra\DataTables\Facades\DataTables;
 
@@ -143,7 +144,7 @@ class ProductController extends BaseController
         $faculty=$this->facultyRepository->getAll();
         $semester=$this->semesterRepository->getAll();
         $product = $this->productRepository->findById($id);
-        $category = $this->categoryRepository->findById($id);
+        $category = $this->categoryRepository->getAll();
         return $this->view('web-site.product.edit', compact('product','faculty','semester','role','category'));
     }
 
@@ -194,6 +195,27 @@ class ProductController extends BaseController
         }
         catch (\Exception $e) {
             $this->log->error('Content delete : '.$e->getMessage());
+            session()->flash('danger', 'Oops! Something went wrong.');
+            return redirect()->back();
+        }
+    }
+
+    public function approve(Request $request, $id)
+    {
+        $this->authorize('update',$this->productRepository->getModel());
+        $data = $request->only('status');
+        try {
+
+            $event = $this->productRepository->update($data, $id);
+            if($event == false) {
+                session()->flash('danger', 'Oops! Something went wrong.');
+                return redirect()->back()->withInput();
+            }
+            session()->flash('success', 'Events have been added Sucessfully');
+            return redirect()->back();
+        }
+        catch (\Exception $e) {
+            $this->log->error('User update : '.$e->getMessage());
             session()->flash('danger', 'Oops! Something went wrong.');
             return redirect()->back();
         }
