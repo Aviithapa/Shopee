@@ -3,7 +3,7 @@
 @section('content')
     <!-- Main Content - start -->
     <main>
-        <section class="container">
+        <section class="container mt-5" >
 
 
 
@@ -16,7 +16,7 @@
                     <div class="prod-slider">
                         <ul class="prod-slider-car">
                             <li>
-                                <a data-fancybox-group="product" class="fancy-img" href="http://placehold.it/500x722">
+                                <a data-fancybox-group="product" class="fancy-img" href="{{$product->getImage()}}">
                                     <img src="{{$product->getImage()}}" alt="">
                                 </a>
                             </li>
@@ -30,34 +30,25 @@
                         {{$product->excerpt}}
                     </div>
                     <p class="prod-actions">
-                        <a href="#" class="prod-favorites"><i class="fa fa-heart"></i> Wishlist</a>
-                        <a href="#" class="prod-compare"><i class="fa fa-bar-chart"></i> Compare</a>
                     </p>
                     <div class="prod-info">
                         <p class="prod-price">
-                            <b class="item_current_price">{{$product->price}}</b>
+                           <h3> <b class="item_current_price">Rs. {{$product->price}}</b></h3>
                         </p>
-{{--                        <p class="prod-qnt">--}}
-{{--                            <input value="1" type="text">--}}
-{{--                            <a href="#" class="prod-plus"><i class="fa fa-angle-up"></i></a>--}}
-{{--                            <a href="#" class="prod-minus"><i class="fa fa-angle-down"></i></a>--}}
-{{--                        </p>--}}
                         <p class="prod-addwrap">
                             <a href="{{url('add/to/cart/'.$product->id)}}" class="prod-add" rel="nofollow">Add to cart</a>
                         </p>
                     </div>
                     <ul class="prod-i-props">
                         <li>
-                            <b>Author</b> 05464207
+                            <b>Publication</b>: {{$product->publication}}
                         </li>
                         <li>
-                            <b>Publication</b> 05464207
+                            <b>Edition</b>: {{$product->edition}}
                         </li>
                         <li>
-                            <b>Author</b> 05464207
-                        </li>
-                        <li>
-                            Short Description
+                            <h3>Short Description</h3>
+                            <p style="text-align: justify;">{{$product->excerpt}}</p>
                         </li>
                     </ul>
                 </div>
@@ -89,20 +80,10 @@
                             @foreach($related_product as $related_product)
                             <div class="prod-rel">
                                 <a href="{{url('productDetails/'.$related_product->id)}}" class="prod-rel-img">
-                                    <img src="http://placehold.it/300x311" alt="Adipisci aperiam commodi">
+                                    <img src="{{$related_product->getImage()}}" alt="Adipisci aperiam commodi">
                                 </a>
                                 <div class="prod-rel-cont">
-                                    <h3><a href="{{url('productDetails/'.$related_product->id)}}">{{$related_product->name}}</a></h3>
-                                    <p class="prod-rel-price">
-                                        <b>{{$related_product->price}}</b>
-                                    </p>
-                                    <div class="prod-rel-actions">
-                                        <a title="Wishlist" href="#" class="prod-rel-favorites"><i class="fa fa-heart"></i></a>
-                                        <a title="Compare" href="#" class="prod-rel-compare"><i class="fa fa-bar-chart"></i></a>
-                                        <p class="prod-i-addwrap">
-                                            <a title="Add to cart" href="#" class="prod-i-add"><i class="fa fa-shopping-cart"></i></a>
-                                        </p>
-                                    </div>
+                                    <h4><a href="{{url('productDetails/'.$related_product->id)}}" style="color: black !important;">{{$related_product->name}}</a></h4>
                                 </div>
                             </div>
                             @endforeach

@@ -35,10 +35,10 @@ use App\Save;
 use http\Exception\UnexpectedValueException;
 use http\Message\Body;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Mail;
 use PhpParser\Node\Expr\PostDec;
-use Auth;
 use Session;
 use Models;
 
@@ -278,11 +278,11 @@ class HomeController extends BaseController
             $data['grand_total']=getCartTotalPrice();
             $data['item_count']=getTotalQuanity();
             $data['status'] = "received";
+
             $data->save();
-            dd("you are here");
             if ($data) {
 
-                $items = Cart::all();
+                $items =Cart::all()->where('user_id','=',auth()->user()->id);
 
                 foreach ($items as $item)
                 {
@@ -290,18 +290,18 @@ class HomeController extends BaseController
                         'order_id'      => $data['id'],
                         'product_id'    =>  $item->product_id,
                         'quantity'      =>  $item->quantity,
-                        'price'         =>  "10"
+                        'price'         =>  $item->product_price
                     ]);
-
                     $data->items()->save($orderItem);
-
-                    session()->flash('success', 'User added successfully');
-                    return view('web.pages.success',compact('events'));
                 }
+                $items->delete();
+                session()->flash('success', 'Your Order has been successfully placed');
+                return view('web.pages.success',compact('events'));
+
             }
 
         }catch (\Exception $ex){
-
+dd($ex);
         }
     }
     public function User(Request $request,$id=null){

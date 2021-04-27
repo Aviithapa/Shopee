@@ -44,6 +44,7 @@ class CartController extends BaseController
 
     public function destroy($id)
     {
+        dd($id);
         try {
             if(isset($request->hard_delete))
                 $this->cartRepository->hardDelete($id);

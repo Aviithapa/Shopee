@@ -112,7 +112,6 @@ span{
     width: 100%;
     background-color: #25a521;
     height: auto;
-    margin-top: 10px;
 }
 .topnav {
     overflow: hidden  !important;
@@ -1106,4 +1105,9 @@ th, td {
     padding: 8px;
     text-align: left;
     border-bottom: 1px solid #ddd;
+}
+@media (max-width: 768px) {
+    .team .row{
+        margin-left: 0px !important;
+    }
 }

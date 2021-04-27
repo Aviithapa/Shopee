@@ -84,7 +84,7 @@
         <div class="title" >
             <h4>Best Selling Product</h4>
         </div>
-        <p style="float: right; margin-top: -40px; margin-right: 70px;"><a href="{{url('catalog')}}"><button class="btn btn-primary btn-round-sm btn-sm">View All</button></a></p>
+        <p style="float: right; margin-top: -30px; margin-right: 70px;"><a href="{{url('catalog')}}"><button class="btn btn-primary btn-round-sm btn-sm">View All</button></a></p>
 
         <div class="content">
             <div class="row">
@@ -94,8 +94,9 @@
                 <div class="columns">
                     <div class="card">
                         <img src="{{$product->getImage()}}" alt="">
-                        <h5 style="font-weight: bold;  margin-bottom: 1px !important;"  style="line-height: 20px;">{{ str_limit($product->name, 14) }} </h5> <p style="font-style: italic;"></p>
-                        <p style="text-align: center; margin-bottom: -15px !important;"><button class="btn btn-primary btn-round-sm btn-sm" style="font-size: 14px;background-color:#25a521 !important; border-color:#25a521 !important; margin-right:3px; font-weight: 700 !important;">RS {{$product->price}}</button><a href="{{url('add/to/cart/'.$product->id)}}"><button class="btn btn-primary btn-round-sm btn-sm" style="font-size: 12px;">ADD TO CART</button></a></p>
+                        <h5 style="font-weight: bold;  margin-bottom: 1px !important;"  style="line-height: 20px;">{{ str_limit($product->name, 14) }} </h5>
+                        <p style="font-style: italic; font-size: 12px;">Mark Manson</p>
+                        <p style="text-align: center; margin-bottom: -15px !important;"><button class="btn btn-primary btn-round-sm btn-sm" style="font-size: 14px;background-color:#25a521 !important; border-color:#25a521 !important; margin-right:3px; font-weight: 700 !important;">RS {{$product->price}}</button><a href="{{url('add/to/cart/'.$product->id)}}"><button class="btn btn-primary btn-round-sm btn-sm" style="font-size: 12px; font-weight: 700 !important;">ADD TO CART</button></a></p>
                     </div>
                 </div>
                     @endif
@@ -109,7 +110,7 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col">
-                    <div class="bbb_main_container" style="background-color: whitesmoke !important;">
+                    <div class="bbb_main_container" style="background-color: whitesmoke !important; margin: 0px !important; margin-top: -50px">
                         <div class="bbb_viewed_title_container">
                             <h3 class="bbb_viewed_title">
                                 <div class="title" >
@@ -121,23 +122,23 @@
                         </div>
                         <div class="bbb_viewed_slider_container">
                             @include('web.pages.flash-message')
-
                             <div class="owl-carousel owl-theme bbb_viewed_slider">
                                 @foreach($questionbankandsolution as $products)
                                     @if($products->status=='active')
                                 <div class="owl-item">
-                                    <div class="bbb_viewed_item discount d-flex flex-column align-items-center justify-content-center text-center"  style="border-radius: 20px;">
+                                    <div class="bbb_viewed_item discount d-flex flex-column align-items-center justify-content-center text-center"  style="border-radius: 20px; ">
                                         <a href="{{url("productDetails/".$product->id)}}">
-                                        <div class="bbb_viewed_image"><img src="{{$products->getImage()}}" alt=""></div>
+                                        <div class="bbb_viewed_image" style="width: 220px !important; height: 220px !important;"><img src="{{$products->getImage()}}" alt=""></div>
                                         </a>
-                                        <div class="bbb_viewed_content text-center">
-                                            <h5 style="  color:black !important;  font-size:14px !important;  margin-bottom: 1px !important;"  style="line-height: 20px;">{{$products->name}} </h5>
-                                            <p><button class="btn btn-primary btn-round-sm btn-sm" style=" width:70px; font-size: 10px;background-color:#25a521 !important; border-color:#25a521 !important; margin-right:3px; font-weight: 700 !important;">RS {{$product->price}}</button><button class="btn btn-primary btn-round-sm btn-sm" style="font-size: 10px; font-weight: 600; width: 85px;">ADD TO CART</button></p>
+                                        <div class="bbb_viewed_content text-center" style="margin-top: -5px;">
+                                            <h5 style="font-size:14px !important;font-weight: bold; color: black !important; margin-bottom: 1px !important;line-height: 20px;">{{ str_limit($products->name, 18) }} </h5>
+                                            <p style="color:black; font-style: italic; font-size: 12px;">{{$products->publication}}</p>
+                                            <p class="mt-3"><button class="btn btn-primary btn-round-sm btn-sm" style=" width:70px; font-size: 10px;background-color:#25a521 !important; border-color:#25a521 !important; margin-right:3px; font-weight: 700 !important;">RS {{$product->price}}</button><button class="btn btn-primary btn-round-sm btn-sm" style="font-size: 10px; font-weight: 600; width: 85px;">ADD TO CART</button></p>
 
                                             <!-- <div class="bbb_viewed_name"><a href="#">Alkatel Phone</a></div> -->
                                         </div>
                                         <ul class="item_marks">
-                                            <li class="item_mark item_discount">-25%</li>
+                                            <li class="item_mark item_discount">-{{$products->discount}} %</li>
                                             <li class="item_mark item_new">new</li>
                                         </ul>
                                     </div>
@@ -161,12 +162,12 @@
             <div class="row">
                 <div class="col">
                     <div class="bbb_main_container">
-                        <div class="bbb_viewed_title_container">
+                        <div class="bbb_viewed_title_container" style="margin-top: -50px">
                             <h3 class="bbb_viewed_title">
                                 <div class="title" >
                                     <h4>Course Books</h4>
                                 </div>
-                                <p style="float: right; margin-top: -60px; margin-right: 70px;"><a href="{{url('catalog/category/coursebook')}}"><button class="btn btn-primary btn-round-sm btn-sm">View All</button></a></p>
+                                <p style="float: right; margin-top: -40px; margin-right: 70px;"><a href="{{url('catalog/category/coursebook')}}"><button class="btn btn-primary btn-round-sm btn-sm">View All</button></a></p>
 
                             </h3>
 
@@ -177,14 +178,15 @@
                                     @if($coursework->status=='active')
                                     <div class="owl-item">
                                         <div class="bbb_viewed_item discount d-flex flex-column align-items-center justify-content-center text-center" style="border-radius: 20px;">
-                                            <div class="bbb_viewed_image"><img src="{{$coursework->getImage()}}" alt=""></div>
+                                            <div class="bbb_viewed_image" style="width: 230px !important; height: 230px !important;"><img src="{{$coursework->getImage()}}" alt=""></div>
                                             <div class="bbb_viewed_content text-center">
-                                                <div class="bbb_viewed_price">{{$coursework->price}}</div>
-                                                <p style="text-align: center; margin-top: 10px !important;"><a href="{{url('add/to/cart/'.$coursework->id)}}"><button class="btn btn-primary btn-round-sm btn-sm">Add to Cart</button></a></p>
+                                                <h5 style="font-size:14px !important;font-weight: bold; color: black !important; margin-bottom: 1px !important;line-height: 20px;">{{ str_limit($coursework->name, 10) }} </h5>
+                                                <p class="mt-3"><button class="btn btn-primary btn-round-sm btn-sm" style=" width:70px; font-size: 10px;background-color:#25a521 !important; border-color:#25a521 !important; margin-right:3px; font-weight: 700 !important;">RS {{$coursework->price}}</button><button class="btn btn-primary btn-round-sm btn-sm" style="font-size: 10px; font-weight: 600; width: 85px;">ADD TO CART</button></p>
+
                                                 <!-- <div class="bbb_viewed_name"><a href="#">Alkatel Phone</a></div> -->
                                             </div>
                                             <ul class="item_marks">
-                                                <li class="item_mark item_discount">{{$coursework->discount}}</li>
+                                                <li class="item_mark item_discount">-{{$coursework->discount}}%</li>
                                                 <li class="item_mark item_new">new</li>
                                             </ul>
                                         </div>
@@ -208,7 +210,7 @@
                         <div class="bbb_viewed_title_container">
                             <h3 class="bbb_viewed_title">
                                 <div class="title" >
-                                    <h4>Loksewa Examination Books</h4>
+                                    <h4>Medical Examination Books</h4>
                                 </div>
                             </h3>
                             <p style="float: right; margin-top: -60px; margin-right: 70px;"><a href="{{url('catalog/category/loksewa-examination')}}"><button class="btn btn-primary btn-round-sm btn-sm">View All</button></a></p>

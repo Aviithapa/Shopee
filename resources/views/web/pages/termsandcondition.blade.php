@@ -92,7 +92,6 @@
         <p>BY USING SERVICE OR OTHER SERVICES PROVIDED BY US, YOU ACKNOWLEDGE THAT YOU HAVE READ THESE TERMS OF SERVICE AND AGREE TO BE BOUND BY THEM.</p>
         <p>24. <b>Contact Us</b></p>
         <p>Please send your feedback, comments, requests for technical support by email: <b>houseofbooksnepal@gmail.com</b>.</p>
-        <p style="margin-top: 5em; font-size: 0.7em;">These <a href="https://policymaker.io/terms-and-conditions/">Terms of Service</a> were created for <b>houseofbooks.com.np</b> by <a href="https://policymaker.io">PolicyMaker.io</a> on 2021-04-13.</p>
 
     </div>
 @endsection
