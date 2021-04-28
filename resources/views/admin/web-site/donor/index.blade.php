@@ -1,4 +1,3 @@
-
 @extends('admin.layout.app')
 
 @section('content')
@@ -51,7 +50,6 @@
                 {data: 'image', name: 'image'},
                 {data: 'donation_amount', name: 'donation_amount'},
                 {className: 'td-actions', data: 'action', name: 'action', orderable: false, searchable: false}
-
             ]
         });
     </script>

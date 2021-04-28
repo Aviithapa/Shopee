@@ -401,4 +401,20 @@ dd($ex);
             $this->view_data['semester'] = $this->semesterRepository->getAll();
             return view('web.pages.search', $this->view_data);
     }
+
+    public function Destroy($id){
+        try {
+            if(isset($request->hard_delete))
+                $this->cartRepository->hardDelete($id);
+            else
+                $this->cartRepository->delete($id);
+            session()->flash('success', 'Content deleted successfully');
+            return redirect()->back()->with('success','Cart have been deleted Sucessfully');;
+        }
+        catch (\Exception $e) {
+            $this->log->error('Content delete : '.$e->getMessage());
+            session()->flash('danger', 'Oops! Something went wrong.');
+            return redirect()->back();
+        }
+    }
 }

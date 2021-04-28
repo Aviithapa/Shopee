@@ -24,6 +24,7 @@
                         </tr>
                         </thead>
                         <tbody>
+                        @include('web.pages.flash-message')
                         @foreach($cart as $carts)
                         <tr style="text-align: center;">
                             <td class="cart-ttl">
@@ -39,9 +40,33 @@
                             </td>
 
                             <td class="cart-del">
-                                <a href="{{route("dashboard.cart.destroy", $carts->id)}}" class="btn btn-danger btn-sm" title="Delete">
+                                <a data-toggle="modal" href="#modal-delete-{{ $carts->id }}" class="btn btn-danger btn-sm" title="Delete">
                                     <i class="fa fa-trash"></i>
                                 </a>
+                                <div class="modal fade modal-mini modal-primary" id="modal-delete-{{ $carts->id }}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                                                <br>
+                                                <i class="fa fa-trash fa-3x"></i>
+                                            </div>
+                                            <div class="modal-body text-center">
+                                                <p>
+                                                    Are you sure want to delete this data?
+                                                </p>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <a href="{{url("cart/delete/".$carts->id)}}">
+                                                    <span class="btn btn-primary " style="width: 100px; height: 40px; color: white !important; background: #ff682c;">Yes</span>
+                                                </a>
+                                                <button class="btn btn-danger"  style="margin-top: 10px; background: red !important;" data-dismiss="modal">
+                                                  No
+                                                </button>
+                                            </div>
+                                        </div><!-- /.modal-content -->
+                                    </div><!-- /.modal-dialog -->
+                                </div><!-- /.modal -->
                              </td>
                         </tr>
                             @endforeach
@@ -81,36 +106,5 @@
         </section>
     </main>
     <!-- Main Content - end -->
-    <div class="modal fade modal-mini modal-primary" id="modal-delete-{{ $carts->id }}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                {{ Form::open(['method' => 'DELETE', 'route' => ["dashboard.cart.destroy", $carts->id]]) }}
-                @dd($carts->id)
-                @if(isset($hard_delete))
-                    <input type="hidden" value="1" name="hard_delete">
-                @endif
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                    <br>
-                    <i class="fa fa-trash fa-3x"></i>
-                    <h4 id="myModalLabel" class="semi-bold">Remove!!!</h4>
-                </div>
-                <div class="modal-body text-center">
-                    <p>
-                        Are you sure want to remove it from your cart?
-                    </p>
-                </div>
-                <div class="modal-footer" >
-                    <button type="submit" class="btn btn-danger" >
-                        <i class="fa fa-check"></i> Yes
-                    </button><br>
-                    <button type="button" class="btn btn-primary" data-dismiss="modal">
-                        <i class="fa fa-times"></i> Cancel
-                    </button>
-                </div>
-                {{ Form::close() }}
-            </div><!-- /.modal-content -->
-        </div><!-- /.modal-dialog -->
-    </div><!-- /.modal -->
 
 @endsection

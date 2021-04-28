@@ -133,7 +133,7 @@
                                         <div class="bbb_viewed_content text-center" style="margin-top: -5px;">
                                             <h5 style="font-size:14px !important;font-weight: bold; color: black !important; margin-bottom: 1px !important;line-height: 20px;">{{ str_limit($products->name, 18) }} </h5>
                                             <p style="color:black; font-style: italic; font-size: 12px;">{{$products->publication}}</p>
-                                            <p class="mt-3"><button class="btn btn-primary btn-round-sm btn-sm" style=" width:70px; font-size: 10px;background-color:#25a521 !important; border-color:#25a521 !important; margin-right:3px; font-weight: 700 !important;">RS {{$product->price}}</button><button class="btn btn-primary btn-round-sm btn-sm" style="font-size: 10px; font-weight: 600; width: 85px;">ADD TO CART</button></p>
+                                            <p class="mt-3"><button class="btn btn-primary btn-round-sm btn-sm" style=" width:70px; font-size: 10px;background-color:#25a521 !important; border-color:#25a521 !important; margin-right:3px; font-weight: 700 !important;">RS {{$product->price}}</button><a href="{{url('add/to/cart/'.$product->id)}}"><button class="btn btn-primary btn-round-sm btn-sm" style="font-size: 10px; font-weight: 600; width: 85px;">ADD TO CART</button></a></p>
 
                                             <!-- <div class="bbb_viewed_name"><a href="#">Alkatel Phone</a></div> -->
                                         </div>
@@ -181,7 +181,7 @@
                                             <div class="bbb_viewed_image" style="width: 230px !important; height: 230px !important;"><img src="{{$coursework->getImage()}}" alt=""></div>
                                             <div class="bbb_viewed_content text-center">
                                                 <h5 style="font-size:14px !important;font-weight: bold; color: black !important; margin-bottom: 1px !important;line-height: 20px;">{{ str_limit($coursework->name, 10) }} </h5>
-                                                <p class="mt-3"><button class="btn btn-primary btn-round-sm btn-sm" style=" width:70px; font-size: 10px;background-color:#25a521 !important; border-color:#25a521 !important; margin-right:3px; font-weight: 700 !important;">RS {{$coursework->price}}</button><button class="btn btn-primary btn-round-sm btn-sm" style="font-size: 10px; font-weight: 600; width: 85px;">ADD TO CART</button></p>
+                                                <p class="mt-3"><button class="btn btn-primary btn-round-sm btn-sm" style=" width:70px; font-size: 10px;background-color:#25a521 !important; border-color:#25a521 !important; margin-right:3px; font-weight: 700 !important;">RS {{$coursework->price}}</button><a href="{{url('add/to/cart/'.$coursework->id)}}"><button class="btn btn-primary btn-round-sm btn-sm" style="font-size: 10px; font-weight: 600; width: 85px;">ADD TO CART</button></a></p>
 
                                                 <!-- <div class="bbb_viewed_name"><a href="#">Alkatel Phone</a></div> -->
                                             </div>
