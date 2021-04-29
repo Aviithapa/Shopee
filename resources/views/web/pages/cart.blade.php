@@ -17,6 +17,7 @@
                     <table class="cart-items">
                         <thead>
                         <tr>
+                            <td class="cart-ttl"><h4 style="color: black !important; font-weight: bold">Products Image</h4></td>
                             <td class="cart-ttl"><h4 style="color: black !important; font-weight: bold">Products</h4></td>
                             <td class="cart-price"><h4 style="color: black !important; font-weight: bold">Price</h4></td>
                             <td class="cart-quantity"><h4 style="color: black !important; font-weight: bold">Quantity</h4></td>
@@ -26,7 +27,13 @@
                         <tbody>
                         @include('web.pages.flash-message')
                         @foreach($cart as $carts)
+
                         <tr style="text-align: center;">
+                                <td class="cart-image">
+                                    <a href="#">
+                                        <img src="{{$carts->getImage()}}" alt="Similique delectus totam">
+                                    </a>
+                                </td>
                             <td class="cart-ttl">
                                <a href="{{url('productDetails/'.$carts->product_id)}}"><b style="color: black !important;">{{$carts->product_name}}</b></a>
                             </td>
@@ -84,21 +91,23 @@
                         <div class="col-md-12">
                             <div class="card">
                                 <header class="card-header">
-                                    <h4 class="card-title mt-2" style="color: black !important; font-weight: bold;">Your Order</h4>
+                                    <h4 class="card-title mt-2" style="color: black !important; font-weight: bold; font-size: 30px">Your Order</h4>
                                 </header>
                                 <article class="card-body">
-                                    <dl class="dlist-align" style="color: black !important; font-weight: bold;">
-                                        <dt>Quantity : </dt>
-                                        <dd class="text-right h5 b">{{getCartAmount()}} </dd>
-                                        <dt>Total cost : </dt>
-                                        <dd class="text-right h5 b">{{getCartTotalPrice()}} </dd>
+                                    <dl class="dlist-align" >
+                                        <dt style="color: black !important; font-weight: bold; font-size: 16px;">Quantity: </dt>
+                                        <dd style="color: black !important; font-weight: bold; font-size: 16px;" class="text-right h5 b">{{getCartAmount()}} </dd>
+                                        <dt style="color: black !important; font-weight: bold; font-size: 16px;">Total cost: </dt>
+                                        <dd style="color: black !important; font-weight: bold; font-size: 16px;" class="text-right h5 b">{{getCartTotalPrice()}} </dd>
+                                        <dt style="color: black !important; font-weight: bold; font-size: 16px;">Delivery : </dt>
+                                        <dd style="color: black !important; font-weight: bold; font-size: 16px;" class="text-right h5 b">0 </dd>
 
                                     </dl>
                                 </article>
                             </div>
                         </div>
                         <div class="col-md-12 mt-4">
-                            <a href="{{url('checkout')}}"> <button type="submit" class="subscribe btn btn-success btn-lg btn-block">Checkout</button></a>
+                            <a href="{{url('checkout')}}"> <button type="submit" style="background-color: #25a521 !important;" class="subscribe btn btn-success btn-lg btn-block">Checkout</button></a>
                         </div>
                     </div>
                 </div>

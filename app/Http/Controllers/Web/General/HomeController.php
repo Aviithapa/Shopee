@@ -278,12 +278,9 @@ class HomeController extends BaseController
             $data['grand_total']=getCartTotalPrice();
             $data['item_count']=getTotalQuanity();
             $data['status'] = "received";
-
             $data->save();
             if ($data) {
-
                 $items =Cart::all()->where('user_id','=',auth()->user()->id);
-
                 foreach ($items as $item)
                 {
                     $orderItem = new OrderItem([
@@ -297,11 +294,9 @@ class HomeController extends BaseController
                 $items->delete();
                 session()->flash('success', 'Your Order has been successfully placed');
                 return view('web.pages.success',compact('events'));
-
             }
-
         }catch (\Exception $ex){
-dd($ex);
+            dd($ex);
         }
     }
     public function User(Request $request,$id=null){
@@ -332,7 +327,7 @@ dd($ex);
 
     public function cart(){
         $this->view_data['cart'] = $this->cartRepository->getAll()->where('user_id','=',Auth::user()->id);
-        return view('web.pages.cart' , $this->view_data);
+         return view('web.pages.cart' , $this->view_data);
     }
     public function addtocart(Request $request, $id){
         $mac_address = exec('getmac');
@@ -366,6 +361,7 @@ dd($ex);
                 $data->quantity="1";
                 $data->user_id=$user;
                 $data->mac=$mac;
+                $data->image=$product->image;
                 $data->save();
         }
         else
@@ -409,7 +405,7 @@ dd($ex);
             else
                 $this->cartRepository->delete($id);
             session()->flash('success', 'Content deleted successfully');
-            return redirect()->back()->with('success','Cart have been deleted Sucessfully');;
+            return redirect()->back()->with('success','Product has  been removed from cart list successfully');
         }
         catch (\Exception $e) {
             $this->log->error('Content delete : '.$e->getMessage());

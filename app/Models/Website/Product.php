@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\Model;
 class Product extends Model
 {
     protected $table="products";
-    protected $fillable = ['name','description','price','quantity','image','semester','faculty','edition','university','discount','publication','excerpt','user_id',"category","status"];
+    protected $fillable = ['name','description','price','quantity','image','semester','faculty','edition','university','discount','publication','excerpt','user_id',"category","status","author"];
 
     public function getImage(){
         if(isset($this->image)) {
