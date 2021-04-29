@@ -84,10 +84,10 @@
                         <div class="col-md-12">
                             <div class="card">
                                 <header class="card-header">
-                                    <h4 class="card-title mt-2">Your Order</h4>
+                                    <h4 class="card-title mt-2" style="color: black !important; font-weight: bold;">Your Order</h4>
                                 </header>
                                 <article class="card-body">
-                                    <dl class="dlist-align">
+                                    <dl class="dlist-align" style="color: black !important; font-weight: bold;">
                                         <dt>Quantity : </dt>
                                         <dd class="text-right h5 b">{{getCartAmount()}} </dd>
                                         <dt>Total cost : </dt>
