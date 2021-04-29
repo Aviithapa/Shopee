@@ -68,13 +68,12 @@
     </div>
 
     <div class="adds">
-        <div class="col-lg-6 col-md-6 col-sm-12" style="    margin-right: -100px !important;
-          margin-left: 60px;">
+        <div class="col-lg-6 col-md-6 col-sm-12 add1">
             <div class="add">
                 <img src="{{$add->getImage()}}" alt="" width="100%">
             </div>
         </div>
-        <div class="col-lg-6 col-md-6 col-sm-12" style="margin-left: -10px;">
+        <div class="col-lg-6 col-md-6 col-sm-12 add2">
             <div class="add">
                 <img src="{{$add1->getImage()}}" alt="" width="100%">
             </div>
@@ -91,7 +90,7 @@
                 @include('web.pages.flash-message')
                 @foreach($products as $product)
                     @if($product->status=='active')
-                <div class="columns">
+                <div class="columns nobel">
                     <div class="card">
                         <img src="{{$product->getImage()}}" alt="">
                         <h5 style="font-weight: bold;  margin-bottom: 1px !important;"  style="line-height: 20px;">{{ str_limit($product->name, 14) }} </h5>

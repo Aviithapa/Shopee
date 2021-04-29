@@ -5,6 +5,7 @@ html {
 body{
     margin: 0;
     padding: 0;
+    width: 100%;
     box-sizing: border-box;
     font-family: "poppins",Helvetica,Arial,sans-serif;;
 }
@@ -271,6 +272,7 @@ a{
     color: #ff682c;
     padding-top: 4px;
 }
+
 .social p{
     padding-left: 10px;
 }
@@ -305,9 +307,12 @@ h5{
 .carousel{
     overflow: visible !important;
 }
-.column {
+.social {
+    width: 900px;
+}
+.column{
     float: left;
-    width: auto;
+    width: fit-content;
     padding: 10px;
     margin: 0px !important;
 }
@@ -1110,4 +1115,57 @@ th, td {
     .team .row{
         margin-left: 0px !important;
     }
+}
+@media (max-width: 1180px) {
+    .social {
+      text-align: center !important;
+        width: 100%;
+        background: blue !important;
+    }
+}
+@media (max-width: 998px) {
+    .nobel {
+        width: 45% !important;
+        margin-top: 20px;
+    }
+    .add1{
+        margin: 0px !important;
+        width: 100%;
+    }
+    .add2{
+        margin: 0px !important;
+        width: 100%;
+        margin-top: 100px !important;
+    }
+    .adds{
+        height: fit-content;
+        min-height: 620px !important;
+    }
+   .overwrite{
+       height: 180px !important;
+   }
+    .overwrite h5{
+        font-size: 10px !important;
+    }
+    .overwrite .icons img{
+        height: 50px !important;
+        width: 50px !important;
+    }
+    .icons{
+        width: 50px;
+        height: 50px;
+    }
+
+    .vl {
+        height: 140px;
+    }
+}
+
+.add1{
+    margin-right: -100px !important;
+    margin-left: 60px;
+}
+
+.add2{
+    margin-left: -10px;
 }

@@ -89,26 +89,29 @@
                 <div class="col-lg-4 col-md-12">
                     <div class="row">
                         <div class="col-md-12">
-                            <div class="card">
-                                <header class="card-header">
-                                    <h4 class="card-title mt-2" style="color: black !important; font-weight: bold; font-size: 30px">Your Order</h4>
-                                </header>
+                            <div class="card" style="border:none !important;  background-color: lightgrey !important;">
+                                    <h4 class="card-title mt-2" style="color: black !important; font-weight: bold; font-size: 30px">Order Summary</h4>
                                 <article class="card-body">
                                     <dl class="dlist-align" >
                                         <dt style="color: black !important; font-weight: bold; font-size: 16px;">Quantity: </dt>
                                         <dd style="color: black !important; font-weight: bold; font-size: 16px;" class="text-right h5 b">{{getCartAmount()}} </dd>
-                                        <dt style="color: black !important; font-weight: bold; font-size: 16px;">Total cost: </dt>
-                                        <dd style="color: black !important; font-weight: bold; font-size: 16px;" class="text-right h5 b">{{getCartTotalPrice()}} </dd>
+                                        <dt style="color: black !important; font-weight: bold; font-size: 16px;">Amount: </dt>
+                                        <dd style="color: black !important; font-weight: bold; font-size: 16px;" class="text-right h5 b"> RS. {{getCartTotalPrice()}} </dd>
                                         <dt style="color: black !important; font-weight: bold; font-size: 16px;">Delivery : </dt>
                                         <dd style="color: black !important; font-weight: bold; font-size: 16px;" class="text-right h5 b">0 </dd>
+                                        <hr style="height: 5px; !important;">
+                                        <dt style="color: black !important; font-weight: bold; font-size: 16px;">Total Amount: </dt>
+                                        <dd style="color: black !important; font-weight: bold; font-size: 16px;" class="text-right h5 b"> RS. {{getCartTotalPrice()}} </dd>
 
                                     </dl>
                                 </article>
+
+                                <div class="col-md-12 mt-4">
+                                    <a href="{{url('checkout')}}"> <button type="submit" style="background-color: #25a521 !important;" class="subscribe btn btn-round-sm btn-lg btn-block">Checkout</button></a>
+                                </div>
                             </div>
                         </div>
-                        <div class="col-md-12 mt-4">
-                            <a href="{{url('checkout')}}"> <button type="submit" style="background-color: #25a521 !important;" class="subscribe btn btn-success btn-lg btn-block">Checkout</button></a>
-                        </div>
+
                     </div>
                 </div>
             </div>

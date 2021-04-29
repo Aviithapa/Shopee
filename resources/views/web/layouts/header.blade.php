@@ -40,8 +40,8 @@
                         </div>
                     </form>
                 </div>
-                <div class="col-lg-6 col-xs-2 col-md-2 social">
-                    <div class="column">
+                <div class="col-lg-6 col-xs-12 col-md-12 ">
+                    <div class="social">
                         <div class="column" style="
                         margin-top: 10px !important;
                         ">
@@ -65,11 +65,9 @@
                             </div>
                         </div>
                         <div class="column" style="
-                          margin-top: 10px !important;
-                          padding-left: 23px;
-                          padding-right: 0px;">
+                          margin-top: 10px !important; margin-left: 0px !important; margin-right: 0px;">
                             <div class="column" >
-                                <i class="fas fa-envelope-open-text fa-2x"></i>
+                                <i class="fa fa-envelope-open fa-2x"></i>
                             </div>
                             <div class="column">
                                 <p>info@houseofbooks.com.np <br>houseofbooksnepal@gmail.com</p>
