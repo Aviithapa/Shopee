@@ -90,12 +90,14 @@
                 @include('web.pages.flash-message')
                 @foreach($products as $product)
                     @if($product->status=='active')
-                <div class="columns nobel">
+                <div class="columns nobel book">
                     <div class="card">
                         <img src="{{$product->getImage()}}" alt="">
+                        <input type="hidden" value="{{$product->id}}" id="pro_id">
                         <h5 style="font-weight: bold;  margin-bottom: 1px !important;"  style="line-height: 20px;">{{ str_limit($product->name, 14) }} </h5>
                         <p style="font-style: italic; font-size: 12px;">Mark Manson</p>
-                        <p style="text-align: center; margin-bottom: -15px !important;"><button class="btn btn-primary btn-round-sm btn-sm" style="font-size: 14px;background-color:#25a521 !important; border-color:#25a521 !important; margin-right:3px; font-weight: 700 !important;">RS {{$product->price}}</button><a href="{{url('add/to/cart/'.$product->id)}}"><button class="btn btn-primary btn-round-sm btn-sm" style="font-size: 12px; font-weight: 700 !important;">ADD TO CART</button></a></p>
+                        <p style="text-align: center; margin-bottom: -15px !important;"><button class="btn btn-primary btn-round-sm btn-sm" style="font-size: 14px;background-color:#25a521 !important; border-color:#25a521 !important; margin-right:3px; font-weight: 700 !important;">RS {{$product->price}}</button>
+                            <a href="{{url('add/to/cart/'.$product->id)}}"><button id="cartBtn"  class="btn btn-primary btn-round-sm btn-sm" style="font-size: 12px; font-weight: 700 !important;">ADD TO CART</button></a></p>
                     </div>
                 </div>
                     @endif
@@ -119,25 +121,29 @@
                             <p style="float: right; margin-top: -60px; margin-right: 70px;"><a href="{{url('catalog/category/question-bank-and-solution')}}"><button class="btn btn-primary btn-round-sm btn-sm">View All</button></a></p>
 
                         </div>
-                        <div class="bbb_viewed_slider_container">
-                            @include('web.pages.flash-message')
+                        <div class="bbb_viewed_slider_container book">
                             <div class="owl-carousel owl-theme bbb_viewed_slider">
-                                @foreach($questionbankandsolution as $products)
-                                    @if($products->status=='active')
+                                @foreach($questionbankandsolution as $questionbankandsolution)
+                                    @if($questionbankandsolution->status=='active')
                                 <div class="owl-item">
                                     <div class="bbb_viewed_item discount d-flex flex-column align-items-center justify-content-center text-center"  style="border-radius: 20px; ">
-                                        <a href="{{url("productDetails/".$product->id)}}">
-                                        <div class="bbb_viewed_image" style="width: 220px !important; height: 220px !important;"><img src="{{$products->getImage()}}" alt=""></div>
+                                        <a href="{{url("productDetails/".$questionbankandsolution->id)}}">
+                                        <div class="bbb_viewed_image" style="width: 220px !important; height: 220px !important;"><img src="{{$questionbankandsolution->getImage()}}" alt=""></div>
                                         </a>
                                         <div class="bbb_viewed_content text-center" style="margin-top: -5px;">
-                                            <h5 style="font-size:14px !important;font-weight: bold; color: black !important; margin-bottom: 1px !important;line-height: 20px;">{{ str_limit($products->name, 18) }} </h5>
-                                            <p style="color:black; font-style: italic; font-size: 12px;">{{$products->publication}}</p>
-                                            <p class="mt-3"><button class="btn btn-primary btn-round-sm btn-sm" style=" width:70px; font-size: 10px;background-color:#25a521 !important; border-color:#25a521 !important; margin-right:3px; font-weight: 700 !important;">RS {{$product->price}}</button><a href="{{url('add/to/cart/'.$product->id)}}"><button class="btn btn-primary btn-round-sm btn-sm" style="font-size: 10px; font-weight: 600; width: 85px;">ADD TO CART</button></a></p>
+                                            <h5 style="font-size:14px !important;font-weight: bold; color: black !important; margin-bottom: 1px !important;line-height: 20px;">{{ str_limit($questionbankandsolution->name, 18) }} </h5>
+                                            <p style="color:black; font-style: italic; font-size: 12px;">{{$questionbankandsolution->publication}}</p>
+                                            <p class="mt-3">
+                                                <button class="btn btn-primary btn-round-sm btn-sm" style=" width:70px; font-size: 10px;background-color:#25a521 !important; border-color:#25a521 !important; margin-right:3px; font-weight: 700 !important;">RS {{$questionbankandsolution->price}}</button>
+                                                <a href="{{url('add/to/cart/'.$questionbankandsolution->id)}}">
+                                                    <button class="btn btn-primary btn-round-sm btn-sm" style="font-size: 10px; font-weight: 600; width: 85px;">ADD TO CART</button>
+                                                </a>
+                                            </p>
 
                                             <!-- <div class="bbb_viewed_name"><a href="#">Alkatel Phone</a></div> -->
                                         </div>
                                         <ul class="item_marks">
-                                            <li class="item_mark item_discount">-{{$products->discount}} %</li>
+                                            <li class="item_mark item_discount">-{{$questionbankandsolution->discount}} %</li>
                                             <li class="item_mark item_new">new</li>
                                         </ul>
                                     </div>
@@ -171,14 +177,14 @@
                             </h3>
 
                         </div>
-                        <div class="bbb_viewed_slider_container">
+                        <div class="bbb_viewed_slider_container book">
                             <div class="owl-carousel owl-theme bbb_viewed_slider">
                                 @foreach($coursebook as $coursework)
                                     @if($coursework->status=='active')
                                     <div class="owl-item">
                                         <div class="bbb_viewed_item discount d-flex flex-column align-items-center justify-content-center text-center" style="border-radius: 20px;">
                                             <div class="bbb_viewed_image" style="width: 230px !important; height: 230px !important;"><img src="{{$coursework->getImage()}}" alt=""></div>
-                                            <div class="bbb_viewed_content text-center">
+                                            <div class="bbb_viewed_content text-center book">
                                                 <h5 style="font-size:14px !important;font-weight: bold; color: black !important; margin-bottom: 1px !important;line-height: 20px;">{{ str_limit($coursework->name, 10) }} </h5>
                                                 <p class="mt-3"><button class="btn btn-primary btn-round-sm btn-sm" style=" width:70px; font-size: 10px;background-color:#25a521 !important; border-color:#25a521 !important; margin-right:3px; font-weight: 700 !important;">RS {{$coursework->price}}</button><a href="{{url('add/to/cart/'.$coursework->id)}}"><button class="btn btn-primary btn-round-sm btn-sm" style="font-size: 10px; font-weight: 600; width: 85px;">ADD TO CART</button></a></p>
 
@@ -337,31 +343,36 @@
 
     @endsection
 @push('scripts')
-    <script>
-        {{--$(document).ready(function(){--}}
 
-        {{--    fetch_book_data();--}}
-
-        {{--    function fetch_book_data(query = '')--}}
-        {{--    {--}}
-        {{--        $.ajax({--}}
-        {{--            url:"{{ route('live_search.action') }}",--}}
-        {{--            method:'GET',--}}
-        {{--            data:{query:query},--}}
-        {{--            dataType:'json',--}}
-        {{--            success:function(data)--}}
-        {{--            {--}}
-        {{--                $('tbody').html(data.table_data);--}}
-        {{--                $('#total_records').text(data.total_data);--}}
-        {{--            }--}}
-        {{--        })--}}
-        {{--    }--}}
-
-        {{--    $(document).on('keyup', '#search', function(){--}}
-        {{--        var query = $(this).val();--}}
-        {{--        fetch_customer_data(query);--}}
-        {{--    });--}}
-        {{--});--}}
+    <script type="text/javascript">
+        $('.book').find('a').click(function (event){
+            event.preventDefault();
+            $.ajax({
+                url: $(this).attr('href'),
+                success: function() {
+                    alert('Book has been added to cart successfully')
+                }
+            });
+            return false; //for good measure
+        });
     </script>
+{{--    <script>--}}
+{{--        $(document).ready(function () {--}}
+
+{{--            $('#cartBtn').click(function () {--}}
+{{--                alert('done')--}}
+{{--                var pro_id =  $(this).data('product-id')--}}
+{{--                alert(pro_id)--}}
+{{--                $.ajax({--}}
+{{--                    type:'get',--}}
+{{--                    url:'<?php echo url('add/to/cart')?>/' +pro_id,--}}
+{{--                    success : function () {--}}
+{{--                        alert('done')--}}
+{{--                    }--}}
+{{--                })--}}
+{{--            });--}}
+
+{{--        })--}}
+{{--    </script>--}}
 @endpush
 
