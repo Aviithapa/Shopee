@@ -17,10 +17,10 @@
                     <table class="cart-items">
                         <thead>
                         <tr>
-                            <td class="cart-ttl"><h4 style="color: black !important; font-weight: bold">Products Image</h4></td>
-                            <td class="cart-ttl"><h4 style="color: black !important; font-weight: bold">Products</h4></td>
+                            <td class="cart-ttl"><h4 style="color: black !important; font-weight: bold">Book Name</h4></td>
                             <td class="cart-price"><h4 style="color: black !important; font-weight: bold">Price</h4></td>
                             <td class="cart-quantity"><h4 style="color: black !important; font-weight: bold">Quantity</h4></td>
+                            <td class="cart-quantity"><h4 style="color: black !important; font-weight: bold">Total Amount</h4></td>
                             <td class="cart-del">&nbsp;</td>
                         </tr>
                         </thead>
@@ -29,20 +29,21 @@
                         @foreach($cart as $carts)
 
                         <tr style="text-align: center;">
-                                <td class="cart-image">
-                                    <a href="#">
-                                        <img src="{{$carts->getImage()}}" alt="Similique delectus totam">
-                                    </a>
-                                </td>
-                            <td class="cart-ttl">
-                               <a href="{{url('productDetails/'.$carts->product_id)}}"><b style="color: black !important;">{{$carts->product_name}}</b></a>
+
+                            <td class="cart-img">
+                               <a href="{{url('productDetails/'.$carts->product_id)}}"><b style="color: black !important;">  <img src="{{$carts->getImage()}}" alt="Similique delectus totam" width="100px" height="100px"> {{$carts->product_name}}</b></a>
                             </td>
                             <td class="cart-price">
-                                <b style="color: black !important;">{{$carts->product_price}}</b>
+                                <b style="color: black !important;">Rs {{$carts->product_price}}</b>
                             </td>
                             <td class="cart-quantity">
                                 <p class="cart-qnt" >
-                                    <input value="{{$carts->quantity}}" type="text">
+                                    <b style="color: black !important;">{{$carts->quantity}} pcs</b>
+                                </p>
+                            </td>
+                            <td class="cart-quantity">
+                                <p class="cart-qnt" >
+                                    <b style="color: black !important;">Rs {{getProductPrice($carts->product_price,$carts->quantity)}}</b>
                                 </p>
                             </td>
 
@@ -89,7 +90,7 @@
                 <div class="col-lg-4 col-md-12">
                     <div class="row">
                         <div class="col-md-12">
-                            <div class="card" style="border:none !important;  background-color: lightgrey !important;">
+                            <div class="card" style="border:none !important;  background-color: #e5e5e5 !important;">
                                     <h4 class="card-title mt-2" style="color: black !important; font-weight: bold; font-size: 30px">Order Summary</h4>
                                 <article class="card-body">
                                     <dl class="dlist-align" >

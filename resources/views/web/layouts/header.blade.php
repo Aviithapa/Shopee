@@ -26,7 +26,7 @@
     <div class="header-logo">
         <div class="container-fluid">
             <div class="row">
-                <div class="col-lg-2 col-xs-2 col-md-2 logo mt-3" style="    max-width: 150px;" >
+                <div class="col-lg-2 col-xs-2 col-md-2 logo mt-3" style="max-width: 150px;" >
                     <img src="{{getSiteSetting('logo_image') != null? getSiteSetting('logo_image'): ''}}" alt="House of Books" width="125" height="100">
                 </div>
                 <div class="col-lg-4 col-xs-4 col-md-4" style="margin-top: 32px;">
@@ -41,7 +41,7 @@
                     </form>
                 </div>
                 <div class="col-lg-6 col-xs-12 col-md-12 ">
-                    <div class="social">
+                    <div class="social mt-3">
                         <div class="column" style="
                         margin-top: 10px !important;
                         ">

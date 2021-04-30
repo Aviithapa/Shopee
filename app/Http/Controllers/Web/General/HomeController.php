@@ -334,7 +334,6 @@ class HomeController extends BaseController
         $mac = strtok($mac_address, ' ');
         $available_quantity = Product::find($request->id)->quantity;
         $cart_info = Cart::where('mac', $mac)->where('product_id', $request->id)->first();
-
         if($cart_info)
         {
             //here old_cart_quantity holo cart table  product ta already house of books quantity add hos ache
@@ -345,9 +344,17 @@ class HomeController extends BaseController
             $old_cart_quantity = 0;
         }
 
+        if ($old_cart_quantity != null){
+            $data['quantity']=$cart_info->quantity + 1;
+            $cart=$this->cartRepository->update($data,$cart_info->id);
+            if ($cart==false){
+                return redirect()->back()->with('error',"Error while adding product to the cart");
+            }
+            return redirect()->back()->with('success','Product Added to Cart');
+        }
 
         //3rd part of coding-33333333333
-        if($available_quantity >= ($request->quantity + $old_cart_quantity))
+        else if($available_quantity >= ($request->quantity + $old_cart_quantity))
         {
             //first part coding-111111111111
                 $data=new Cart();
