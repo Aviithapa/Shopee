@@ -2497,3 +2497,63 @@ th, td {
 .blogger-detail img {
     border-radius: 50%;
 }
+.mainmenu{
+    width: 100%;
+}
+#mySidenav> li > a.active{
+    color:#FF8800 !important ;
+}
+#mySidenav li a:hover{
+    color:#FF8800 !important ;
+}
+.sidenav {
+    height: 100%;
+    width: 250px;
+    display: none;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    right: 0;
+    border: 1px solid #BFBFBF;
+    box-shadow: -5px 10px 100px #aaaaaa;
+    background-color: #fff;
+    overflow: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+}
+#main-menu{
+    padding-left: 30px;
+    padding-top: 15px;
+    height: 50px;
+    display: none;
+    cursor:pointer;
+    color: white;
+}
+.sidenav li a {
+    padding: 8px 8px 8px 0px;
+    text-decoration: none;
+    font-size: 16px;
+    color: black !important;
+    display: block;
+    transition: 0.3s;
+}
+.mystyle{
+    width: 0px;
+}
+.sidenav li a:hover {
+    color: #f1f1f1;
+}
+
+.sidenav .closebtn {
+    position: absolute;
+    top: 0;
+    color: black !important;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+}
+
+@media screen and (max-height: 450px) {
+    .sidenav {padding-top: 15px;}
+    .sidenav a {font-size: 18px;}
+}

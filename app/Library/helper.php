@@ -343,7 +343,17 @@ if(!function_exists('getNobelCategory'))
     }
 
 }
+if(!function_exists('getBestSelling'))
+{
+    function getBestSelling()
+    {
+        return [
+            'no' => 'No',
+            'yes' => 'Yes'
+        ];
+    }
 
+}
 if(!function_exists('getLevelCategory'))
 {
     function getLevelCategory()

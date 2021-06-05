@@ -135,10 +135,10 @@ class HomeController extends BaseController
                     $this->view_data['add'] = $this->postRepository->findById(125);
                     $this->view_data['add1'] = $this->postRepository->findById(126);
                     $this->view_data['testimonial'] = $this->postRepository->findBy('type', 'testimonial', '=');
-                    $this->view_data['products'] =Product::paginate(6);
-                    $this->view_data['loksewa'] =$this->productRepository->findBy('category','loksewa-examination','=',true,6);
-                    $this->view_data['coursebook'] =$this->productRepository->findBy('category','coursebook','=',true,6);
-                    $this->view_data['questionbankandsolution'] =$this->productRepository->findBy('category','question-bank-and-solution','=',true,6);
+                    $this->view_data['products'] = $this->productRepository->findBy('sub_category','nobel','=', false,6);
+                    $this->view_data['loksewa'] =$this->productRepository->findBy('sub_category','loksewa-examination','=',true,6);
+                    $this->view_data['coursebook'] =$this->productRepository->findBy('sub_category','coursebook','=',true,6);
+                    $this->view_data['questionbankandsolution'] =$this->productRepository->findBy('sub_category','question-bank-and-solution','=',true,6);
                     $this->view_data['question'] = $this->postRepository->findById(135);
                     $this->view_data['course'] = $this->postRepository->findById(136);
                     $this->view_data['entrance'] = $this->postRepository->findById(137);
@@ -196,9 +196,9 @@ class HomeController extends BaseController
                     $this->view_data['learn_more_btn']=$this->postRepository->findById(149);
                     break;
                 case 'secondhandbookcatalog':
-                    $this->view_data['books'] =$this->productRepository->findBy('category','second-hand-book','=',true,5);
+                    $this->view_data['books'] =$this->productRepository->findBy('category','second-hand','=',true,5);
                     $this->view_data['banner'] =$this->postRepository->findById(144);
-                    $this->view_data['products'] =Product::paginate(5);
+                    $this->view_data['products'] =$this->productRepository->findBy('category','second-hand','=') ;
                     break;
                 case 'productDetails':
                 $this->view_data['company_info'] = $this->postRepository->findById(2);
@@ -234,7 +234,7 @@ class HomeController extends BaseController
         $slug = $slug ? $slug : 'frictional';
         $this->view_data['faculty'] =$this->facultyRepository->getAll();
         $this->view_data['semester'] =$this->semesterRepository->getAll();
-        $this->view_data['products']=$this->productRepository->findBy('sub_category',$slug,'=',true,12);
+        $this->view_data['products']=$this->productRepository->findBy('nobel_category',$slug,'=',true,12);
         return view('web.pages.catalog.NobelCatalog' , $this->view_data);
     }
     public function publicationCatalog($slug=null, Request $request){

@@ -99,7 +99,7 @@
             <div class="col-md-6 col-lg-6">
                 <div class="form-group">
                     {!! Form::label('price', 'Price:', ['class' => 'form-label']) !!}
-                    {!! Form::number('price',null, ['class' => 'form-control']) !!}
+                    {!! Form::number('price',null, ['class' => 'form-control','required']) !!}
                     {!! $errors->first('price', '<div class="text-danger">:message</div>') !!}
                 </div>
             </div>
@@ -108,14 +108,14 @@
             <div class="col-md-6 col-lg-6">
                 <div class="form-group">
                     {!! Form::label('quantity', 'Quantity:', ['class' => 'form-label']) !!}
-                    {!! Form::number('quantity',null, ['class' => 'form-control']) !!}
+                    {!! Form::number('quantity',null, ['class' => 'form-control','required']) !!}
                     {!! $errors->first('quantity', '<div class="text-danger">:message</div>') !!}
                 </div>
             </div>
             <div class="col-md-6 col-lg-6">
                 <div class="form-group">
                     {!! Form::label('discount', 'Discount:', ['class' => 'form-label']) !!}
-                    {!! Form::number('discount',null, ['class' => 'form-control']) !!}
+                    {!! Form::number('discount',null, ['class' => 'form-control','required']) !!}
                     {!! $errors->first('price', '<div class="text-danger">:message</div>') !!}
                 </div>
             </div>
@@ -207,7 +207,10 @@
 //        filebrowserBrowseUrl: '/ckfinder/ckfinder.html',
 //        filebrowserUploadUrl: '/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Files'
         } );
-
+        $( document ).ready(function() {
+            $("#nobel").hide();
+            $("#best_selling").hide();
+        });
         function run() {
             var sub_category=document.getElementById("subCategory").value;
             if(sub_category==="nobel"){

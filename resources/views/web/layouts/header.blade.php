@@ -27,11 +27,11 @@
                 <div class="col-lg-1 col-md-2 col-sm-12 col-xs-12  logo mt-3">
                    <a href="{{url('/')}}"><img src="{{getSiteSetting('logo_image') != null? getSiteSetting('logo_image'): ''}}" alt="House of Books" width="150" height="150"></a>
                 </div>
-                <div class="col-lg-5 col-md-10 col-sm-12 col-xs-13 form-search" style="margin-top: 25px;">
+                <div class="col-lg-5 col-md-10 col-sm-12 col-xs-13 form-search overflow-stick" style="margin-top: 25px;">
                     <form action="{{url("search")}}" method="GET" role="search">
                         {{csrf_field()}}
-                        <div class="input-group">
-                            <input class="form-control" placeholder="Search . . ." name="search" value="{{old('search')}}" id="ed-srch-term" type="text">
+                        <div class="input-group" style="position: unset !important;">
+                            <input class="form-control" placeholder="Search . . ." name="search" value="{{old('search')}}" id="ed-srch-term" type="text" style="position: unset !important;">
                             <div class="input-group-btn">
                                 <button type="submit" id="searchbtn">search</button>
                             </div>
@@ -169,18 +169,16 @@
                         </div>
                         <!-- Catalog menu - end -->
 
-                        <!-- Main menu - start -->
-                        <button type="button" class="mainmenu-btn">Menu</button>
-                        <ul class="mainmenu">
+
+                        <span id="main-menu" onclick="openNav()">&#9776; Menu</span>
+                        <ul class="mainmenu" id="mySidenav">
                             <li><a href="{{url('/')}}">Home</a></li>
                             <li><a href="{{url('about')}}">Who we are</a></li>
                             <li><a href="{{url('secondhandbookcatalog')}}">Second hand books</a></li>
                             <li><a href="{{url('sell-book-index')}}">Sell Books</a></li>
                             <li><a href="{{url('blog')}}">Blog</a></li>
                             <li><a href="{{url('contact')}}">Contact Us</a></li>
-                            <li class="icon"> <a >
-                                    <i class="fa fa-arrow-circle-down"></i>
-                                </a></li>
+                            <a href="javascript:void(0)" class="closebtn"  id="closebtn" onclick="closeNav()" style="display: none;">&times;</a>
                             @if(\Illuminate\Support\Facades\Auth::user())
                                 @if(\Illuminate\Support\Facades\Auth::user()->mainRole()->name ==='customer')
 {{--                                   <li><a href="{{route('dashboard.products.index')}}">Sell Book</a></li>--}}
@@ -208,5 +206,44 @@
 </header>
 
 @push('scripts')
+    <script>
+        function openNav() {
+            document.getElementById("closebtn").style.display = "block";
+           // document.getElementById("mySidenav").style.width = "250px !important";
+            document.getElementById("mySidenav").style.display = "block";
+        }
+        function closeNav() {
+            document.getElementById("mySidenav").style.display = "none";
+        }
+        var x = window.matchMedia("(max-width: 1000px)");
+        myFunction(x);// Call listener function at run time
+        x.addListener(myFunction);
+        function myFunction(x) {
+            if (x.matches) { // If media query matches
+                document.getElementById("main-menu").style.display = "block";
+                var element = document.getElementById("mySidenav");
+                document.getElementById("mySidenav").style.display = "none";
+                element.classList.add("sidenav");
+                element.classList.remove("mainmenu");
+            } else {
+                document.getElementById("main-menu").style.display = "none";
+                document.getElementById("mySidenav").style.display = "block";
+                document.getElementById("closebtn").style.display = "none";
+                var element = document.getElementById("mySidenav");
+                element.classList.remove("sidenav");
+                element.classList.add("mainmenu");
+            }
 
+        }
+    </script>
+
+    <script>
+        $(function() {
+            $('#mySidenav li a').click(function() {
+                $('#mySidenav li a').removeClass();
+                $($(this).attr('href')).addClass('active');
+            });
+        });
+
+    </script>
     @endpush

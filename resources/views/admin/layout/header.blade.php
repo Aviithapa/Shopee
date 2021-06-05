@@ -5,7 +5,7 @@
         <div class="header-seperation">
             <ul class="nav pull-left notifcation-center visible-xs visible-sm">
                 <li class="dropdown">
-                    <a href="#main-menu" data-webarch="toggle-left-side">
+                    <a href="#main-menu" data-webarch="toggle-left-side" style="background-color: black">
                         <i class="material-icons">menu</i>
                     </a>
                 </li>

@@ -30,7 +30,7 @@
                     <div class="logo-holder">
                         <img src="{{getSiteSetting('logo_image') != null? getSiteSetting('logo_image'): ''}}" width="140px" height="140px" class="mt-4">
                     </div>
-                    <h1 style="text-transform: uppercase; font-weight: bold; font-size: 33px;">Welcome Back To <br> House of Books</h1>
+                    <h2 style="text-transform: uppercase; font-weight: bold; font-size: 33px;">Welcome Back To <br> House of Books</h2>
                     <p style="font-size: 20px;">Enter your personal details and start shopping now</p>
                     <p style="font-size: 20px;">Not a member yet? </p>
 

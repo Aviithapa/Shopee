@@ -215,6 +215,9 @@
 }
 
 @media screen and (max-width: 1000px) {
+    .mainmenu li{
+        display: none;
+    }
     .section-blog-first{
         height: 600px;
         background-color: #eeeeee;

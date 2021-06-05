@@ -79,6 +79,7 @@
             </div>
         </div>
     </div>
+    @include('web.pages.flash-message')
     <div class="container-fluid mt-5" >
         <div class="title" >
             <h4>Best Selling Product</h4>
@@ -86,18 +87,17 @@
         </div>
         <p class="viewallbtn" style="float: right; margin-top: -30px; margin-right: 70px;"><a href="{{url('catalog')}}"><button class="btn btn-primary btn-round-sm btn-sm">View All</button></a></p>
         <div class="container">
-            <hr>
             <div class="tab">
-                <button class="tablinks active" onclick="openNobels(event, 'Nobel')" id="defaultOpen">Nobel </button>
-                <button class="tablinks" onclick="openNobels(event, 'Second_hand')">Second hand</button>
-                <button class="tablinks" onclick="openNobels(event, 'coursebook')">Coursebook</button>
-                <button class="tablinks" onclick="openNobels(event, 'medical_examination')">Medical Examination</button>
+                <button class="tablinks active" onclick="openNobels(event, 'Motivational')" id="defaultOpen">Motivational </button>
+                <button class="tablinks" onclick="openNobels(event, 'Knowledge')">Skills and Knowledge</button>
+                <button class="tablinks" onclick="openNobels(event, 'Frictional')">Frictional</button>
+                <button class="tablinks" onclick="openNobels(event, 'Biographies')">Biographies</button>
             </div>
         </div>
-        <div class="contentsecondhand tabcontent" id="Nobel" style="margin: 0px 50px 0px 50px; display:block;">
+        <div class="contentsecondhand tabcontent" id="Motivational" style="margin: 0px 50px 0px 50px; display:block;">
             <div class="row">
                 @foreach($products as $product)
-                    @if($product->status=='active' && $product->sub_category=='nobel'  && $product->category != 'second-hand')
+                    @if($product->status=='active' && $product->best_selling=="yes" && $product->nobel_category=="motivational" && $product->category != 'second-hand')
                         <div class="columns bestSelling" style="width: 18%;">
                             <div class="card">
                                 <a href="{{url("productDetails/".$product->id)}}">
@@ -114,11 +114,11 @@
                 @endforeach
             </div>
         </div>
-        <div class="contentsecondhand tabcontent" id="Second_hand" style="margin: 0px 50px 0px 50px">
+        <div class="contentsecondhand tabcontent" id="Knowledge" style="margin: 0px 50px 0px 50px">
             <div class="row">
                 @foreach($products as $product)
-                    @if($product->status=='active'  && $product->category=='second-hand')
-                        <div class="columns bestSelling" style="width: 18%;">
+                    @if($product->status=='active' && $product->best_selling=="yes" && $product->nobel_category=="knowledge" && $product->category != 'second-hand')
+                    <div class="columns bestSelling" style="width: 18%;">
                             <div class="card">
                                 <a href="{{url("productDetails/".$product->id)}}">
                                     <img src="{{$product->getImage()}}" alt="{{$product->name}}">
@@ -134,11 +134,11 @@
                 @endforeach
             </div>
         </div>
-        <div class="contentsecondhand tabcontent" id="coursebook" style="margin: 0px 50px 0px 50px">
+        <div class="contentsecondhand tabcontent" id="Frictional" style="margin: 0px 50px 0px 50px">
             <div class="row">
                 @foreach($products as $product)
-                    @if($product->status=='active' && $product->sub_category=='coursebook'  && $product->category != 'second-hand')
-                        <div class="columns bestSelling" style="width: 18%;">
+                    @if($product->status=='active' && $product->best_selling=="yes" && $product->nobel_category=="frictional" && $product->category != 'second-hand')
+                    <div class="columns bestSelling" style="width: 18%;">
                             <div class="card">
                                 <a href="{{url("productDetails/".$product->id)}}">
                                     <img src="{{$product->getImage()}}" alt="{{$product->name}}">
@@ -154,11 +154,11 @@
                 @endforeach
             </div>
         </div>
-        <div class="contentsecondhand tabcontent" id="medical_examination" style="margin: 0px 50px 0px 50px">
+        <div class="contentsecondhand tabcontent" id="Biographies" style="margin: 0px 50px 0px 50px">
             <div class="row">
                 @foreach($products as $product)
-                    @if($product->status=='active'  && $product->sub_category=='loksewa-examination' && $product->category != 'second-hand')
-                        <div class="columns bestSelling" style="width: 18%;">
+                    @if($product->status=='active' && $product->best_selling=="yes" && $product->nobel_category=="biographies" && $product->category != 'second-hand')
+                    <div class="columns bestSelling" style="width: 18%;">
                             <div class="card">
                                 <a href="{{url("productDetails/".$product->id)}}">
                                     <img src="{{$product->getImage()}}" alt="{{$product->name}}">
@@ -208,7 +208,7 @@
                             <div class="title" >
                                 <h4>Question Bank and Solution</h4>
                             </div>
-                            <p class="viewallbtn" style="float: right; margin-top: -60px; margin-right: 70px;"><a href="{{url('catalog/category/question-bank-and-solution')}}"><button class="btn btn-primary btn-round-sm btn-sm">View All</button></a></p>
+                            <p class="viewallbtn" style="float: right; margin-top: -60px; margin-right: 70px;"><a href="{{url('catalog/sub_category/question-bank-and-solution')}}"><button class="btn btn-primary btn-round-sm btn-sm">View All</button></a></p>
                         </div>
                         <div class="bbb_viewed_slider_container book">
                             <div class="owl-carousel owl-theme bbb_viewed_slider">
@@ -261,7 +261,7 @@
                                 <div class="title" >
                                     <h4>Course Books</h4>
                                 </div>
-                                <p class="viewallbtn" style="float: right; margin-top: -60px; margin-right: 70px;"><a href="{{url('catalog/category/coursebook')}}"><button class="btn btn-primary btn-round-sm btn-sm">View All</button></a></p>
+                                <p class="viewallbtn" style="float: right; margin-top: -60px; margin-right: 70px;"><a href="{{url('catalog/sub_category/coursebook')}}"><button class="btn btn-primary btn-round-sm btn-sm">View All</button></a></p>
 
                             </h3>
 
@@ -312,7 +312,7 @@
                                     <h4>Medical Examination Books</h4>
                                 </div>
                             </h3>
-                            <p class="viewallbtn" style="float: right; margin-top: -60px; margin-right: 70px;"><a href="{{url('catalog/category/loksewa-examination')}}"><button class="btn btn-primary btn-round-sm btn-sm">View All</button></a></p>
+                            <p class="viewallbtn" style="float: right; margin-top: -60px; margin-right: 70px;"><a href="{{url('catalog/sub_category/loksewa-examination')}}"><button class="btn btn-primary btn-round-sm btn-sm">View All</button></a></p>
                         </div>
                         <div class="bbb_viewed_slider_container">
                             <div class="owl-carousel owl-theme bbb_viewed_slider">

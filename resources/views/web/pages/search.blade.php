@@ -4,75 +4,110 @@
     <main>
         <section class="container">
 
-
-            <ul class="b-crumbs">
-                <li>
-                    <a href="index.html">
-                        Home
-                    </a>
-                </li>
-                <li>
-                    <a href="catalog-list.html">
-                        Catalog
-                    </a>
-                </li>
-            </ul>
-            <h1 class="main-ttl"><span> Category</span></h1>
-            <!-- Catalog Sidebar - start -->
+            <h2 class="main-ttl"><span> Category</span></h2>
             <div class="section-sb">
-
-                <!-- Catalog Categories - start -->
                 <div class="section-sb-current">
-                    <h3><a href="#" style="color: #25a521 !important">University <span id="section-sb-toggle" class="section-sb-toggle"><span class="section-sb-ico"></span></span></a></h3>
                     <ul class="section-sb-list" id="section-sb-list">
                         <li class="categ-1">
-                            <a href="{{url('/catalog/university/TU')}}" >
-                                <span class="categ-1-label" style="text-align: left !important;" >Tribhuwan University</span>
+                            <a href="{{url('/catalog/sub_category/nobel')}}">
+                                <span class="categ-1-label">Nobel</span>
                             </a>
                         </li>
                         <li class="categ-1">
-                            <a href="{{url('/catalog/university/PU')}}" >
-                                <span class="categ-1-label" style="text-align: left !important;">Pokhara University</span>
+                            <a href="{{url('/catalog/sub_category/coursebook')}}">
+                                <span class="categ-1-label">Coursebook</span>
+                            </a>
+                        </li>
+                        <li class="categ-1 has_child">
+                            <a href="{{url('/catalog/sub_category/medical-examination')}}">
+                                <span class="categ-1-label">Medical Examination</span>
+                            </a>
+                        </li>
+                        <li class="categ-1 has_child">
+                            <a href="{{url("catalog/sub_category/loksewa-examination")}}">
+                                <span class="categ-1-label">Loksewa Examination</span>
                             </a>
                         </li>
                         <li class="categ-1">
-                            <a href="{{url('/catalog/university/PBU')}}" >
-                                <span class="categ-1-label" style="text-align: left !important;">Purbanchal University</span>
+                            <a href="{{url("catalog/sub_category/entrance-examination")}}">
+                                <span class="categ-1-label">Entrance Examination</span>
+                            </a>
+                        </li>
+                        <li class="categ-1">
+                            <a href="{{url("catalog/sub_category/question-bank-and-solution")}}">
+                                <span class="categ-1-label">Question bank and Solution</span>
                             </a>
                         </li>
                     </ul>
                 </div>
 
-                <div class="section-sb-current">
-                    <h3><a href="catalog-list.html" style="color: #25a521 !important">Faculty <span id="section-sb-toggle" class="section-sb-toggle"><span class="section-sb-ico"></span></span></a></h3>
-                    <ul class="section-sb-list" id="section-sb-list">
-                        <li class="categ-1">
-                            @foreach($faculty as $faculty)
-                                <a href="{{url('catalog/faculty/'.$faculty->name)}}" >
-                                    <span class="categ-1-label" style="text-align: left !important;">{{$faculty->name}}</span>
-                                </a>
-                            @endforeach
-                        </li>
-                    </ul>
+                <div class="section-filter">
+                    <div class="section-filter-cont">
+                        <div class="section-filter-price">
+                            <div class="range-slider section-filter-price" data-min="0" data-max="1000" data-from="200" data-to="800" data-prefix="$" data-grid="false"></div>
+                        </div>
+                        <div class="section-filter-item opened" id="nobel">
+                            <p class="section-filter-ttl">Nobel</p>
+                            <div class="section-filter-fields">
+                                <p class="section-filter-field">
+                                    <input id="section-filter-checkbox3-1 frictional" value="on" type="checkbox" >
+                                    <label class="section-filter-checkbox" for="section-filter-checkbox3-1">Frictional</label>
+                                </p>
+                                <p class="section-filter-field">
+                                    <input id="section-filter-checkbox3-2" value="on" type="checkbox">
+                                    <label class="section-filter-checkbox" for="section-filter-checkbox3-2">Skill and Knowledge</label>
+                                </p>
+                                <p class="section-filter-field">
+                                    <input id="section-filter-checkbox3-3" value="on" type="checkbox">
+                                    <label class="section-filter-checkbox" for="section-filter-checkbox3-3">Motivation</label>
+                                </p>
+                                <p class="section-filter-field">
+                                    <input id="section-filter-checkbox3-4" value="on" type="checkbox">
+                                    <label class="section-filter-checkbox" for="section-filter-checkbox3-4">Biographies</label>
+                                </p>
+                            </div>
+                        </div>
+                        <div class="section-filter-item opened" id="university">
+                            <p class="section-filter-ttl">University</p>
+                            <div class="section-filter-fields">
+                                <p class="section-filter-field">
+                                    <input id="section-filter-checkbox3-1" value="on" type="checkbox">
+                                    <label class="section-filter-checkbox" for="section-filter-checkbox3-1">Tribhuwan University</label>
+                                </p>
+                                <p class="section-filter-field">
+                                    <input id="section-filter-checkbox3-2" value="on" type="checkbox">
+                                    <label class="section-filter-checkbox" for="section-filter-checkbox3-2">Pokhara University</label>
+                                </p>
+                                <p class="section-filter-field">
+                                    <input id="section-filter-checkbox3-3" value="on" type="checkbox">
+                                    <label class="section-filter-checkbox" for="section-filter-checkbox3-3">Purbanchal University</label>
+                                </p>
+                                <p class="section-filter-field">
+                                    <input id="section-filter-checkbox3-4" value="on" type="checkbox">
+                                    <label class="section-filter-checkbox" for="section-filter-checkbox3-4">Kathmandu University</label>
+                                </p>
+                            </div>
+                        </div>
+                        <div class="section-filter-item opened">
+                            <p class="section-filter-ttl">Faculty <i class="fa fa-angle-down"></i></p>
+                            <div class="section-filter-fields">
+                                <p class="section-filter-field">
+                                    <input id="section-filter-radio1-1" value="on" type="radio" name="section-filter-radio1">
+                                    <label class="section-filter-radio" for="section-filter-radio1-1">BBA</label>
+                                </p>
+                                <p class="section-filter-field">
+                                    <input id="section-filter-radio1-2" value="on" type="radio" name="section-filter-radio1">
+                                    <label class="section-filter-radio" for="section-filter-radio1-2">BBS</label>
+                                </p>
+                            </div>
+                            <div class="section-filter-buttons">
+                                <input class="btn btn-primary btn-round-sm btn-sm" id="set_filter" name="set_filter" value="Apply filter" type="button">
+                            </div>
+                        </div>
+                    </div>
                 </div>
-
-                <div class="section-sb-current">
-                    <h3><a href="catalog-list.html" style="color: #25a521 !important">Semister <span id="section-sb-toggle" class="section-sb-toggle"><span class="section-sb-ico"></span></span></a></h3>
-                    <ul class="section-sb-list" id="section-sb-list">
-                        <li class="categ-1">
-                            @foreach($semester as $semester)
-                                <a href="{{url('catalog/semester/'.$semester->name)}}" >
-                                    <span class="categ-1-label" style="text-align: left !important;">{{$semester->name}}</span>
-                                </a>
-                            @endforeach
-                        </li>
-                    </ul>
-                </div>
-                <!-- Catalog Categories - end -->
 
             </div>
-            <!-- Catalog Sidebar - end -->
-            <!-- Catalog Items | Gallery V1 - start -->
             <div class="section-cont">
 
                 <!-- Catalog Topbar - start -->

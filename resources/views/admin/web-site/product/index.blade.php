@@ -19,8 +19,8 @@
                             <thead>
                             <tr>
                                 <th>ID</th>
-                                <th>Name</th>
-                                <th>Faculty</th>
+                                <th>Book Name</th>
+                                <th>Category</th>
                                 <th>Image</th>
                                 <th class="disabled-sorting">Action</th>
                             </tr>
@@ -42,7 +42,7 @@
             columns: [
                 {data: 'id', name: 'id'},
                 {data: 'name', name: 'name'},
-                {data: 'faculty', name: 'faculty'},
+                {data: 'sub_category', name: 'sub_category'},
                 {data: 'product_image', name: 'product_image'},
 //                {data: 'status', name: 'status'},
                 {className: 'td-actions', data: 'action', name: 'action', orderable: false, searchable: false}

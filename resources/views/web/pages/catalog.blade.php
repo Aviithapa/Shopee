@@ -3,52 +3,38 @@
        <!-- Main Content - start -->
     <main>
         <section class="container">
-
-
-            <ul class="b-crumbs">
-                <li>
-                    <a href="index.html">
-                        Home
-                    </a>
-                </li>
-                <li>
-                    <a href="catalog-list.html">
-                        Catalog
-                    </a>
-                </li>
-            </ul>
-            <h1 class="main-ttl"><span> Category</span></h1>
+            <h2 class="main-ttl"><span> Category</span></h2>
             <!-- Catalog Sidebar - start -->
             <div class="section-sb">
                 <div class="section-sb-current">
                     <ul class="section-sb-list" id="section-sb-list">
                         <li class="categ-1">
-                            <a href="{{url('/catalog/category/nobel')}}">
+                            <a href="{{url('/catalog/sub_category/nobel')}}">
                                 <span class="categ-1-label">Nobel</span>
                             </a>
                         </li>
                         <li class="categ-1">
-                            <a href="{{url('/catalog/category/coursebook')}}">
+                            <a href="{{url('/catalog/sub_category/coursebook')}}">
                                 <span class="categ-1-label">Coursebook</span>
                             </a>
                         </li>
                         <li class="categ-1 has_child">
-                            <a href="{{url('/catalog/category/medical-examination')}}">
+                            <a href="{{url('/catalog/sub_category/medical-examination')}}">
                                 <span class="categ-1-label">Medical Examination</span>
                             </a>
                         </li>
                         <li class="categ-1 has_child">
-                            <a href="{{url("catalog/category/loksewa-examination")}}">
+                            <a href="{{url("catalog/sub_category/loksewa-examination")}}">
                                 <span class="categ-1-label">Loksewa Examination</span>
                             </a>
                         </li>
                         <li class="categ-1">
-                            <a href="{{url("catalog/category/entrance-examination")}}">
+                            <a href="{{url("catalog/sub_category/entrance-examination")}}">
                                 <span class="categ-1-label">Entrance Examination</span>
                             </a>
                         </li>
                         <li class="categ-1">
-                            <a href="{{url("catalog/category/question-bank-and-solution")}}">
+                            <a href="{{url("catalog/sub_category/question-bank-and-solution")}}">
                                 <span class="categ-1-label">Question bank and Solution</span>
                             </a>
                         </li>
@@ -190,12 +176,8 @@
    @push('scripts')
 <script>
     $(function () {
-        $("#frictional").click(function () {
-            if ($(this).is(":checked")) {
-                $("#university").hide();
-            } else {
-                $("#university").hide();
-            }
+        $("#nobel").onchange(function () {
+           alert("change in nobel");
         });
     });
 

@@ -137,7 +137,7 @@
                  <div class="contentsecondhand tabcontents" id="bachelor" style="margin: 0px 50px 0px 50px; display: block;">
                 <div class="row">
                     @foreach($books as $product)
-                        @if($product->status=='active' && $product->category=='second-hand' && $product->level=="bachelor" )
+                        @if($product->status=='active' && $product->level=="bachelor" )
                             <div class="columns">
                                 <div class="cardsecondhand">
                                     <a href="{{url("productDetails/".$product->id)}}">

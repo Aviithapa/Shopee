@@ -5,50 +5,37 @@
         <section class="container">
 
 
-            <ul class="b-crumbs">
-                <li>
-                    <a href="index.html">
-                        Home
-                    </a>
-                </li>
-                <li>
-                    <a href="catalog-list.html">
-                        Catalog
-                    </a>
-                </li>
-            </ul>
-            <h1 class="main-ttl"><span> Category</span></h1>
-            <!-- Catalog Sidebar - start -->
+            <h2 class="main-ttl"><span> Category</span></h2>
             <div class="section-sb">
                 <div class="section-sb-current">
                     <ul class="section-sb-list" id="section-sb-list">
                         <li class="categ-1">
-                            <a href="{{url('/catalog/category/nobel')}}">
+                            <a href="{{url('/catalog/sub_category/nobel')}}">
                                 <span class="categ-1-label">Nobel</span>
                             </a>
                         </li>
                         <li class="categ-1">
-                            <a href="{{url('/catalog/category/coursebook')}}">
+                            <a href="{{url('/catalog/sub_category/coursebook')}}">
                                 <span class="categ-1-label">Coursebook</span>
                             </a>
                         </li>
                         <li class="categ-1 has_child">
-                            <a href="{{url('/catalog/category/medical-examination')}}">
+                            <a href="{{url('/catalog/sub_category/medical-examination')}}">
                                 <span class="categ-1-label">Medical Examination</span>
                             </a>
                         </li>
                         <li class="categ-1 has_child">
-                            <a href="{{url("catalog/category/loksewa-examination")}}">
+                            <a href="{{url("catalog/sub_category/loksewa-examination")}}">
                                 <span class="categ-1-label">Loksewa Examination</span>
                             </a>
                         </li>
                         <li class="categ-1">
-                            <a href="{{url("catalog/category/entrance-examination")}}">
+                            <a href="{{url("catalog/sub_category/entrance-examination")}}">
                                 <span class="categ-1-label">Entrance Examination</span>
                             </a>
                         </li>
                         <li class="categ-1">
-                            <a href="{{url("catalog/category/question-bank-and-solution")}}">
+                            <a href="{{url("catalog/sub_category/question-bank-and-solution")}}">
                                 <span class="categ-1-label">Question bank and Solution</span>
                             </a>
                         </li>
@@ -60,11 +47,11 @@
                         <div class="section-filter-price">
                             <div class="range-slider section-filter-price" data-min="0" data-max="1000" data-from="200" data-to="800" data-prefix="$" data-grid="false"></div>
                         </div>
-                        <div class="section-filter-item opened">
+                        <div class="section-filter-item opened" id="nobel">
                             <p class="section-filter-ttl">Nobel</p>
                             <div class="section-filter-fields">
                                 <p class="section-filter-field">
-                                    <input id="section-filter-checkbox3-1" value="on" type="checkbox">
+                                    <input id="section-filter-checkbox3-1 frictional" value="on" type="checkbox" >
                                     <label class="section-filter-checkbox" for="section-filter-checkbox3-1">Frictional</label>
                                 </p>
                                 <p class="section-filter-field">
@@ -81,7 +68,7 @@
                                 </p>
                             </div>
                         </div>
-                        <div class="section-filter-item opened">
+                        <div class="section-filter-item opened" id="university">
                             <p class="section-filter-ttl">University</p>
                             <div class="section-filter-fields">
                                 <p class="section-filter-field">
@@ -122,7 +109,6 @@
                 </div>
 
             </div>
-            <!-- Catalog Sidebar - end -->
             <!-- Catalog Items | Gallery V1 - start -->
             <div class="section-cont">
 
