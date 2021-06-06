@@ -207,6 +207,7 @@
 
 @push('scripts')
     <script>
+
         function openNav() {
             document.getElementById("closebtn").style.display = "block";
            // document.getElementById("mySidenav").style.width = "250px !important";
@@ -244,6 +245,7 @@
                 $($(this).attr('href')).addClass('active');
             });
         });
+
 
     </script>
     @endpush

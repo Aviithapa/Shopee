@@ -2557,3 +2557,7 @@ th, td {
     .sidenav {padding-top: 15px;}
     .sidenav a {font-size: 18px;}
 }
+
+a{
+    text-decoration: none !important;
+}
